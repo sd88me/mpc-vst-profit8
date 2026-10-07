@@ -108,7 +108,7 @@ EXTRA = [
 ] + [{"key": "%s_%s" % (k, d), "name": "%s %s" % (k.title(), "<" if d == "prev" else ">"), "min": 0, "max": 1, "default": 0,
       "momentary": True, "type": "trigger", "step_of": k, "step_delta": -1 if d == "prev" else 1}
      for k in ("bank", "program") for d in ("prev", "next")] + [
-    {"key": "quality", "name": "Quality", "options": ["Eco 1x", "High 2x"], "default": 1},
+    {"key": "quality", "name": "Quality", "options": ["Eco 1x", "High 2x"], "default": 0},
     # banks page (appended): the browsed bank and page are view state; a program tile loads
     {"key": "browse_bank_index", "name": "Browse Bank", "min": 0, "max": 63, "default": 0, "display": "int", "dynamic_display": True},
     {"key": "patch_page_index", "name": "Program Page", "min": 0, "max": 4, "default": 0, "display": "int", "dynamic_display": True},

@@ -2479,7 +2479,7 @@
     "Eco 1x",
     "High 2x"
    ],
-   "default": 1
+   "default": 0
   },
   {
    "key": "browse_bank_index",

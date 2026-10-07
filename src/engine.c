@@ -17,9 +17,12 @@
 #include "curves.h"
 #include "syx.h"
 
+#ifndef P8_DEFAULT_OS
+#define P8_DEFAULT_OS 1     /* Eco: the analog section at 1x; the Quality parameter switches to 2x */
+#endif
 #define FS 44100.0f
 #define MAXV 8
-#define CTL 8
+#define CTL 16
 #define DT (CTL / FS)
 #define MAXBANKS 64
 #define PATHLEN 512
@@ -92,7 +95,7 @@ typedef struct {
 
 static ma_hb_t dummy_hb;
 static float HB_A[MA_HB_A_M], HB_B[MA_HB_B_M];
-static float G_TAB[2][4096];
+static float G_TAB[2][4096], ENV_S[1290], LFO_HZ[167], PAN_C[129], PAN_S[129];
 
 static inline float clampf(float x, float lo, float hi) { return x < lo ? lo : x > hi ? hi : x; }
 static inline int clampi(int x, int lo, int hi) { return x < lo ? lo : x > hi ? hi : x; }
@@ -108,7 +111,17 @@ static void init_tables(void) {
     }
     ma_hb_design_standard(HB_A, HB_B);
     (void)dummy_hb;
+    for (int i = 0; i < 1290; i++) ENV_S[i] = p8_env_seconds(i * 0.1f);
+    for (int i = 0; i <= 166; i++) LFO_HZ[i] = i > 150 ? 0 : p8_lfo_hz(i);
+    for (int i = 0; i <= 128; i++) { float a = i * (1.0f / 128) * 1.5707963f; PAN_C[i] = cosf(a); PAN_S[i] = sinf(a); }
     done = 1;
+}
+static inline float env_s(float v) {
+    float x = v * 10;
+    if (x <= 0) return 0;
+    if (x >= 1269) return ENV_S[1270];
+    int i = (int)x;
+    return ENV_S[i] + (x - i) * (ENV_S[i + 1] - ENV_S[i]);
 }
 static float lpf_G(int q, float semis) {
     const float *T = G_TAB[q];
@@ -495,8 +508,7 @@ static void voice_control(p8_t *s, voice_t *v, int vi) {
     for (int i = 0; i < 4; i++) {
         const uint8_t *q = p + P_LFO1_FREQ + 5 * i;
         int fq = clampi((int)lroundf(q[0] + acc[14 + i] + acc[18]), 0, 166);
-        float hz = fq > 150 ? SYNC_CPS[fq - 151] * sps : p8_lfo_hz(fq);
-        if (q[0] == 0 && fq == 0) hz = p8_lfo_hz(0);
+        float hz = fq > 150 ? SYNC_CPS[fq - 151] * sps : LFO_HZ[fq];
         lfo_t *o = &v->lfo[i];
         o->ph += hz * DT;
         if (o->ph >= 1) { o->ph -= floorf(o->ph); if (q[1] == 4) o->val = rnd(&v->rng); }
@@ -515,17 +527,17 @@ static void voice_control(p8_t *s, voice_t *v, int vi) {
         switch (en->st) {
         case ST_DELAY:
             en->t += DT;
-            if (en->t >= p8_env_seconds(q[0])) { en->st = ST_ATT; en->t = 0; }
+            if (en->t >= env_s(q[0])) { en->st = ST_ATT; en->t = 0; }
             break;
         case ST_ATT: {
-            float ta = fmaxf(p8_env_seconds(modr[e][0]), 0.0008f);
+            float ta = fmaxf(env_s(modr[e][0]), 0.0008f);
             en->lvl += DT / ta;
             if (en->lvl >= 1) { en->lvl = 1; en->st = ST_DEC; }
             break;
         }
         case ST_DEC: {
-            float tau = fmaxf(p8_env_seconds(modr[e][1]) * (1.0f / 4.6f), 0.0003f);
-            en->lvl += (sus - en->lvl) * (1 - expf(-DT / tau));
+            float tau = fmaxf(env_s(modr[e][1]) * (1.0f / 4.6f), 0.0003f);
+            { float c = DT / tau; en->lvl += (sus - en->lvl) * (c / (1 + c)); }
             if (fabsf(en->lvl - sus) < 0.002f) {
                 en->lvl = sus;
                 if (e == 2 && p[P_ENV3_REPEAT] && gate) { en->st = ST_DELAY; en->t = 0; }
@@ -535,8 +547,8 @@ static void voice_control(p8_t *s, voice_t *v, int vi) {
         }
         case ST_SUS: en->lvl = sus; break;
         case ST_REL: {
-            float tau = fmaxf(p8_env_seconds(modr[e][2]) * (1.0f / 4.6f), 0.0003f);
-            en->lvl *= expf(-DT / tau);
+            float tau = fmaxf(env_s(modr[e][2]) * (1.0f / 4.6f), 0.0003f);
+            en->lvl /= 1 + DT / tau;
             if (en->lvl < 0.0005f) { en->lvl = 0; en->st = ST_IDLE; }
             break;
         }
@@ -559,7 +571,7 @@ static void voice_control(p8_t *s, voice_t *v, int vi) {
         if (glide && !(mode & 1 && !(s->ly[l].nheld > 1))) {
             float d = tgt - v->cur[o];
             float oct = p8_glide_octave_seconds((float)glide);
-            float rate = (mode < 2) ? 12.0f / oct : fabsf(d) / fmaxf(p8_env_seconds(glide) * 0.5f + 0.01f, 0.01f);
+            float rate = (mode < 2) ? 12.0f / oct : fabsf(d) / fmaxf(env_s(glide) * 0.5f + 0.01f, 0.01f);
             float step = rate * DT;
             v->cur[o] = fabsf(d) <= step ? tgt : v->cur[o] + (d > 0 ? step : -step);
         } else v->cur[o] = tgt;
@@ -597,8 +609,12 @@ static void voice_control(p8_t *s, voice_t *v, int vi) {
     v->vca_prev = v->vca;
     v->vca = clampf(lvl + eamt * vv * v->env[1].lvl, 0, 1);
     float pan = clampf((p[P_SPREAD] + acc[13]) * (1.0f / 127) * PAN_POS[vi], -1, 1);
-    float a = (pan + 1) * 0.78539816f;
-    v->panl = cosf(a); v->panr = sinf(a);
+    float pf = (pan + 1) * 64.0f;
+    int pi = (int)pf;
+    if (pi > 127) pi = 127;
+    float pr = pf - pi;
+    v->panl = PAN_C[pi] + pr * (PAN_C[pi + 1] - PAN_C[pi]);
+    v->panr = PAN_S[pi] + pr * (PAN_S[pi + 1] - PAN_S[pi]);
     v->vol = p[P_VOICE_VOL] * (1.0f / 127);
 }
 
@@ -652,13 +668,15 @@ static void load_bank(p8_t *s, int b) {
     s->display_rev++;
 }
 
+static void build_keyhash(void);
 static void *p8_create(const char *dir) {
     init_tables();
+    build_keyhash();
     p8_t *s = calloc(1, sizeof *s);
     if (!s) return NULL;
     s->cc_vol = 1;
     s->clock_src = 1;
-    s->os = 2;
+    s->os = P8_DEFAULT_OS;
     s->rng = 0x13579BDFu;
     for (int i = 0; i < MAXV; i++) {
         s->v[i].rng = 0x2468ACE1u + 7919u * (uint32_t)i;
@@ -775,8 +793,22 @@ static void p8_render(void *h, int16_t *out, int frames) {
 }
 
 /* ---------------- parameters ---------------- */
+static short KEYHASH[1024];     /* open addressing: index + 1 of PTAB, 0 = empty */
+static unsigned hash_key(const char *k) { unsigned h = 2166136261u; while (*k) h = (h ^ (uint8_t)*k++) * 16777619u; return h; }
+static void build_keyhash(void) {
+    static int built;
+    if (built) return;
+    built = 1;
+    for (int i = 0; i < NPATCH; i++) {
+        if (!PTAB[i].key[0]) continue;
+        unsigned h = hash_key(PTAB[i].key) & 1023;
+        while (KEYHASH[h]) h = (h + 1) & 1023;
+        KEYHASH[h] = (short)(i + 1);
+    }
+}
 static int find_key(const char *k) {
-    for (int i = 0; i < NPATCH; i++) if (PTAB[i].key[0] && !strcmp(PTAB[i].key, k)) return i;
+    for (unsigned h = hash_key(k) & 1023; KEYHASH[h]; h = (h + 1) & 1023)
+        if (!strcmp(PTAB[KEYHASH[h] - 1].key, k)) return KEYHASH[h] - 1;
     return -1;
 }
 /* The plugin's controls address the layer being edited (the Edit Layer switch): layer A's keys act on layer B while it is selected.
