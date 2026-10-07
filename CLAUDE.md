@@ -13,4 +13,4 @@ Ground rules:
 - `vst/params.json` and `src/patch_tab.h` are generated: edit `tools/gen_patch.py` and run `tools/make_layout.sh`. Parameter order is
   the instrument's own program byte order and append-only once released.
 - `analog/mpc_analog.h` is a synced copy of mpc-vst-morpho-PE's (`../mpc-vst-morpho-PE/analog/sync.sh --check analog`).
-- Every release must be catalog-conformant (`release.py --repo sd88me/mpc-vst-profit-8 --license MIT --id profit-8`, `catalog_check.py --catalog` OK).
+- Every release must be catalog-conformant (`release.py --repo sd88me/mpc-vst-profit8 --license MIT --id profit-8`, `catalog_check.py --catalog` OK).
