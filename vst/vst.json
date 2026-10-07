@@ -1,0 +1,16 @@
+{
+  "name": "Profit-8",
+  "vendor": "sd88me",
+  "uid": "Pft8",
+  "version": 1000,
+  "so": "profit_8.so",
+  "params": "params.json",
+  "art": "html",
+  "defines": {"MODULE_SUBDIR": "\".\"", "HAS_LFO_BPM": 1, "HAS_TRANSPORT": 1, "HAS_DISPLAY_REV": 1, "PARAM_TEXT_MAX": 32},
+  "build": {
+    "root": "..",
+    "sources": ["src/engine.c", "src/curves.c", "src/syx.c"],
+    "cflags": ["-Isrc", "-Ianalog", "-O2"],
+    "libs": ["-lm"]
+  }
+}

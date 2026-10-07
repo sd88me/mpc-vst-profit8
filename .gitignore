@@ -1,0 +1,8 @@
+SYSEX/
+Preset Banks/
+testdata/
+*.syx
+*.bin
+vst/build/
+local/
+__pycache__/
