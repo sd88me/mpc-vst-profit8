@@ -21,7 +21,7 @@
 #define P8_DEFAULT_OS 1     /* Eco: the analog section at 1x; the Quality parameter switches to 2x */
 #endif
 #ifndef P8_MASTER
-#define P8_MASTER 1.6f      /* factory programs, one note: median peak about 0.3 of full scale (docs/STATUS.md) */
+#define P8_MASTER 1.27f     /* 2 dB below the first fix: single note peaks about 0.28 on the factory programs (docs/STATUS.md) */
 #endif
 #define FS 44100.0f
 #define MAXV 8
