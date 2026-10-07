@@ -3,7 +3,7 @@
  "params": [
   {
    "key": "osc1_freq",
-   "name": "A Osc1 Freq",
+   "name": "Osc1 Freq",
    "min": 0,
    "max": 120,
    "default": 24,
@@ -12,7 +12,7 @@
   },
   {
    "key": "osc1_fine",
-   "name": "A Osc1 Fine",
+   "name": "Osc1 Fine",
    "min": 0,
    "max": 100,
    "default": 49,
@@ -21,7 +21,7 @@
   },
   {
    "key": "osc1_shape",
-   "name": "A Osc1 Shape",
+   "name": "Osc1 Shape",
    "min": 0,
    "max": 103,
    "default": 1,
@@ -30,7 +30,7 @@
   },
   {
    "key": "osc1_glide",
-   "name": "A Osc1 Glide",
+   "name": "Osc1 Glide",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -38,7 +38,7 @@
   },
   {
    "key": "osc1_key",
-   "name": "A Osc1 Keybd",
+   "name": "Osc1 Keybd",
    "min": 0,
    "max": 1,
    "default": 1,
@@ -47,7 +47,7 @@
   },
   {
    "key": "osc2_freq",
-   "name": "A Osc2 Freq",
+   "name": "Osc2 Freq",
    "min": 0,
    "max": 120,
    "default": 24,
@@ -56,7 +56,7 @@
   },
   {
    "key": "osc2_fine",
-   "name": "A Osc2 Fine",
+   "name": "Osc2 Fine",
    "min": 0,
    "max": 100,
    "default": 51,
@@ -65,7 +65,7 @@
   },
   {
    "key": "osc2_shape",
-   "name": "A Osc2 Shape",
+   "name": "Osc2 Shape",
    "min": 0,
    "max": 103,
    "default": 1,
@@ -74,7 +74,7 @@
   },
   {
    "key": "osc2_glide",
-   "name": "A Osc2 Glide",
+   "name": "Osc2 Glide",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -82,7 +82,7 @@
   },
   {
    "key": "osc2_key",
-   "name": "A Osc2 Keybd",
+   "name": "Osc2 Keybd",
    "min": 0,
    "max": 1,
    "default": 1,
@@ -91,7 +91,7 @@
   },
   {
    "key": "sync",
-   "name": "A Sync 2>1",
+   "name": "Sync 2>1",
    "min": 0,
    "max": 1,
    "default": 0,
@@ -100,7 +100,7 @@
   },
   {
    "key": "glide_mode",
-   "name": "A Glide Mode",
+   "name": "Glide Mode",
    "options": [
     "Fixed Rate",
     "Fixed Rate A",
@@ -111,7 +111,7 @@
   },
   {
    "key": "slop",
-   "name": "A Osc Slop",
+   "name": "Osc Slop",
    "min": 0,
    "max": 5,
    "default": 2,
@@ -119,7 +119,7 @@
   },
   {
    "key": "osc_mix",
-   "name": "A Osc Mix",
+   "name": "Osc Mix",
    "min": 0,
    "max": 127,
    "default": 64,
@@ -127,7 +127,7 @@
   },
   {
    "key": "noise",
-   "name": "A Noise",
+   "name": "Noise",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -135,7 +135,7 @@
   },
   {
    "key": "lpf_freq",
-   "name": "A LPF Freq",
+   "name": "LPF Freq",
    "min": 0,
    "max": 164,
    "default": 148,
@@ -143,7 +143,7 @@
   },
   {
    "key": "lpf_res",
-   "name": "A Resonance",
+   "name": "Resonance",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -151,7 +151,7 @@
   },
   {
    "key": "lpf_key",
-   "name": "A LPF Key Amt",
+   "name": "LPF Key Amt",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -159,7 +159,7 @@
   },
   {
    "key": "lpf_audmod",
-   "name": "A Audio Mod",
+   "name": "Audio Mod",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -167,7 +167,7 @@
   },
   {
    "key": "poles",
-   "name": "A 4 Pole",
+   "name": "4 Pole",
    "options": [
     "2 Pole",
     "4 Pole"
@@ -176,7 +176,7 @@
   },
   {
    "key": "fenv_amt",
-   "name": "A FEnv Amt",
+   "name": "FEnv Amt",
    "min": 0,
    "max": 254,
    "default": 127,
@@ -185,7 +185,7 @@
   },
   {
    "key": "fenv_vel",
-   "name": "A FEnv Velocity",
+   "name": "FEnv Velocity",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -193,7 +193,7 @@
   },
   {
    "key": "fenv_delay",
-   "name": "A FEnv Delay",
+   "name": "FEnv Delay",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -201,7 +201,7 @@
   },
   {
    "key": "fenv_a",
-   "name": "A FEnv Attack",
+   "name": "FEnv Attack",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -209,7 +209,7 @@
   },
   {
    "key": "fenv_d",
-   "name": "A FEnv Decay",
+   "name": "FEnv Decay",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -217,7 +217,7 @@
   },
   {
    "key": "fenv_s",
-   "name": "A FEnv Sustain",
+   "name": "FEnv Sustain",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -225,7 +225,7 @@
   },
   {
    "key": "fenv_r",
-   "name": "A FEnv Release",
+   "name": "FEnv Release",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -233,7 +233,7 @@
   },
   {
    "key": "vca_level",
-   "name": "A VCA Level",
+   "name": "VCA Level",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -241,7 +241,7 @@
   },
   {
    "key": "spread",
-   "name": "A Pan Spread",
+   "name": "Pan Spread",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -249,7 +249,7 @@
   },
   {
    "key": "voice_vol",
-   "name": "A Voice Volume",
+   "name": "Voice Volume",
    "min": 0,
    "max": 127,
    "default": 127,
@@ -257,7 +257,7 @@
   },
   {
    "key": "vca_env",
-   "name": "A VCA Env Amt",
+   "name": "VCA Env Amt",
    "min": 0,
    "max": 127,
    "default": 127,
@@ -265,7 +265,7 @@
   },
   {
    "key": "vca_vel",
-   "name": "A VCA Velocity",
+   "name": "VCA Velocity",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -273,7 +273,7 @@
   },
   {
    "key": "aenv_delay",
-   "name": "A AEnv Delay",
+   "name": "AEnv Delay",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -281,7 +281,7 @@
   },
   {
    "key": "aenv_a",
-   "name": "A AEnv Attack",
+   "name": "AEnv Attack",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -289,7 +289,7 @@
   },
   {
    "key": "aenv_d",
-   "name": "A AEnv Decay",
+   "name": "AEnv Decay",
    "min": 0,
    "max": 127,
    "default": 64,
@@ -297,7 +297,7 @@
   },
   {
    "key": "aenv_s",
-   "name": "A AEnv Sustain",
+   "name": "AEnv Sustain",
    "min": 0,
    "max": 127,
    "default": 64,
@@ -305,7 +305,7 @@
   },
   {
    "key": "aenv_r",
-   "name": "A AEnv Release",
+   "name": "AEnv Release",
    "min": 0,
    "max": 127,
    "default": 64,
@@ -313,7 +313,7 @@
   },
   {
    "key": "lfo1_freq",
-   "name": "A LFO1 Freq",
+   "name": "LFO1 Freq",
    "min": 0,
    "max": 166,
    "default": 80,
@@ -322,7 +322,7 @@
   },
   {
    "key": "lfo1_shape",
-   "name": "A LFO1 Shape",
+   "name": "LFO1 Shape",
    "options": [
     "Triangle",
     "Rev Saw",
@@ -334,7 +334,7 @@
   },
   {
    "key": "lfo1_amt",
-   "name": "A LFO1 Amt",
+   "name": "LFO1 Amt",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -342,7 +342,7 @@
   },
   {
    "key": "lfo1_dest",
-   "name": "A LFO1 Dest",
+   "name": "LFO1 Dest",
    "options": [
     "Off",
     "Osc1 Freq",
@@ -393,7 +393,7 @@
   },
   {
    "key": "lfo1_sync",
-   "name": "A LFO1 KeySync",
+   "name": "LFO1 KeySync",
    "min": 0,
    "max": 1,
    "default": 0,
@@ -402,7 +402,7 @@
   },
   {
    "key": "lfo2_freq",
-   "name": "A LFO2 Freq",
+   "name": "LFO2 Freq",
    "min": 0,
    "max": 166,
    "default": 80,
@@ -411,7 +411,7 @@
   },
   {
    "key": "lfo2_shape",
-   "name": "A LFO2 Shape",
+   "name": "LFO2 Shape",
    "options": [
     "Triangle",
     "Rev Saw",
@@ -423,7 +423,7 @@
   },
   {
    "key": "lfo2_amt",
-   "name": "A LFO2 Amt",
+   "name": "LFO2 Amt",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -431,7 +431,7 @@
   },
   {
    "key": "lfo2_dest",
-   "name": "A LFO2 Dest",
+   "name": "LFO2 Dest",
    "options": [
     "Off",
     "Osc1 Freq",
@@ -482,7 +482,7 @@
   },
   {
    "key": "lfo2_sync",
-   "name": "A LFO2 KeySync",
+   "name": "LFO2 KeySync",
    "min": 0,
    "max": 1,
    "default": 0,
@@ -491,7 +491,7 @@
   },
   {
    "key": "lfo3_freq",
-   "name": "A LFO3 Freq",
+   "name": "LFO3 Freq",
    "min": 0,
    "max": 166,
    "default": 80,
@@ -500,7 +500,7 @@
   },
   {
    "key": "lfo3_shape",
-   "name": "A LFO3 Shape",
+   "name": "LFO3 Shape",
    "options": [
     "Triangle",
     "Rev Saw",
@@ -512,7 +512,7 @@
   },
   {
    "key": "lfo3_amt",
-   "name": "A LFO3 Amt",
+   "name": "LFO3 Amt",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -520,7 +520,7 @@
   },
   {
    "key": "lfo3_dest",
-   "name": "A LFO3 Dest",
+   "name": "LFO3 Dest",
    "options": [
     "Off",
     "Osc1 Freq",
@@ -571,7 +571,7 @@
   },
   {
    "key": "lfo3_sync",
-   "name": "A LFO3 KeySync",
+   "name": "LFO3 KeySync",
    "min": 0,
    "max": 1,
    "default": 0,
@@ -580,7 +580,7 @@
   },
   {
    "key": "lfo4_freq",
-   "name": "A LFO4 Freq",
+   "name": "LFO4 Freq",
    "min": 0,
    "max": 166,
    "default": 80,
@@ -589,7 +589,7 @@
   },
   {
    "key": "lfo4_shape",
-   "name": "A LFO4 Shape",
+   "name": "LFO4 Shape",
    "options": [
     "Triangle",
     "Rev Saw",
@@ -601,7 +601,7 @@
   },
   {
    "key": "lfo4_amt",
-   "name": "A LFO4 Amt",
+   "name": "LFO4 Amt",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -609,7 +609,7 @@
   },
   {
    "key": "lfo4_dest",
-   "name": "A LFO4 Dest",
+   "name": "LFO4 Dest",
    "options": [
     "Off",
     "Osc1 Freq",
@@ -660,7 +660,7 @@
   },
   {
    "key": "lfo4_sync",
-   "name": "A LFO4 KeySync",
+   "name": "LFO4 KeySync",
    "min": 0,
    "max": 1,
    "default": 0,
@@ -669,7 +669,7 @@
   },
   {
    "key": "env3_dest",
-   "name": "A Env3 Dest",
+   "name": "Env3 Dest",
    "options": [
     "Off",
     "Osc1 Freq",
@@ -720,7 +720,7 @@
   },
   {
    "key": "env3_amt",
-   "name": "A Env3 Amt",
+   "name": "Env3 Amt",
    "min": 0,
    "max": 254,
    "default": 127,
@@ -729,7 +729,7 @@
   },
   {
    "key": "env3_vel",
-   "name": "A Env3 Velocity",
+   "name": "Env3 Velocity",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -737,7 +737,7 @@
   },
   {
    "key": "env3_delay",
-   "name": "A Env3 Delay",
+   "name": "Env3 Delay",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -745,7 +745,7 @@
   },
   {
    "key": "env3_a",
-   "name": "A Env3 Attack",
+   "name": "Env3 Attack",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -753,7 +753,7 @@
   },
   {
    "key": "env3_d",
-   "name": "A Env3 Decay",
+   "name": "Env3 Decay",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -761,7 +761,7 @@
   },
   {
    "key": "env3_s",
-   "name": "A Env3 Sustain",
+   "name": "Env3 Sustain",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -769,7 +769,7 @@
   },
   {
    "key": "env3_r",
-   "name": "A Env3 Release",
+   "name": "Env3 Release",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -777,7 +777,7 @@
   },
   {
    "key": "mod1_src",
-   "name": "A Mod1 Source",
+   "name": "Mod1 Source",
    "options": [
     "Off",
     "Seq 1",
@@ -805,7 +805,7 @@
   },
   {
    "key": "mod1_amt",
-   "name": "A Mod1 Amt",
+   "name": "Mod1 Amt",
    "min": 0,
    "max": 254,
    "default": 127,
@@ -814,7 +814,7 @@
   },
   {
    "key": "mod1_dest",
-   "name": "A Mod1 Dest",
+   "name": "Mod1 Dest",
    "options": [
     "Off",
     "Osc1 Freq",
@@ -865,7 +865,7 @@
   },
   {
    "key": "mod2_src",
-   "name": "A Mod2 Source",
+   "name": "Mod2 Source",
    "options": [
     "Off",
     "Seq 1",
@@ -893,7 +893,7 @@
   },
   {
    "key": "mod2_amt",
-   "name": "A Mod2 Amt",
+   "name": "Mod2 Amt",
    "min": 0,
    "max": 254,
    "default": 127,
@@ -902,7 +902,7 @@
   },
   {
    "key": "mod2_dest",
-   "name": "A Mod2 Dest",
+   "name": "Mod2 Dest",
    "options": [
     "Off",
     "Osc1 Freq",
@@ -953,7 +953,7 @@
   },
   {
    "key": "mod3_src",
-   "name": "A Mod3 Source",
+   "name": "Mod3 Source",
    "options": [
     "Off",
     "Seq 1",
@@ -981,7 +981,7 @@
   },
   {
    "key": "mod3_amt",
-   "name": "A Mod3 Amt",
+   "name": "Mod3 Amt",
    "min": 0,
    "max": 254,
    "default": 127,
@@ -990,7 +990,7 @@
   },
   {
    "key": "mod3_dest",
-   "name": "A Mod3 Dest",
+   "name": "Mod3 Dest",
    "options": [
     "Off",
     "Osc1 Freq",
@@ -1041,7 +1041,7 @@
   },
   {
    "key": "mod4_src",
-   "name": "A Mod4 Source",
+   "name": "Mod4 Source",
    "options": [
     "Off",
     "Seq 1",
@@ -1069,7 +1069,7 @@
   },
   {
    "key": "mod4_amt",
-   "name": "A Mod4 Amt",
+   "name": "Mod4 Amt",
    "min": 0,
    "max": 254,
    "default": 127,
@@ -1078,7 +1078,7 @@
   },
   {
    "key": "mod4_dest",
-   "name": "A Mod4 Dest",
+   "name": "Mod4 Dest",
    "options": [
     "Off",
     "Osc1 Freq",
@@ -1129,7 +1129,7 @@
   },
   {
    "key": "seq1_dest",
-   "name": "A Seq1 Dest",
+   "name": "Seq1 Dest",
    "options": [
     "Off",
     "Osc1 Freq",
@@ -1180,7 +1180,7 @@
   },
   {
    "key": "seq2_dest",
-   "name": "A Seq2 Dest",
+   "name": "Seq2 Dest",
    "options": [
     "Off",
     "Osc1 Freq",
@@ -1231,7 +1231,7 @@
   },
   {
    "key": "seq3_dest",
-   "name": "A Seq3 Dest",
+   "name": "Seq3 Dest",
    "options": [
     "Off",
     "Osc1 Freq",
@@ -1282,7 +1282,7 @@
   },
   {
    "key": "seq4_dest",
-   "name": "A Seq4 Dest",
+   "name": "Seq4 Dest",
    "options": [
     "Off",
     "Osc1 Freq",
@@ -1333,7 +1333,7 @@
   },
   {
    "key": "wheel_amt",
-   "name": "A ModWheel Amt",
+   "name": "ModWheel Amt",
    "min": 0,
    "max": 254,
    "default": 127,
@@ -1342,7 +1342,7 @@
   },
   {
    "key": "wheel_dest",
-   "name": "A ModWheel Dest",
+   "name": "ModWheel Dest",
    "options": [
     "Off",
     "Osc1 Freq",
@@ -1393,7 +1393,7 @@
   },
   {
    "key": "press_amt",
-   "name": "A Pressure Amt",
+   "name": "Pressure Amt",
    "min": 0,
    "max": 254,
    "default": 127,
@@ -1402,7 +1402,7 @@
   },
   {
    "key": "press_dest",
-   "name": "A Pressure Dest",
+   "name": "Pressure Dest",
    "options": [
     "Off",
     "Osc1 Freq",
@@ -1453,7 +1453,7 @@
   },
   {
    "key": "breath_amt",
-   "name": "A Breath Amt",
+   "name": "Breath Amt",
    "min": 0,
    "max": 254,
    "default": 127,
@@ -1462,7 +1462,7 @@
   },
   {
    "key": "breath_dest",
-   "name": "A Breath Dest",
+   "name": "Breath Dest",
    "options": [
     "Off",
     "Osc1 Freq",
@@ -1513,7 +1513,7 @@
   },
   {
    "key": "vel_amt",
-   "name": "A Velocity Amt",
+   "name": "Velocity Amt",
    "min": 0,
    "max": 254,
    "default": 127,
@@ -1522,7 +1522,7 @@
   },
   {
    "key": "vel_dest",
-   "name": "A Velocity Dest",
+   "name": "Velocity Dest",
    "options": [
     "Off",
     "Osc1 Freq",
@@ -1573,7 +1573,7 @@
   },
   {
    "key": "foot_amt",
-   "name": "A Foot Amt",
+   "name": "Foot Amt",
    "min": 0,
    "max": 254,
    "default": 127,
@@ -1582,7 +1582,7 @@
   },
   {
    "key": "foot_dest",
-   "name": "A Foot Dest",
+   "name": "Foot Dest",
    "options": [
     "Off",
     "Osc1 Freq",
@@ -1633,7 +1633,7 @@
   },
   {
    "key": "tempo",
-   "name": "A BPM",
+   "name": "BPM",
    "min": 30,
    "max": 250,
    "default": 120,
@@ -1642,7 +1642,7 @@
   },
   {
    "key": "clock_div",
-   "name": "A Clock Div",
+   "name": "Clock Div",
    "options": [
     "Half",
     "Quarter",
@@ -1662,7 +1662,7 @@
   },
   {
    "key": "bend_range",
-   "name": "A Bend Range",
+   "name": "Bend Range",
    "min": 0,
    "max": 12,
    "default": 4,
@@ -1670,7 +1670,7 @@
   },
   {
    "key": "seq_trig",
-   "name": "A Seq Trigger",
+   "name": "Seq Trigger",
    "options": [
     "Normal",
     "Normal NoRst",
@@ -1682,7 +1682,7 @@
   },
   {
    "key": "unison_mode",
-   "name": "A Unison Mode",
+   "name": "Unison Mode",
    "options": [
     "1 Voice",
     "All Voices",
@@ -1694,7 +1694,7 @@
   },
   {
    "key": "key_mode",
-   "name": "A Unison Assign",
+   "name": "Unison Assign",
    "options": [
     "Low",
     "Low Retrig",
@@ -1707,7 +1707,7 @@
   },
   {
    "key": "arp_mode",
-   "name": "A Arp Mode",
+   "name": "Arp Mode",
    "options": [
     "Up",
     "Down",
@@ -1729,7 +1729,7 @@
   },
   {
    "key": "env3_repeat",
-   "name": "A Env3 Repeat",
+   "name": "Env3 Repeat",
    "min": 0,
    "max": 1,
    "default": 0,
@@ -1738,7 +1738,7 @@
   },
   {
    "key": "unison",
-   "name": "A Unison",
+   "name": "Unison",
    "min": 0,
    "max": 1,
    "default": 0,
@@ -1747,7 +1747,7 @@
   },
   {
    "key": "arp",
-   "name": "A Arpeggiator",
+   "name": "Arpeggiator",
    "min": 0,
    "max": 1,
    "default": 0,
@@ -1756,7 +1756,7 @@
   },
   {
    "key": "gseq",
-   "name": "A Gated Seq",
+   "name": "Gated Seq",
    "min": 0,
    "max": 1,
    "default": 0,
@@ -1783,8 +1783,8 @@
    "default": 0
   },
   {
-   "key": "as1_1",
-   "name": "A Seq1 Step1",
+   "key": "s1_1",
+   "name": "Seq1 Step1",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -1792,8 +1792,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as1_2",
-   "name": "A Seq1 Step2",
+   "key": "s1_2",
+   "name": "Seq1 Step2",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -1801,8 +1801,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as1_3",
-   "name": "A Seq1 Step3",
+   "key": "s1_3",
+   "name": "Seq1 Step3",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -1810,8 +1810,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as1_4",
-   "name": "A Seq1 Step4",
+   "key": "s1_4",
+   "name": "Seq1 Step4",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -1819,8 +1819,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as1_5",
-   "name": "A Seq1 Step5",
+   "key": "s1_5",
+   "name": "Seq1 Step5",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -1828,8 +1828,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as1_6",
-   "name": "A Seq1 Step6",
+   "key": "s1_6",
+   "name": "Seq1 Step6",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -1837,8 +1837,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as1_7",
-   "name": "A Seq1 Step7",
+   "key": "s1_7",
+   "name": "Seq1 Step7",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -1846,8 +1846,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as1_8",
-   "name": "A Seq1 Step8",
+   "key": "s1_8",
+   "name": "Seq1 Step8",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -1855,8 +1855,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as1_9",
-   "name": "A Seq1 Step9",
+   "key": "s1_9",
+   "name": "Seq1 Step9",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -1864,8 +1864,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as1_10",
-   "name": "A Seq1 Step10",
+   "key": "s1_10",
+   "name": "Seq1 Step10",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -1873,8 +1873,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as1_11",
-   "name": "A Seq1 Step11",
+   "key": "s1_11",
+   "name": "Seq1 Step11",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -1882,8 +1882,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as1_12",
-   "name": "A Seq1 Step12",
+   "key": "s1_12",
+   "name": "Seq1 Step12",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -1891,8 +1891,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as1_13",
-   "name": "A Seq1 Step13",
+   "key": "s1_13",
+   "name": "Seq1 Step13",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -1900,8 +1900,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as1_14",
-   "name": "A Seq1 Step14",
+   "key": "s1_14",
+   "name": "Seq1 Step14",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -1909,8 +1909,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as1_15",
-   "name": "A Seq1 Step15",
+   "key": "s1_15",
+   "name": "Seq1 Step15",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -1918,8 +1918,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as1_16",
-   "name": "A Seq1 Step16",
+   "key": "s1_16",
+   "name": "Seq1 Step16",
    "min": 0,
    "max": 127,
    "default": 0,
@@ -1927,8 +1927,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as2_1",
-   "name": "A Seq2 Step1",
+   "key": "s2_1",
+   "name": "Seq2 Step1",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -1936,8 +1936,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as2_2",
-   "name": "A Seq2 Step2",
+   "key": "s2_2",
+   "name": "Seq2 Step2",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -1945,8 +1945,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as2_3",
-   "name": "A Seq2 Step3",
+   "key": "s2_3",
+   "name": "Seq2 Step3",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -1954,8 +1954,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as2_4",
-   "name": "A Seq2 Step4",
+   "key": "s2_4",
+   "name": "Seq2 Step4",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -1963,8 +1963,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as2_5",
-   "name": "A Seq2 Step5",
+   "key": "s2_5",
+   "name": "Seq2 Step5",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -1972,8 +1972,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as2_6",
-   "name": "A Seq2 Step6",
+   "key": "s2_6",
+   "name": "Seq2 Step6",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -1981,8 +1981,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as2_7",
-   "name": "A Seq2 Step7",
+   "key": "s2_7",
+   "name": "Seq2 Step7",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -1990,8 +1990,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as2_8",
-   "name": "A Seq2 Step8",
+   "key": "s2_8",
+   "name": "Seq2 Step8",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -1999,8 +1999,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as2_9",
-   "name": "A Seq2 Step9",
+   "key": "s2_9",
+   "name": "Seq2 Step9",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2008,8 +2008,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as2_10",
-   "name": "A Seq2 Step10",
+   "key": "s2_10",
+   "name": "Seq2 Step10",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2017,8 +2017,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as2_11",
-   "name": "A Seq2 Step11",
+   "key": "s2_11",
+   "name": "Seq2 Step11",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2026,8 +2026,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as2_12",
-   "name": "A Seq2 Step12",
+   "key": "s2_12",
+   "name": "Seq2 Step12",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2035,8 +2035,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as2_13",
-   "name": "A Seq2 Step13",
+   "key": "s2_13",
+   "name": "Seq2 Step13",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2044,8 +2044,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as2_14",
-   "name": "A Seq2 Step14",
+   "key": "s2_14",
+   "name": "Seq2 Step14",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2053,8 +2053,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as2_15",
-   "name": "A Seq2 Step15",
+   "key": "s2_15",
+   "name": "Seq2 Step15",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2062,8 +2062,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as2_16",
-   "name": "A Seq2 Step16",
+   "key": "s2_16",
+   "name": "Seq2 Step16",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2071,8 +2071,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as3_1",
-   "name": "A Seq3 Step1",
+   "key": "s3_1",
+   "name": "Seq3 Step1",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2080,8 +2080,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as3_2",
-   "name": "A Seq3 Step2",
+   "key": "s3_2",
+   "name": "Seq3 Step2",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2089,8 +2089,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as3_3",
-   "name": "A Seq3 Step3",
+   "key": "s3_3",
+   "name": "Seq3 Step3",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2098,8 +2098,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as3_4",
-   "name": "A Seq3 Step4",
+   "key": "s3_4",
+   "name": "Seq3 Step4",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2107,8 +2107,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as3_5",
-   "name": "A Seq3 Step5",
+   "key": "s3_5",
+   "name": "Seq3 Step5",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2116,8 +2116,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as3_6",
-   "name": "A Seq3 Step6",
+   "key": "s3_6",
+   "name": "Seq3 Step6",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2125,8 +2125,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as3_7",
-   "name": "A Seq3 Step7",
+   "key": "s3_7",
+   "name": "Seq3 Step7",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2134,8 +2134,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as3_8",
-   "name": "A Seq3 Step8",
+   "key": "s3_8",
+   "name": "Seq3 Step8",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2143,8 +2143,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as3_9",
-   "name": "A Seq3 Step9",
+   "key": "s3_9",
+   "name": "Seq3 Step9",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2152,8 +2152,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as3_10",
-   "name": "A Seq3 Step10",
+   "key": "s3_10",
+   "name": "Seq3 Step10",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2161,8 +2161,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as3_11",
-   "name": "A Seq3 Step11",
+   "key": "s3_11",
+   "name": "Seq3 Step11",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2170,8 +2170,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as3_12",
-   "name": "A Seq3 Step12",
+   "key": "s3_12",
+   "name": "Seq3 Step12",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2179,8 +2179,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as3_13",
-   "name": "A Seq3 Step13",
+   "key": "s3_13",
+   "name": "Seq3 Step13",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2188,8 +2188,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as3_14",
-   "name": "A Seq3 Step14",
+   "key": "s3_14",
+   "name": "Seq3 Step14",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2197,8 +2197,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as3_15",
-   "name": "A Seq3 Step15",
+   "key": "s3_15",
+   "name": "Seq3 Step15",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2206,8 +2206,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as3_16",
-   "name": "A Seq3 Step16",
+   "key": "s3_16",
+   "name": "Seq3 Step16",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2215,8 +2215,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as4_1",
-   "name": "A Seq4 Step1",
+   "key": "s4_1",
+   "name": "Seq4 Step1",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2224,8 +2224,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as4_2",
-   "name": "A Seq4 Step2",
+   "key": "s4_2",
+   "name": "Seq4 Step2",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2233,8 +2233,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as4_3",
-   "name": "A Seq4 Step3",
+   "key": "s4_3",
+   "name": "Seq4 Step3",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2242,8 +2242,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as4_4",
-   "name": "A Seq4 Step4",
+   "key": "s4_4",
+   "name": "Seq4 Step4",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2251,8 +2251,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as4_5",
-   "name": "A Seq4 Step5",
+   "key": "s4_5",
+   "name": "Seq4 Step5",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2260,8 +2260,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as4_6",
-   "name": "A Seq4 Step6",
+   "key": "s4_6",
+   "name": "Seq4 Step6",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2269,8 +2269,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as4_7",
-   "name": "A Seq4 Step7",
+   "key": "s4_7",
+   "name": "Seq4 Step7",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2278,8 +2278,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as4_8",
-   "name": "A Seq4 Step8",
+   "key": "s4_8",
+   "name": "Seq4 Step8",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2287,8 +2287,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as4_9",
-   "name": "A Seq4 Step9",
+   "key": "s4_9",
+   "name": "Seq4 Step9",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2296,8 +2296,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as4_10",
-   "name": "A Seq4 Step10",
+   "key": "s4_10",
+   "name": "Seq4 Step10",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2305,8 +2305,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as4_11",
-   "name": "A Seq4 Step11",
+   "key": "s4_11",
+   "name": "Seq4 Step11",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2314,8 +2314,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as4_12",
-   "name": "A Seq4 Step12",
+   "key": "s4_12",
+   "name": "Seq4 Step12",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2323,8 +2323,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as4_13",
-   "name": "A Seq4 Step13",
+   "key": "s4_13",
+   "name": "Seq4 Step13",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2332,8 +2332,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as4_14",
-   "name": "A Seq4 Step14",
+   "key": "s4_14",
+   "name": "Seq4 Step14",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2341,8 +2341,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as4_15",
-   "name": "A Seq4 Step15",
+   "key": "s4_15",
+   "name": "Seq4 Step15",
    "min": 0,
    "max": 126,
    "default": 0,
@@ -2350,2346 +2350,8 @@
    "dynamic_display": true
   },
   {
-   "key": "as4_16",
-   "name": "A Seq4 Step16",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_osc1_freq",
-   "name": "B Osc1 Freq",
-   "min": 0,
-   "max": 120,
-   "default": 24,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_osc1_fine",
-   "name": "B Osc1 Fine",
-   "min": 0,
-   "max": 100,
-   "default": 49,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_osc1_shape",
-   "name": "B Osc1 Shape",
-   "min": 0,
-   "max": 103,
-   "default": 1,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_osc1_glide",
-   "name": "B Osc1 Glide",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_osc1_key",
-   "name": "B Osc1 Keybd",
-   "min": 0,
-   "max": 1,
-   "default": 1,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_osc2_freq",
-   "name": "B Osc2 Freq",
-   "min": 0,
-   "max": 120,
-   "default": 24,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_osc2_fine",
-   "name": "B Osc2 Fine",
-   "min": 0,
-   "max": 100,
-   "default": 51,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_osc2_shape",
-   "name": "B Osc2 Shape",
-   "min": 0,
-   "max": 103,
-   "default": 1,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_osc2_glide",
-   "name": "B Osc2 Glide",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_osc2_key",
-   "name": "B Osc2 Keybd",
-   "min": 0,
-   "max": 1,
-   "default": 1,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_sync",
-   "name": "B Sync 2>1",
-   "min": 0,
-   "max": 1,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_glide_mode",
-   "name": "B Glide Mode",
-   "options": [
-    "Fixed Rate",
-    "Fixed Rate A",
-    "Fixed Time",
-    "Fixed Time A"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_slop",
-   "name": "B Osc Slop",
-   "min": 0,
-   "max": 5,
-   "default": 2,
-   "display": "int"
-  },
-  {
-   "key": "b_osc_mix",
-   "name": "B Osc Mix",
-   "min": 0,
-   "max": 127,
-   "default": 64,
-   "display": "int"
-  },
-  {
-   "key": "b_noise",
-   "name": "B Noise",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_lpf_freq",
-   "name": "B LPF Freq",
-   "min": 0,
-   "max": 164,
-   "default": 148,
-   "display": "int"
-  },
-  {
-   "key": "b_lpf_res",
-   "name": "B Resonance",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_lpf_key",
-   "name": "B LPF Key Amt",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_lpf_audmod",
-   "name": "B Audio Mod",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_poles",
-   "name": "B 4 Pole",
-   "options": [
-    "2 Pole",
-    "4 Pole"
-   ],
-   "default": 1
-  },
-  {
-   "key": "b_fenv_amt",
-   "name": "B FEnv Amt",
-   "min": 0,
-   "max": 254,
-   "default": 127,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_fenv_vel",
-   "name": "B FEnv Velocity",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_fenv_delay",
-   "name": "B FEnv Delay",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_fenv_a",
-   "name": "B FEnv Attack",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_fenv_d",
-   "name": "B FEnv Decay",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_fenv_s",
-   "name": "B FEnv Sustain",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_fenv_r",
-   "name": "B FEnv Release",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_vca_level",
-   "name": "B VCA Level",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_spread",
-   "name": "B Pan Spread",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_voice_vol",
-   "name": "B Voice Volume",
-   "min": 0,
-   "max": 127,
-   "default": 127,
-   "display": "int"
-  },
-  {
-   "key": "b_vca_env",
-   "name": "B VCA Env Amt",
-   "min": 0,
-   "max": 127,
-   "default": 127,
-   "display": "int"
-  },
-  {
-   "key": "b_vca_vel",
-   "name": "B VCA Velocity",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_aenv_delay",
-   "name": "B AEnv Delay",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_aenv_a",
-   "name": "B AEnv Attack",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_aenv_d",
-   "name": "B AEnv Decay",
-   "min": 0,
-   "max": 127,
-   "default": 64,
-   "display": "int"
-  },
-  {
-   "key": "b_aenv_s",
-   "name": "B AEnv Sustain",
-   "min": 0,
-   "max": 127,
-   "default": 64,
-   "display": "int"
-  },
-  {
-   "key": "b_aenv_r",
-   "name": "B AEnv Release",
-   "min": 0,
-   "max": 127,
-   "default": 64,
-   "display": "int"
-  },
-  {
-   "key": "b_lfo1_freq",
-   "name": "B LFO1 Freq",
-   "min": 0,
-   "max": 166,
-   "default": 80,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_lfo1_shape",
-   "name": "B LFO1 Shape",
-   "options": [
-    "Triangle",
-    "Rev Saw",
-    "Sawtooth",
-    "Square",
-    "Random"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_lfo1_amt",
-   "name": "B LFO1 Amt",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_lfo1_dest",
-   "name": "B LFO1 Dest",
-   "options": [
-    "Off",
-    "Osc1 Freq",
-    "Osc2 Freq",
-    "Osc1&2 Freq",
-    "Osc Mix",
-    "Noise Level",
-    "Osc1 PW",
-    "Osc2 PW",
-    "Osc1&2 PW",
-    "Filter Freq",
-    "Resonance",
-    "Filter AudMod",
-    "VCA Level",
-    "Pan Spread",
-    "LFO1 Freq",
-    "LFO2 Freq",
-    "LFO3 Freq",
-    "LFO4 Freq",
-    "LFOAll Freq",
-    "LFO1 Amt",
-    "LFO2 Amt",
-    "LFO3 Amt",
-    "LFO4 Amt",
-    "LFOAll Amt",
-    "FltEnv Amt",
-    "AmpEnv Amt",
-    "Env3 Amt",
-    "EnvAll Amt",
-    "Env1 Attack",
-    "Env2 Attack",
-    "Env3 Attack",
-    "EnvAll Attk",
-    "Env1 Decay",
-    "Env2 Decay",
-    "Env3 Decay",
-    "EnvAll Dcy",
-    "Env1 Release",
-    "Env2 Release",
-    "Env3 Release",
-    "EnvAll Rel",
-    "Mod1 Amt",
-    "Mod2 Amt",
-    "Mod3 Amt",
-    "Mod4 Amt"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_lfo1_sync",
-   "name": "B LFO1 KeySync",
-   "min": 0,
-   "max": 1,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_lfo2_freq",
-   "name": "B LFO2 Freq",
-   "min": 0,
-   "max": 166,
-   "default": 80,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_lfo2_shape",
-   "name": "B LFO2 Shape",
-   "options": [
-    "Triangle",
-    "Rev Saw",
-    "Sawtooth",
-    "Square",
-    "Random"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_lfo2_amt",
-   "name": "B LFO2 Amt",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_lfo2_dest",
-   "name": "B LFO2 Dest",
-   "options": [
-    "Off",
-    "Osc1 Freq",
-    "Osc2 Freq",
-    "Osc1&2 Freq",
-    "Osc Mix",
-    "Noise Level",
-    "Osc1 PW",
-    "Osc2 PW",
-    "Osc1&2 PW",
-    "Filter Freq",
-    "Resonance",
-    "Filter AudMod",
-    "VCA Level",
-    "Pan Spread",
-    "LFO1 Freq",
-    "LFO2 Freq",
-    "LFO3 Freq",
-    "LFO4 Freq",
-    "LFOAll Freq",
-    "LFO1 Amt",
-    "LFO2 Amt",
-    "LFO3 Amt",
-    "LFO4 Amt",
-    "LFOAll Amt",
-    "FltEnv Amt",
-    "AmpEnv Amt",
-    "Env3 Amt",
-    "EnvAll Amt",
-    "Env1 Attack",
-    "Env2 Attack",
-    "Env3 Attack",
-    "EnvAll Attk",
-    "Env1 Decay",
-    "Env2 Decay",
-    "Env3 Decay",
-    "EnvAll Dcy",
-    "Env1 Release",
-    "Env2 Release",
-    "Env3 Release",
-    "EnvAll Rel",
-    "Mod1 Amt",
-    "Mod2 Amt",
-    "Mod3 Amt",
-    "Mod4 Amt"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_lfo2_sync",
-   "name": "B LFO2 KeySync",
-   "min": 0,
-   "max": 1,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_lfo3_freq",
-   "name": "B LFO3 Freq",
-   "min": 0,
-   "max": 166,
-   "default": 80,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_lfo3_shape",
-   "name": "B LFO3 Shape",
-   "options": [
-    "Triangle",
-    "Rev Saw",
-    "Sawtooth",
-    "Square",
-    "Random"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_lfo3_amt",
-   "name": "B LFO3 Amt",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_lfo3_dest",
-   "name": "B LFO3 Dest",
-   "options": [
-    "Off",
-    "Osc1 Freq",
-    "Osc2 Freq",
-    "Osc1&2 Freq",
-    "Osc Mix",
-    "Noise Level",
-    "Osc1 PW",
-    "Osc2 PW",
-    "Osc1&2 PW",
-    "Filter Freq",
-    "Resonance",
-    "Filter AudMod",
-    "VCA Level",
-    "Pan Spread",
-    "LFO1 Freq",
-    "LFO2 Freq",
-    "LFO3 Freq",
-    "LFO4 Freq",
-    "LFOAll Freq",
-    "LFO1 Amt",
-    "LFO2 Amt",
-    "LFO3 Amt",
-    "LFO4 Amt",
-    "LFOAll Amt",
-    "FltEnv Amt",
-    "AmpEnv Amt",
-    "Env3 Amt",
-    "EnvAll Amt",
-    "Env1 Attack",
-    "Env2 Attack",
-    "Env3 Attack",
-    "EnvAll Attk",
-    "Env1 Decay",
-    "Env2 Decay",
-    "Env3 Decay",
-    "EnvAll Dcy",
-    "Env1 Release",
-    "Env2 Release",
-    "Env3 Release",
-    "EnvAll Rel",
-    "Mod1 Amt",
-    "Mod2 Amt",
-    "Mod3 Amt",
-    "Mod4 Amt"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_lfo3_sync",
-   "name": "B LFO3 KeySync",
-   "min": 0,
-   "max": 1,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_lfo4_freq",
-   "name": "B LFO4 Freq",
-   "min": 0,
-   "max": 166,
-   "default": 80,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_lfo4_shape",
-   "name": "B LFO4 Shape",
-   "options": [
-    "Triangle",
-    "Rev Saw",
-    "Sawtooth",
-    "Square",
-    "Random"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_lfo4_amt",
-   "name": "B LFO4 Amt",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_lfo4_dest",
-   "name": "B LFO4 Dest",
-   "options": [
-    "Off",
-    "Osc1 Freq",
-    "Osc2 Freq",
-    "Osc1&2 Freq",
-    "Osc Mix",
-    "Noise Level",
-    "Osc1 PW",
-    "Osc2 PW",
-    "Osc1&2 PW",
-    "Filter Freq",
-    "Resonance",
-    "Filter AudMod",
-    "VCA Level",
-    "Pan Spread",
-    "LFO1 Freq",
-    "LFO2 Freq",
-    "LFO3 Freq",
-    "LFO4 Freq",
-    "LFOAll Freq",
-    "LFO1 Amt",
-    "LFO2 Amt",
-    "LFO3 Amt",
-    "LFO4 Amt",
-    "LFOAll Amt",
-    "FltEnv Amt",
-    "AmpEnv Amt",
-    "Env3 Amt",
-    "EnvAll Amt",
-    "Env1 Attack",
-    "Env2 Attack",
-    "Env3 Attack",
-    "EnvAll Attk",
-    "Env1 Decay",
-    "Env2 Decay",
-    "Env3 Decay",
-    "EnvAll Dcy",
-    "Env1 Release",
-    "Env2 Release",
-    "Env3 Release",
-    "EnvAll Rel",
-    "Mod1 Amt",
-    "Mod2 Amt",
-    "Mod3 Amt",
-    "Mod4 Amt"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_lfo4_sync",
-   "name": "B LFO4 KeySync",
-   "min": 0,
-   "max": 1,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_env3_dest",
-   "name": "B Env3 Dest",
-   "options": [
-    "Off",
-    "Osc1 Freq",
-    "Osc2 Freq",
-    "Osc1&2 Freq",
-    "Osc Mix",
-    "Noise Level",
-    "Osc1 PW",
-    "Osc2 PW",
-    "Osc1&2 PW",
-    "Filter Freq",
-    "Resonance",
-    "Filter AudMod",
-    "VCA Level",
-    "Pan Spread",
-    "LFO1 Freq",
-    "LFO2 Freq",
-    "LFO3 Freq",
-    "LFO4 Freq",
-    "LFOAll Freq",
-    "LFO1 Amt",
-    "LFO2 Amt",
-    "LFO3 Amt",
-    "LFO4 Amt",
-    "LFOAll Amt",
-    "FltEnv Amt",
-    "AmpEnv Amt",
-    "Env3 Amt",
-    "EnvAll Amt",
-    "Env1 Attack",
-    "Env2 Attack",
-    "Env3 Attack",
-    "EnvAll Attk",
-    "Env1 Decay",
-    "Env2 Decay",
-    "Env3 Decay",
-    "EnvAll Dcy",
-    "Env1 Release",
-    "Env2 Release",
-    "Env3 Release",
-    "EnvAll Rel",
-    "Mod1 Amt",
-    "Mod2 Amt",
-    "Mod3 Amt",
-    "Mod4 Amt"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_env3_amt",
-   "name": "B Env3 Amt",
-   "min": 0,
-   "max": 254,
-   "default": 127,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_env3_vel",
-   "name": "B Env3 Velocity",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_env3_delay",
-   "name": "B Env3 Delay",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_env3_a",
-   "name": "B Env3 Attack",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_env3_d",
-   "name": "B Env3 Decay",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_env3_s",
-   "name": "B Env3 Sustain",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_env3_r",
-   "name": "B Env3 Release",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int"
-  },
-  {
-   "key": "b_mod1_src",
-   "name": "B Mod1 Source",
-   "options": [
-    "Off",
-    "Seq 1",
-    "Seq 2",
-    "Seq 3",
-    "Seq 4",
-    "LFO 1",
-    "LFO 2",
-    "LFO 3",
-    "LFO 4",
-    "Filter Env",
-    "Amp Env",
-    "Env 3",
-    "Pitch Bend",
-    "Mod Wheel",
-    "Pressure",
-    "Breath",
-    "Foot",
-    "Expression",
-    "Velocity",
-    "Note Num",
-    "Noise"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_mod1_amt",
-   "name": "B Mod1 Amt",
-   "min": 0,
-   "max": 254,
-   "default": 127,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_mod1_dest",
-   "name": "B Mod1 Dest",
-   "options": [
-    "Off",
-    "Osc1 Freq",
-    "Osc2 Freq",
-    "Osc1&2 Freq",
-    "Osc Mix",
-    "Noise Level",
-    "Osc1 PW",
-    "Osc2 PW",
-    "Osc1&2 PW",
-    "Filter Freq",
-    "Resonance",
-    "Filter AudMod",
-    "VCA Level",
-    "Pan Spread",
-    "LFO1 Freq",
-    "LFO2 Freq",
-    "LFO3 Freq",
-    "LFO4 Freq",
-    "LFOAll Freq",
-    "LFO1 Amt",
-    "LFO2 Amt",
-    "LFO3 Amt",
-    "LFO4 Amt",
-    "LFOAll Amt",
-    "FltEnv Amt",
-    "AmpEnv Amt",
-    "Env3 Amt",
-    "EnvAll Amt",
-    "Env1 Attack",
-    "Env2 Attack",
-    "Env3 Attack",
-    "EnvAll Attk",
-    "Env1 Decay",
-    "Env2 Decay",
-    "Env3 Decay",
-    "EnvAll Dcy",
-    "Env1 Release",
-    "Env2 Release",
-    "Env3 Release",
-    "EnvAll Rel",
-    "Mod1 Amt",
-    "Mod2 Amt",
-    "Mod3 Amt",
-    "Mod4 Amt"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_mod2_src",
-   "name": "B Mod2 Source",
-   "options": [
-    "Off",
-    "Seq 1",
-    "Seq 2",
-    "Seq 3",
-    "Seq 4",
-    "LFO 1",
-    "LFO 2",
-    "LFO 3",
-    "LFO 4",
-    "Filter Env",
-    "Amp Env",
-    "Env 3",
-    "Pitch Bend",
-    "Mod Wheel",
-    "Pressure",
-    "Breath",
-    "Foot",
-    "Expression",
-    "Velocity",
-    "Note Num",
-    "Noise"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_mod2_amt",
-   "name": "B Mod2 Amt",
-   "min": 0,
-   "max": 254,
-   "default": 127,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_mod2_dest",
-   "name": "B Mod2 Dest",
-   "options": [
-    "Off",
-    "Osc1 Freq",
-    "Osc2 Freq",
-    "Osc1&2 Freq",
-    "Osc Mix",
-    "Noise Level",
-    "Osc1 PW",
-    "Osc2 PW",
-    "Osc1&2 PW",
-    "Filter Freq",
-    "Resonance",
-    "Filter AudMod",
-    "VCA Level",
-    "Pan Spread",
-    "LFO1 Freq",
-    "LFO2 Freq",
-    "LFO3 Freq",
-    "LFO4 Freq",
-    "LFOAll Freq",
-    "LFO1 Amt",
-    "LFO2 Amt",
-    "LFO3 Amt",
-    "LFO4 Amt",
-    "LFOAll Amt",
-    "FltEnv Amt",
-    "AmpEnv Amt",
-    "Env3 Amt",
-    "EnvAll Amt",
-    "Env1 Attack",
-    "Env2 Attack",
-    "Env3 Attack",
-    "EnvAll Attk",
-    "Env1 Decay",
-    "Env2 Decay",
-    "Env3 Decay",
-    "EnvAll Dcy",
-    "Env1 Release",
-    "Env2 Release",
-    "Env3 Release",
-    "EnvAll Rel",
-    "Mod1 Amt",
-    "Mod2 Amt",
-    "Mod3 Amt",
-    "Mod4 Amt"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_mod3_src",
-   "name": "B Mod3 Source",
-   "options": [
-    "Off",
-    "Seq 1",
-    "Seq 2",
-    "Seq 3",
-    "Seq 4",
-    "LFO 1",
-    "LFO 2",
-    "LFO 3",
-    "LFO 4",
-    "Filter Env",
-    "Amp Env",
-    "Env 3",
-    "Pitch Bend",
-    "Mod Wheel",
-    "Pressure",
-    "Breath",
-    "Foot",
-    "Expression",
-    "Velocity",
-    "Note Num",
-    "Noise"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_mod3_amt",
-   "name": "B Mod3 Amt",
-   "min": 0,
-   "max": 254,
-   "default": 127,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_mod3_dest",
-   "name": "B Mod3 Dest",
-   "options": [
-    "Off",
-    "Osc1 Freq",
-    "Osc2 Freq",
-    "Osc1&2 Freq",
-    "Osc Mix",
-    "Noise Level",
-    "Osc1 PW",
-    "Osc2 PW",
-    "Osc1&2 PW",
-    "Filter Freq",
-    "Resonance",
-    "Filter AudMod",
-    "VCA Level",
-    "Pan Spread",
-    "LFO1 Freq",
-    "LFO2 Freq",
-    "LFO3 Freq",
-    "LFO4 Freq",
-    "LFOAll Freq",
-    "LFO1 Amt",
-    "LFO2 Amt",
-    "LFO3 Amt",
-    "LFO4 Amt",
-    "LFOAll Amt",
-    "FltEnv Amt",
-    "AmpEnv Amt",
-    "Env3 Amt",
-    "EnvAll Amt",
-    "Env1 Attack",
-    "Env2 Attack",
-    "Env3 Attack",
-    "EnvAll Attk",
-    "Env1 Decay",
-    "Env2 Decay",
-    "Env3 Decay",
-    "EnvAll Dcy",
-    "Env1 Release",
-    "Env2 Release",
-    "Env3 Release",
-    "EnvAll Rel",
-    "Mod1 Amt",
-    "Mod2 Amt",
-    "Mod3 Amt",
-    "Mod4 Amt"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_mod4_src",
-   "name": "B Mod4 Source",
-   "options": [
-    "Off",
-    "Seq 1",
-    "Seq 2",
-    "Seq 3",
-    "Seq 4",
-    "LFO 1",
-    "LFO 2",
-    "LFO 3",
-    "LFO 4",
-    "Filter Env",
-    "Amp Env",
-    "Env 3",
-    "Pitch Bend",
-    "Mod Wheel",
-    "Pressure",
-    "Breath",
-    "Foot",
-    "Expression",
-    "Velocity",
-    "Note Num",
-    "Noise"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_mod4_amt",
-   "name": "B Mod4 Amt",
-   "min": 0,
-   "max": 254,
-   "default": 127,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_mod4_dest",
-   "name": "B Mod4 Dest",
-   "options": [
-    "Off",
-    "Osc1 Freq",
-    "Osc2 Freq",
-    "Osc1&2 Freq",
-    "Osc Mix",
-    "Noise Level",
-    "Osc1 PW",
-    "Osc2 PW",
-    "Osc1&2 PW",
-    "Filter Freq",
-    "Resonance",
-    "Filter AudMod",
-    "VCA Level",
-    "Pan Spread",
-    "LFO1 Freq",
-    "LFO2 Freq",
-    "LFO3 Freq",
-    "LFO4 Freq",
-    "LFOAll Freq",
-    "LFO1 Amt",
-    "LFO2 Amt",
-    "LFO3 Amt",
-    "LFO4 Amt",
-    "LFOAll Amt",
-    "FltEnv Amt",
-    "AmpEnv Amt",
-    "Env3 Amt",
-    "EnvAll Amt",
-    "Env1 Attack",
-    "Env2 Attack",
-    "Env3 Attack",
-    "EnvAll Attk",
-    "Env1 Decay",
-    "Env2 Decay",
-    "Env3 Decay",
-    "EnvAll Dcy",
-    "Env1 Release",
-    "Env2 Release",
-    "Env3 Release",
-    "EnvAll Rel",
-    "Mod1 Amt",
-    "Mod2 Amt",
-    "Mod3 Amt",
-    "Mod4 Amt"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_seq1_dest",
-   "name": "B Seq1 Dest",
-   "options": [
-    "Off",
-    "Osc1 Freq",
-    "Osc2 Freq",
-    "Osc1&2 Freq",
-    "Osc Mix",
-    "Noise Level",
-    "Osc1 PW",
-    "Osc2 PW",
-    "Osc1&2 PW",
-    "Filter Freq",
-    "Resonance",
-    "Filter AudMod",
-    "VCA Level",
-    "Pan Spread",
-    "LFO1 Freq",
-    "LFO2 Freq",
-    "LFO3 Freq",
-    "LFO4 Freq",
-    "LFOAll Freq",
-    "LFO1 Amt",
-    "LFO2 Amt",
-    "LFO3 Amt",
-    "LFO4 Amt",
-    "LFOAll Amt",
-    "FltEnv Amt",
-    "AmpEnv Amt",
-    "Env3 Amt",
-    "EnvAll Amt",
-    "Env1 Attack",
-    "Env2 Attack",
-    "Env3 Attack",
-    "EnvAll Attk",
-    "Env1 Decay",
-    "Env2 Decay",
-    "Env3 Decay",
-    "EnvAll Dcy",
-    "Env1 Release",
-    "Env2 Release",
-    "Env3 Release",
-    "EnvAll Rel",
-    "Mod1 Amt",
-    "Mod2 Amt",
-    "Mod3 Amt",
-    "Mod4 Amt"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_seq2_dest",
-   "name": "B Seq2 Dest",
-   "options": [
-    "Off",
-    "Osc1 Freq",
-    "Osc2 Freq",
-    "Osc1&2 Freq",
-    "Osc Mix",
-    "Noise Level",
-    "Osc1 PW",
-    "Osc2 PW",
-    "Osc1&2 PW",
-    "Filter Freq",
-    "Resonance",
-    "Filter AudMod",
-    "VCA Level",
-    "Pan Spread",
-    "LFO1 Freq",
-    "LFO2 Freq",
-    "LFO3 Freq",
-    "LFO4 Freq",
-    "LFOAll Freq",
-    "LFO1 Amt",
-    "LFO2 Amt",
-    "LFO3 Amt",
-    "LFO4 Amt",
-    "LFOAll Amt",
-    "FltEnv Amt",
-    "AmpEnv Amt",
-    "Env3 Amt",
-    "EnvAll Amt",
-    "Env1 Attack",
-    "Env2 Attack",
-    "Env3 Attack",
-    "EnvAll Attk",
-    "Env1 Decay",
-    "Env2 Decay",
-    "Env3 Decay",
-    "EnvAll Dcy",
-    "Env1 Release",
-    "Env2 Release",
-    "Env3 Release",
-    "EnvAll Rel",
-    "Mod1 Amt",
-    "Mod2 Amt",
-    "Mod3 Amt",
-    "Mod4 Amt"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_seq3_dest",
-   "name": "B Seq3 Dest",
-   "options": [
-    "Off",
-    "Osc1 Freq",
-    "Osc2 Freq",
-    "Osc1&2 Freq",
-    "Osc Mix",
-    "Noise Level",
-    "Osc1 PW",
-    "Osc2 PW",
-    "Osc1&2 PW",
-    "Filter Freq",
-    "Resonance",
-    "Filter AudMod",
-    "VCA Level",
-    "Pan Spread",
-    "LFO1 Freq",
-    "LFO2 Freq",
-    "LFO3 Freq",
-    "LFO4 Freq",
-    "LFOAll Freq",
-    "LFO1 Amt",
-    "LFO2 Amt",
-    "LFO3 Amt",
-    "LFO4 Amt",
-    "LFOAll Amt",
-    "FltEnv Amt",
-    "AmpEnv Amt",
-    "Env3 Amt",
-    "EnvAll Amt",
-    "Env1 Attack",
-    "Env2 Attack",
-    "Env3 Attack",
-    "EnvAll Attk",
-    "Env1 Decay",
-    "Env2 Decay",
-    "Env3 Decay",
-    "EnvAll Dcy",
-    "Env1 Release",
-    "Env2 Release",
-    "Env3 Release",
-    "EnvAll Rel",
-    "Mod1 Amt",
-    "Mod2 Amt",
-    "Mod3 Amt",
-    "Mod4 Amt"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_seq4_dest",
-   "name": "B Seq4 Dest",
-   "options": [
-    "Off",
-    "Osc1 Freq",
-    "Osc2 Freq",
-    "Osc1&2 Freq",
-    "Osc Mix",
-    "Noise Level",
-    "Osc1 PW",
-    "Osc2 PW",
-    "Osc1&2 PW",
-    "Filter Freq",
-    "Resonance",
-    "Filter AudMod",
-    "VCA Level",
-    "Pan Spread",
-    "LFO1 Freq",
-    "LFO2 Freq",
-    "LFO3 Freq",
-    "LFO4 Freq",
-    "LFOAll Freq",
-    "LFO1 Amt",
-    "LFO2 Amt",
-    "LFO3 Amt",
-    "LFO4 Amt",
-    "LFOAll Amt",
-    "FltEnv Amt",
-    "AmpEnv Amt",
-    "Env3 Amt",
-    "EnvAll Amt",
-    "Env1 Attack",
-    "Env2 Attack",
-    "Env3 Attack",
-    "EnvAll Attk",
-    "Env1 Decay",
-    "Env2 Decay",
-    "Env3 Decay",
-    "EnvAll Dcy",
-    "Env1 Release",
-    "Env2 Release",
-    "Env3 Release",
-    "EnvAll Rel",
-    "Mod1 Amt",
-    "Mod2 Amt",
-    "Mod3 Amt",
-    "Mod4 Amt"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_wheel_amt",
-   "name": "B ModWheel Amt",
-   "min": 0,
-   "max": 254,
-   "default": 127,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_wheel_dest",
-   "name": "B ModWheel Dest",
-   "options": [
-    "Off",
-    "Osc1 Freq",
-    "Osc2 Freq",
-    "Osc1&2 Freq",
-    "Osc Mix",
-    "Noise Level",
-    "Osc1 PW",
-    "Osc2 PW",
-    "Osc1&2 PW",
-    "Filter Freq",
-    "Resonance",
-    "Filter AudMod",
-    "VCA Level",
-    "Pan Spread",
-    "LFO1 Freq",
-    "LFO2 Freq",
-    "LFO3 Freq",
-    "LFO4 Freq",
-    "LFOAll Freq",
-    "LFO1 Amt",
-    "LFO2 Amt",
-    "LFO3 Amt",
-    "LFO4 Amt",
-    "LFOAll Amt",
-    "FltEnv Amt",
-    "AmpEnv Amt",
-    "Env3 Amt",
-    "EnvAll Amt",
-    "Env1 Attack",
-    "Env2 Attack",
-    "Env3 Attack",
-    "EnvAll Attk",
-    "Env1 Decay",
-    "Env2 Decay",
-    "Env3 Decay",
-    "EnvAll Dcy",
-    "Env1 Release",
-    "Env2 Release",
-    "Env3 Release",
-    "EnvAll Rel",
-    "Mod1 Amt",
-    "Mod2 Amt",
-    "Mod3 Amt",
-    "Mod4 Amt"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_press_amt",
-   "name": "B Pressure Amt",
-   "min": 0,
-   "max": 254,
-   "default": 127,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_press_dest",
-   "name": "B Pressure Dest",
-   "options": [
-    "Off",
-    "Osc1 Freq",
-    "Osc2 Freq",
-    "Osc1&2 Freq",
-    "Osc Mix",
-    "Noise Level",
-    "Osc1 PW",
-    "Osc2 PW",
-    "Osc1&2 PW",
-    "Filter Freq",
-    "Resonance",
-    "Filter AudMod",
-    "VCA Level",
-    "Pan Spread",
-    "LFO1 Freq",
-    "LFO2 Freq",
-    "LFO3 Freq",
-    "LFO4 Freq",
-    "LFOAll Freq",
-    "LFO1 Amt",
-    "LFO2 Amt",
-    "LFO3 Amt",
-    "LFO4 Amt",
-    "LFOAll Amt",
-    "FltEnv Amt",
-    "AmpEnv Amt",
-    "Env3 Amt",
-    "EnvAll Amt",
-    "Env1 Attack",
-    "Env2 Attack",
-    "Env3 Attack",
-    "EnvAll Attk",
-    "Env1 Decay",
-    "Env2 Decay",
-    "Env3 Decay",
-    "EnvAll Dcy",
-    "Env1 Release",
-    "Env2 Release",
-    "Env3 Release",
-    "EnvAll Rel",
-    "Mod1 Amt",
-    "Mod2 Amt",
-    "Mod3 Amt",
-    "Mod4 Amt"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_breath_amt",
-   "name": "B Breath Amt",
-   "min": 0,
-   "max": 254,
-   "default": 127,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_breath_dest",
-   "name": "B Breath Dest",
-   "options": [
-    "Off",
-    "Osc1 Freq",
-    "Osc2 Freq",
-    "Osc1&2 Freq",
-    "Osc Mix",
-    "Noise Level",
-    "Osc1 PW",
-    "Osc2 PW",
-    "Osc1&2 PW",
-    "Filter Freq",
-    "Resonance",
-    "Filter AudMod",
-    "VCA Level",
-    "Pan Spread",
-    "LFO1 Freq",
-    "LFO2 Freq",
-    "LFO3 Freq",
-    "LFO4 Freq",
-    "LFOAll Freq",
-    "LFO1 Amt",
-    "LFO2 Amt",
-    "LFO3 Amt",
-    "LFO4 Amt",
-    "LFOAll Amt",
-    "FltEnv Amt",
-    "AmpEnv Amt",
-    "Env3 Amt",
-    "EnvAll Amt",
-    "Env1 Attack",
-    "Env2 Attack",
-    "Env3 Attack",
-    "EnvAll Attk",
-    "Env1 Decay",
-    "Env2 Decay",
-    "Env3 Decay",
-    "EnvAll Dcy",
-    "Env1 Release",
-    "Env2 Release",
-    "Env3 Release",
-    "EnvAll Rel",
-    "Mod1 Amt",
-    "Mod2 Amt",
-    "Mod3 Amt",
-    "Mod4 Amt"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_vel_amt",
-   "name": "B Velocity Amt",
-   "min": 0,
-   "max": 254,
-   "default": 127,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_vel_dest",
-   "name": "B Velocity Dest",
-   "options": [
-    "Off",
-    "Osc1 Freq",
-    "Osc2 Freq",
-    "Osc1&2 Freq",
-    "Osc Mix",
-    "Noise Level",
-    "Osc1 PW",
-    "Osc2 PW",
-    "Osc1&2 PW",
-    "Filter Freq",
-    "Resonance",
-    "Filter AudMod",
-    "VCA Level",
-    "Pan Spread",
-    "LFO1 Freq",
-    "LFO2 Freq",
-    "LFO3 Freq",
-    "LFO4 Freq",
-    "LFOAll Freq",
-    "LFO1 Amt",
-    "LFO2 Amt",
-    "LFO3 Amt",
-    "LFO4 Amt",
-    "LFOAll Amt",
-    "FltEnv Amt",
-    "AmpEnv Amt",
-    "Env3 Amt",
-    "EnvAll Amt",
-    "Env1 Attack",
-    "Env2 Attack",
-    "Env3 Attack",
-    "EnvAll Attk",
-    "Env1 Decay",
-    "Env2 Decay",
-    "Env3 Decay",
-    "EnvAll Dcy",
-    "Env1 Release",
-    "Env2 Release",
-    "Env3 Release",
-    "EnvAll Rel",
-    "Mod1 Amt",
-    "Mod2 Amt",
-    "Mod3 Amt",
-    "Mod4 Amt"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_foot_amt",
-   "name": "B Foot Amt",
-   "min": 0,
-   "max": 254,
-   "default": 127,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_foot_dest",
-   "name": "B Foot Dest",
-   "options": [
-    "Off",
-    "Osc1 Freq",
-    "Osc2 Freq",
-    "Osc1&2 Freq",
-    "Osc Mix",
-    "Noise Level",
-    "Osc1 PW",
-    "Osc2 PW",
-    "Osc1&2 PW",
-    "Filter Freq",
-    "Resonance",
-    "Filter AudMod",
-    "VCA Level",
-    "Pan Spread",
-    "LFO1 Freq",
-    "LFO2 Freq",
-    "LFO3 Freq",
-    "LFO4 Freq",
-    "LFOAll Freq",
-    "LFO1 Amt",
-    "LFO2 Amt",
-    "LFO3 Amt",
-    "LFO4 Amt",
-    "LFOAll Amt",
-    "FltEnv Amt",
-    "AmpEnv Amt",
-    "Env3 Amt",
-    "EnvAll Amt",
-    "Env1 Attack",
-    "Env2 Attack",
-    "Env3 Attack",
-    "EnvAll Attk",
-    "Env1 Decay",
-    "Env2 Decay",
-    "Env3 Decay",
-    "EnvAll Dcy",
-    "Env1 Release",
-    "Env2 Release",
-    "Env3 Release",
-    "EnvAll Rel",
-    "Mod1 Amt",
-    "Mod2 Amt",
-    "Mod3 Amt",
-    "Mod4 Amt"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_tempo",
-   "name": "B BPM",
-   "min": 30,
-   "max": 250,
-   "default": 120,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_clock_div",
-   "name": "B Clock Div",
-   "options": [
-    "Half",
-    "Quarter",
-    "Eighth",
-    "8 half",
-    "8 swing",
-    "8 trip",
-    "16th",
-    "16 half",
-    "16 swing",
-    "16 trip",
-    "32nd",
-    "32 trip",
-    "64 trip"
-   ],
-   "default": 2
-  },
-  {
-   "key": "b_bend_range",
-   "name": "B Bend Range",
-   "min": 0,
-   "max": 12,
-   "default": 4,
-   "display": "int"
-  },
-  {
-   "key": "b_seq_trig",
-   "name": "B Seq Trigger",
-   "options": [
-    "Normal",
-    "Normal NoRst",
-    "No Gate",
-    "NoGate NoRst",
-    "Key Step"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_unison_mode",
-   "name": "B Unison Mode",
-   "options": [
-    "1 Voice",
-    "All Voices",
-    "Detune 1",
-    "Detune 2",
-    "Detune 3"
-   ],
-   "default": 2
-  },
-  {
-   "key": "b_key_mode",
-   "name": "B Unison Assign",
-   "options": [
-    "Low",
-    "Low Retrig",
-    "High",
-    "High Retrig",
-    "Last",
-    "Last Retrig"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_arp_mode",
-   "name": "B Arp Mode",
-   "options": [
-    "Up",
-    "Down",
-    "Up/Down",
-    "Assign",
-    "Random",
-    "2 Oct Up",
-    "2 Oct Down",
-    "2 Oct Up/Down",
-    "2 Oct Assign",
-    "2 Oct Random",
-    "3 Oct Up",
-    "3 Oct Down",
-    "3 Oct Up/Down",
-    "3 Oct Assign",
-    "3 Oct Random"
-   ],
-   "default": 0
-  },
-  {
-   "key": "b_env3_repeat",
-   "name": "B Env3 Repeat",
-   "min": 0,
-   "max": 1,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_unison",
-   "name": "B Unison",
-   "min": 0,
-   "max": 1,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_arp",
-   "name": "B Arpeggiator",
-   "min": 0,
-   "max": 1,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "b_gseq",
-   "name": "B Gated Seq",
-   "min": 0,
-   "max": 1,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs1_1",
-   "name": "B Seq1 Step1",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs1_2",
-   "name": "B Seq1 Step2",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs1_3",
-   "name": "B Seq1 Step3",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs1_4",
-   "name": "B Seq1 Step4",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs1_5",
-   "name": "B Seq1 Step5",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs1_6",
-   "name": "B Seq1 Step6",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs1_7",
-   "name": "B Seq1 Step7",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs1_8",
-   "name": "B Seq1 Step8",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs1_9",
-   "name": "B Seq1 Step9",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs1_10",
-   "name": "B Seq1 Step10",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs1_11",
-   "name": "B Seq1 Step11",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs1_12",
-   "name": "B Seq1 Step12",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs1_13",
-   "name": "B Seq1 Step13",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs1_14",
-   "name": "B Seq1 Step14",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs1_15",
-   "name": "B Seq1 Step15",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs1_16",
-   "name": "B Seq1 Step16",
-   "min": 0,
-   "max": 127,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs2_1",
-   "name": "B Seq2 Step1",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs2_2",
-   "name": "B Seq2 Step2",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs2_3",
-   "name": "B Seq2 Step3",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs2_4",
-   "name": "B Seq2 Step4",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs2_5",
-   "name": "B Seq2 Step5",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs2_6",
-   "name": "B Seq2 Step6",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs2_7",
-   "name": "B Seq2 Step7",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs2_8",
-   "name": "B Seq2 Step8",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs2_9",
-   "name": "B Seq2 Step9",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs2_10",
-   "name": "B Seq2 Step10",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs2_11",
-   "name": "B Seq2 Step11",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs2_12",
-   "name": "B Seq2 Step12",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs2_13",
-   "name": "B Seq2 Step13",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs2_14",
-   "name": "B Seq2 Step14",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs2_15",
-   "name": "B Seq2 Step15",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs2_16",
-   "name": "B Seq2 Step16",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs3_1",
-   "name": "B Seq3 Step1",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs3_2",
-   "name": "B Seq3 Step2",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs3_3",
-   "name": "B Seq3 Step3",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs3_4",
-   "name": "B Seq3 Step4",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs3_5",
-   "name": "B Seq3 Step5",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs3_6",
-   "name": "B Seq3 Step6",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs3_7",
-   "name": "B Seq3 Step7",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs3_8",
-   "name": "B Seq3 Step8",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs3_9",
-   "name": "B Seq3 Step9",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs3_10",
-   "name": "B Seq3 Step10",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs3_11",
-   "name": "B Seq3 Step11",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs3_12",
-   "name": "B Seq3 Step12",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs3_13",
-   "name": "B Seq3 Step13",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs3_14",
-   "name": "B Seq3 Step14",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs3_15",
-   "name": "B Seq3 Step15",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs3_16",
-   "name": "B Seq3 Step16",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs4_1",
-   "name": "B Seq4 Step1",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs4_2",
-   "name": "B Seq4 Step2",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs4_3",
-   "name": "B Seq4 Step3",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs4_4",
-   "name": "B Seq4 Step4",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs4_5",
-   "name": "B Seq4 Step5",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs4_6",
-   "name": "B Seq4 Step6",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs4_7",
-   "name": "B Seq4 Step7",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs4_8",
-   "name": "B Seq4 Step8",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs4_9",
-   "name": "B Seq4 Step9",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs4_10",
-   "name": "B Seq4 Step10",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs4_11",
-   "name": "B Seq4 Step11",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs4_12",
-   "name": "B Seq4 Step12",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs4_13",
-   "name": "B Seq4 Step13",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs4_14",
-   "name": "B Seq4 Step14",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs4_15",
-   "name": "B Seq4 Step15",
-   "min": 0,
-   "max": 126,
-   "default": 0,
-   "display": "int",
-   "dynamic_display": true
-  },
-  {
-   "key": "bs4_16",
-   "name": "B Seq4 Step16",
+   "key": "s4_16",
+   "name": "Seq4 Step16",
    "min": 0,
    "max": 126,
    "default": 0,

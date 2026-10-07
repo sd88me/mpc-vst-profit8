@@ -89,10 +89,10 @@ def table():
         for i, (k, n, mx, d, f) in enumerate(BASE):
             T[off + i] = (pre + k, npre + n, mx, d, f)
     for i, k, n, mx, d, f in GLOBAL: T[i] = (k, n, mx, d, f)
-    for layer, off, pre in (("A", 120, "a"), ("B", 320, "b")):
+    for layer, off, pre in (("A", 120, ""), ("B", 320, "b_")):
         for t in range(4):
             for s in range(16):
-                T[off + 16 * t + s] = ("%ss%d_%d" % (pre, t + 1, s + 1), "%s Seq%d Step%d" % (pre.upper(), t + 1, s + 1), 127 if t == 0 else 126, 0, "step%d" % (1 if t == 0 else 2))
+                T[off + 16 * t + s] = ("%ss%d_%d" % (pre, t + 1, s + 1), "%sSeq%d Step%d" % (pre[:1].upper() + (" " if pre else ""), t + 1, s + 1), 127 if t == 0 else 126, 0, "step%d" % (1 if t == 0 else 2))
     return T
 
 T = table()
@@ -113,7 +113,10 @@ EXTRA = [
 def params_json():
     out = []
     for i in sorted(T):
+        if i >= 200 and not (318 <= i < 320) or i >= 320:    # layer B is reached through the edit-layer switch (the same keys, engine side)
+            continue
         key, name, mx, d, fmt = T[i]
+        name = name.replace("A ", "", 1) if name.startswith("A ") else name
         e = {"key": key, "name": name}
         if isinstance(fmt, list):
             e["options"] = fmt

@@ -1,0 +1,32 @@
+/* Profit-8 skin stylesheet (loaded after tools/html_art/default.css of mpc-vst-plugins). Colours come from the theme_* lines.
+ * Cues from the instrument's panel, drawn as our own: a charcoal plate with a soft sheen, thin pale section outlines with caps titles,
+ * black knobs with a white pointer, amber LEDs, a red display in a black bezel. Geometry is never touched. */
+:root { --label-size: 13px; --title-size: 13px; --radius: 6px; --sheen: 0.10; }
+#g > rect:first-child[width="1280"] { fill: transparent; }
+#c:has(#g > rect:first-child[width="1280"]) {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 55% at 35% 0%, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0) 70%),
+    linear-gradient(180deg, #232326 0%, #19191c 100%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.012) 0 1px, rgba(0, 0, 0, 0.02) 1px 3px);
+}
+.frame-border { fill: rgba(255, 255, 255, 0.02); stroke: var(--line); stroke-width: 1.4; rx: 8px; }
+.frame-rule { display: none; }
+.frame-title { font-size: var(--title-size); font-weight: 700; fill: #f2f2f4; letter-spacing: 0.14em; }
+.knob-face { fill: #111113; stroke: #040405; stroke-width: 1; filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.7)); }
+.knob-sheen { opacity: 0.45; }
+.knob-pointer { stroke: #ffffff; stroke-width: 3.2; }
+.knob-track { stroke: rgba(255, 255, 255, 0.10); }
+.knob-arc { stroke: #ff9a1f; opacity: 0.95; }
+.text, .box-label { fill: #f2f2f4; letter-spacing: 0.06em; }
+.look-led-bezel { fill: #0e0e10; stroke: #8d8d96; stroke-width: 1; }
+.look-led { fill: #4a2a06; }
+.on .look-led { fill: #ffa51f; filter: drop-shadow(0 0 6px #ff9a1f); }
+.box { fill: #1a0605; stroke: #8d8d96; stroke-width: 1.1; rx: 5px; }
+.arrow-bg { fill: #bfc0c8; }
+.arrow { fill: #15161a; }
+.dot-bezel { fill: #0c0c0e; }
+.dot-arrow { fill: #bfc0c8; }
+.button-bg { fill: #bfc0c8; }
+.seg-tx { fill: #ffffff; }
+.tile-border { stroke: rgba(255, 255, 255, 0.25); }

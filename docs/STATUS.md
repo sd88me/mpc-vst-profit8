@@ -9,10 +9,21 @@
 - Analog section (shared `analog/mpc_analog.h`): Eco 1x or High 2x (Quality). The filter's self-oscillation tuning compensation from the shared header is applied in both:
   self-oscillation lands within 0.15 semitone of the set cutoff at 1 kHz (test_engine).
 - Tests: `test/test_engine.c` (pitch, self-oscillation, silence after release, all 640 programs of the three banks: none clip, 2 silent) and
-  `tools/test_port.sh vst/vst.json` (all pass but the known wheel-click rounding on a 0-120 range, as Morpho-PE).
+  `tools/test_port.sh vst/vst.json` (all pass but the known wheel-click rounding on a 0-120 range, as Morpho-PE; wrapper fix proposed separately).
+
+- Skin (2026-10-07, offline preview only): 14 pages (program, oscillators, filter/amp, LFOs + envelope 3, mods, controllers, sequence destinations, four sequence pages),
+  charcoal plate, wood cheeks, red display, Q-Link pages per section. One set of controls serves both layers: the plain keys address the layer chosen with EDIT LAYER
+  (`b_` keys are always layer B), so Q-Links follow the visible layer; the layer is part of the saved state.
+- armhf build (`tools/build_port.sh`, 2026-10-07): 116 KB, highest glibc 2.27.
 
 ## Not done
-- The skin and Q-Link pages (an auto-layout only), the device build and bench, state/bank handling on a device.
+- Device: install, bench (docs/BENCH.md), play, save/reload, Q-Links, MPC OS 2.x shape (nothing deployed yet).
 - Drone (VCA level above 0 with no key held) is not modelled: a voice sounds only while gated or releasing.
 - MIDI CC/NRPN parameter control, global parameters (master tune, transpose), MultiMode, the pitch/mod wheel calibration, the second audio output.
 - Envelope time units and stages, glide, LFO table: see FIRMWARE.md section 5-6.
+
+## Skin previews without Docker (2026-10-07)
+Needs Pillow and Playwright 1.56 with its Chromium (`pip install pillow playwright==1.56.0`; on an OS Playwright does not know, set
+`PLAYWRIGHT_HOST_PLATFORM_OVERRIDE=ubuntu24.04-x64`, and unpack `libnspr4 libnss3 libasound2t64` with `apt-get download` + `dpkg -x` and point
+`LD_LIBRARY_PATH` at them if sudo is not available). From `vst/`: `SHADOW_ART=../../mpc-vst-plugins/tools/html_art.py python3 ../../mpc-vst-plugins/tools/gen_vst.py vst.json`,
+then `python3 ../../mpc-vst-plugins/tools/studio.py preview "build/skin/sd88me - VST - Profit-8/Plugin Skins" -o page_%d.png`.

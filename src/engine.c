@@ -603,7 +603,7 @@ static void voice_control(p8_t *s, voice_t *v, int vi) {
 static void voice_audio(p8_t *s, voice_t *v, float *out, int n) {
     int OS = s->os;
     for (int i = 0; i < n; i++) {
-        float tt = (i + 1) / (float)n, ys[2];
+        float tt = (i + 1) / (float)n, ys[2] = {0, 0};
         for (int k = 0; k < OS; k++) {
             float inc1 = v->inc[0] / OS, inc2 = v->inc[1] / OS;
             float o2 = v->shape[1] < 0 ? 0 : ma_osc(v->shape[1], v->ph[1], inc2, v->duty[1]);
@@ -773,6 +773,13 @@ static int find_key(const char *k) {
     for (int i = 0; i < NPATCH; i++) if (PTAB[i].key[0] && !strcmp(PTAB[i].key, k)) return i;
     return -1;
 }
+/* The plugin's controls address the layer being edited (the Edit Layer switch): layer A's keys act on layer B while it is selected.
+ * The b_ keys always mean layer B (SysEx, state). */
+static int find_key_edit(const p8_t *s, const char *k) {
+    int i = find_key(k);
+    if (i >= 0 && s->layer_sel && (i < NBASE || (i >= SEQ_A && i < SEQ_A + 64))) i += B_OFF;
+    return i;
+}
 static void note_name(int v, char *b, int n) {
     static const char *nm[12] = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
     snprintf(b, (size_t)n, "%s%d", nm[v % 12], v / 12 - 2);
@@ -802,9 +809,10 @@ static int format_value(const p8_t *s, int i, char *b, int n) {
 static void p8_set_param(void *h, const char *k, const char *val) {
     p8_t *s = h;
     if (!strcmp(k, "state")) {
-        /* "P8A <bank> <prog> <768 hex digits>" */
-        int b = 0, p = 0, pos = 0;
-        if (sscanf(val, "P8A %d %d %n", &b, &p, &pos) < 2 || pos <= 0) return;
+        /* "P8A <bank> <prog> <layer> <768 hex digits>" */
+        int b = 0, p = 0, ly = 0, pos = 0;
+        if (sscanf(val, "P8A %d %d %d %n", &b, &p, &ly, &pos) < 3 || pos <= 0) return;
+        s->layer_sel = clampi(ly, 0, 1);
         const char *hx = val + pos;
         uint8_t tmp[NPATCH];
         for (int i = 0; i < NPATCH; i++) {
@@ -819,12 +827,12 @@ static void p8_set_param(void *h, const char *k, const char *val) {
         s->display_rev++;
         return;
     }
-    int i = find_key(k);
+    int i = find_key_edit(s, k);
     if (i >= 0) { set_patch_value(s, i, atoi(val)); return; }
     int x = atoi(val);
     if (!strcmp(k, "bank")) { if (x != s->cur_bank && x < s->nbanks) { load_bank(s, x); select_program(s, 0); } }
     else if (!strcmp(k, "program")) { if (x != s->cur_prog) select_program(s, x); }
-    else if (!strcmp(k, "layer")) s->layer_sel = clampi(x, 0, 1);
+    else if (!strcmp(k, "layer")) { s->layer_sel = clampi(x, 0, 1); s->display_rev++; }
     else if (!strcmp(k, "seq_run")) s->seq_run = clampi(x, 0, 2);
     else if (!strcmp(k, "clock_src")) s->clock_src = clampi(x, 0, 1);
     else if (!strcmp(k, "quality")) s->os = clampi(x, 0, 1) == 0 ? 1 : 2;
@@ -835,7 +843,7 @@ static void p8_set_param(void *h, const char *k, const char *val) {
 static int p8_get_param(void *h, const char *k, char *b, int n) {
     p8_t *s = h;
     if (!strcmp(k, "state")) {
-        int o = snprintf(b, (size_t)n, "P8A %d %d ", s->cur_bank, s->cur_prog);
+        int o = snprintf(b, (size_t)n, "P8A %d %d %d ", s->cur_bank, s->cur_prog, s->layer_sel);
         for (int i = 0; i < NPATCH && o + 3 < n; i++) o += snprintf(b + o, (size_t)(n - o), "%02x", s->patch[i]);
         return o + 1;
     }
@@ -844,13 +852,13 @@ static int p8_get_param(void *h, const char *k, char *b, int n) {
     if (kl > 8 && !strcmp(k + kl - 8, "_display")) {
         char base[64];
         snprintf(base, sizeof base, "%.*s", (int)(kl - 8), k);
-        int i = find_key(base);
+        int i = find_key_edit(s, base);
         if (i >= 0) return format_value(s, i, b, n);
         if (!strcmp(base, "bank")) return snprintf(b, (size_t)n, "%d %s", s->cur_bank + 1, s->banks[s->cur_bank].name) + 1;
         if (!strcmp(base, "program")) return snprintf(b, (size_t)n, "%03d", s->cur_prog + 1) + 1;
         return 0;
     }
-    int i = find_key(k);
+    int i = find_key_edit(s, k);
     if (i >= 0) return snprintf(b, (size_t)n, "%d", s->patch[i]) + 1;
     if (!strcmp(k, "bank")) return snprintf(b, (size_t)n, "%d", s->cur_bank) + 1;
     if (!strcmp(k, "program")) return snprintf(b, (size_t)n, "%d", s->cur_prog) + 1;

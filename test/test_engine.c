@@ -69,6 +69,12 @@ int main(int argc, char **argv) {
     CHECK(fabsf(12 * log2f(f / want)) < 1.0f, "self-oscillation at %.1f Hz for cutoff %.1f Hz (%.2f semitones off)", f, want, 12 * log2f(f / want));
     e->midi(h, off, 3);
     e->set_param(h, "lpf_res", "0");
+    /* edit layer: the plain keys address layer B while it is selected */
+    e->set_param(h, "osc1_freq", "30"); e->set_param(h, "layer", "1"); e->set_param(h, "osc1_freq", "77");
+    e->get_param(h, "b_osc1_freq", b, sizeof b); int bv = atoi(b);
+    e->set_param(h, "layer", "0"); e->get_param(h, "osc1_freq", b, sizeof b);
+    CHECK(bv == 77 && atoi(b) == 30, "edit layer routes the keys (B %d, A %d)", bv, atoi(b));
+    e->set_param(h, "osc1_freq", "24");
     /* 3: every program of every bank */
     int nb = 0, silent = 0, loud = 0, progs = 0;
     for (int bank = 0; bank < 64; bank++) {

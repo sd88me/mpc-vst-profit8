@@ -6,6 +6,7 @@
   "so": "profit_8.so",
   "params": "params.json",
   "art": "html",
+  "layout": "layout.conf",
   "defines": {"MODULE_SUBDIR": "\".\"", "HAS_LFO_BPM": 1, "HAS_TRANSPORT": 1, "HAS_DISPLAY_REV": 1, "PARAM_TEXT_MAX": 32},
   "build": {
     "root": "..",
