@@ -16,7 +16,7 @@ def emit(s): OUT.append(s)
 def Y(i): return 92 + 154 * i
 def tab(name):
     emit("\n[tab %s]" % name)
-    emit("art file=images/cheeks.svg x=0 y=92 w=1280 h=628")
+    emit("art file=images/metal.svg x=0 y=92 w=1280 h=628")
 def qlinks(name, keys):
     assert len(keys) <= 16, (name, len(keys))
     emit('qlinks "%s" = %s' % (name, ",".join(keys)))
@@ -73,8 +73,82 @@ WORDMARK = '''<svg xmlns="http://www.w3.org/2000/svg" width="360" height="100" v
 </svg>
 '''
 CHEEKS = '''<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="628" viewBox="0 0 1280 628">
-<defs><linearGradient id="w" x1="0" x2="1"><stop offset="0" stop-color="#6e3a1c"/><stop offset="0.5" stop-color="#8a4b25"/><stop offset="1" stop-color="#5a2f16"/></linearGradient></defs>
-<rect x="0" y="0" width="10" height="628" fill="url(#w)"/><rect x="1270" y="0" width="10" height="628" fill="url(#w)"/>
+<defs>
+<linearGradient id="w" x1="0" x2="1"><stop offset="0" stop-color="#4a230d"/><stop offset="0.45" stop-color="#a0592b"/><stop offset="0.8" stop-color="#7d4220"/><stop offset="1" stop-color="#3a1b09"/></linearGradient>
+</defs>
+<rect x="0" y="0" width="17" height="628" fill="url(#w)"/>
+<rect x="10.3" y="0" width="1.4" height="628" fill="#c27a42" opacity="0.43"/>
+<rect x="14.7" y="0" width="0.6" height="628" fill="#c27a42" opacity="0.43"/>
+<rect x="3.5" y="0" width="0.9" height="628" fill="#c27a42" opacity="0.46"/>
+<rect x="4.9" y="0" width="1.4" height="628" fill="#2c1204" opacity="0.31"/>
+<rect x="6.9" y="0" width="0.6" height="628" fill="#2c1204" opacity="0.38"/>
+<rect x="15.4" y="0" width="0.6" height="628" fill="#2c1204" opacity="0.43"/>
+<rect x="3.6" y="0" width="0.9" height="628" fill="#2c1204" opacity="0.35"/>
+<rect x="14.9" y="0" width="1.4" height="628" fill="#2c1204" opacity="0.49"/>
+<rect x="6.4" y="0" width="0.6" height="628" fill="#2c1204" opacity="0.26"/>
+<rect x="9.7" y="0" width="1.4" height="628" fill="#3a1a08" opacity="0.41"/>
+<rect x="5.7" y="0" width="1.4" height="628" fill="#c27a42" opacity="0.24"/>
+<rect x="5.0" y="0" width="0.6" height="628" fill="#3a1a08" opacity="0.29"/>
+<rect x="7.3" y="0" width="0.9" height="628" fill="#3a1a08" opacity="0.45"/>
+<rect x="10.3" y="0" width="0.6" height="628" fill="#2c1204" opacity="0.42"/>
+<rect x="6.2" y="0" width="0.9" height="628" fill="#3a1a08" opacity="0.26"/>
+<rect x="12.6" y="0" width="0.9" height="628" fill="#c27a42" opacity="0.19"/>
+<rect x="6.2" y="0" width="1.4" height="628" fill="#c27a42" opacity="0.47"/>
+<rect x="9.1" y="0" width="0.9" height="628" fill="#3a1a08" opacity="0.28"/>
+<rect x="3.4" y="0" width="1.4" height="628" fill="#c27a42" opacity="0.50"/>
+<rect x="15.5" y="0" width="1.4" height="628" fill="#c27a42" opacity="0.19"/>
+<rect x="4.9" y="0" width="1.4" height="628" fill="#c27a42" opacity="0.23"/>
+<rect x="12.9" y="0" width="0.9" height="628" fill="#2c1204" opacity="0.22"/>
+<rect x="10.4" y="0" width="0.9" height="628" fill="#2c1204" opacity="0.23"/>
+<rect x="7.3" y="0" width="0.6" height="628" fill="#c27a42" opacity="0.48"/>
+<rect x="8.9" y="0" width="0.9" height="628" fill="#3a1a08" opacity="0.41"/>
+<rect x="7.0" y="0" width="0.6" height="628" fill="#2c1204" opacity="0.30"/>
+<rect x="16" y="0" width="1" height="628" fill="#000" opacity="0.6"/>
+<rect x="1.0" y="0" width="1.5" height="628" fill="#ffd9a8" opacity="0.3"/>
+<rect x="1266" y="0" width="17" height="628" fill="url(#w)"/>
+<rect x="1274.5" y="0" width="0.9" height="628" fill="#c27a42" opacity="0.24"/>
+<rect x="1273.6" y="0" width="1.4" height="628" fill="#c27a42" opacity="0.20"/>
+<rect x="1274.0" y="0" width="0.6" height="628" fill="#c27a42" opacity="0.30"/>
+<rect x="1272.8" y="0" width="1.4" height="628" fill="#3a1a08" opacity="0.27"/>
+<rect x="1274.0" y="0" width="0.6" height="628" fill="#c27a42" opacity="0.36"/>
+<rect x="1272.6" y="0" width="1.4" height="628" fill="#3a1a08" opacity="0.40"/>
+<rect x="1271.1" y="0" width="0.9" height="628" fill="#c27a42" opacity="0.48"/>
+<rect x="1272.4" y="0" width="0.9" height="628" fill="#c27a42" opacity="0.35"/>
+<rect x="1277.0" y="0" width="0.9" height="628" fill="#c27a42" opacity="0.40"/>
+<rect x="1269.1" y="0" width="1.4" height="628" fill="#3a1a08" opacity="0.39"/>
+<rect x="1276.3" y="0" width="1.4" height="628" fill="#c27a42" opacity="0.41"/>
+<rect x="1272.3" y="0" width="1.4" height="628" fill="#2c1204" opacity="0.25"/>
+<rect x="1267.5" y="0" width="0.9" height="628" fill="#2c1204" opacity="0.23"/>
+<rect x="1278.6" y="0" width="0.9" height="628" fill="#2c1204" opacity="0.36"/>
+<rect x="1275.0" y="0" width="0.6" height="628" fill="#3a1a08" opacity="0.25"/>
+<rect x="1271.2" y="0" width="0.9" height="628" fill="#c27a42" opacity="0.46"/>
+<rect x="1278.6" y="0" width="1.4" height="628" fill="#3a1a08" opacity="0.28"/>
+<rect x="1278.4" y="0" width="0.9" height="628" fill="#c27a42" opacity="0.44"/>
+<rect x="1274.7" y="0" width="0.9" height="628" fill="#c27a42" opacity="0.23"/>
+<rect x="1278.5" y="0" width="0.6" height="628" fill="#3a1a08" opacity="0.21"/>
+<rect x="1271.6" y="0" width="0.9" height="628" fill="#3a1a08" opacity="0.47"/>
+<rect x="1277.5" y="0" width="1.4" height="628" fill="#c27a42" opacity="0.32"/>
+<rect x="1272.8" y="0" width="1.4" height="628" fill="#c27a42" opacity="0.30"/>
+<rect x="1274.1" y="0" width="1.4" height="628" fill="#c27a42" opacity="0.34"/>
+<rect x="1278.8" y="0" width="0.9" height="628" fill="#c27a42" opacity="0.23"/>
+<rect x="1278.5" y="0" width="0.6" height="628" fill="#c27a42" opacity="0.19"/>
+<rect x="1263.0" y="0" width="1" height="628" fill="#000" opacity="0.6"/>
+<rect x="1277.5" y="0" width="1.5" height="628" fill="#ffd9a8" opacity="0.3"/>
+</svg>
+'''
+METAL = '''<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="628" viewBox="0 0 1280 628">
+<defs>
+<linearGradient id="b" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2a2a2e"/><stop offset="0.5" stop-color="#18181b"/><stop offset="1" stop-color="#101012"/></linearGradient>
+<linearGradient id="s" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.28" stop-color="#fff" stop-opacity="0.07"/><stop offset="0.5" stop-color="#fff" stop-opacity="0"/><stop offset="0.78" stop-color="#fff" stop-opacity="0.05"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<filter id="br" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.0035 0.9" numOctaves="3" seed="3"/>
+<feColorMatrix values="0 0 0 0 0.85  0 0 0 0 0.85  0 0 0 0 0.9  1.3 0 0 0 -0.52"/></filter>
+<filter id="br2" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.01 0.35" numOctaves="2" seed="11"/>
+<feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 1.6 0 0 -0.62"/></filter>
+</defs>
+<rect width="1280" height="628" fill="url(#b)"/>
+<rect width="1280" height="628" filter="url(#br)" opacity="0.38"/>
+<rect width="1280" height="628" filter="url(#br2)" opacity="0.45"/>
+<rect width="1280" height="628" fill="url(#s)"/>
 </svg>
 '''
 
@@ -82,10 +156,8 @@ def main():
     emit(HEADER)
     tab("PROGRAM")
     emit('frame x=10 y=92 w=1260 h=146 title="PROGRAM"')
-    for x, label, key in ((20, "PROGRAM", "program"), (650, "BANK", "bank")):
-        emit('stepper style=dotmatrix cx=%d cy=190 w=280 h=48 label="%s" key=%s' % (x + 150, label, key))
-    emit('readout style=dotmatrix cx=470 cy=190 w=320 h=48 label="" key=patch_name')
-    emit('readout style=dotmatrix cx=1095 cy=190 w=320 h=48 label="" key=bank_name')
+    emit('stepper style=dotmatrix cx=330 cy=190 w=560 h=48 label="PROGRAM" key=program get=patch_name prev=program_prev next=program_next persistent=1')
+    emit('stepper style=dotmatrix cx=960 cy=190 w=560 h=48 label="BANK" key=bank get=bank_name prev=bank_prev next=bank_next persistent=1')
     kb = section(10, Y(1), "KEYBOARD", [[("EDIT LAYER", "^layer"), ("KEYBOARD", "^kbd_mode"), ("SPLIT POINT", "split_point"),
                                          ("UNISON", "~unison"), ("UNISON MODE", "^unison_mode"), ("UNISON ASSIGN", "^key_mode")]])
     emit('art file=images/wordmark.svg x=870 y=%d w=360 h=100' % (Y(1) + 20))
@@ -99,6 +171,16 @@ def main():
     qlinks("Program", ["program", "bank", "layer", "kbd_mode", "split_point", "unison", "unison_mode", "key_mode",
                        "voice_vol", "slop", "glide_mode", "bend_range", "arp", "arp_mode", "gseq", "tempo"])
     qlinks("Seq", ["gseq", "seq_trig", "clock_div", "arp_mode", "osc1_key", "osc2_key", "clock_src", "quality"])
+
+    tab("BANKS")
+    emit('stepper cx=236 cy=128 w=400 h=50 label="" key=browse_bank_index prev=prev_browse_bank next=next_browse_bank get=browse_bank_name style=dotmatrix')
+    emit('stepper cx=677 cy=128 w=450 h=50 label="" key=program get=patch_name prev=program_prev next=program_next style=dotmatrix')
+    emit('stepper cx=1082 cy=128 w=324 h=50 label="" key=patch_page_index prev=patch_page_prev next=patch_page_next get=patch_page_text style=dotmatrix')
+    emit('frame x=36 y=168 w=560 h=544 title="BANKS"')
+    emit('list x=56 y=220 w=520 h=467 cols=2 rows=11 gap=6 th=37 key=bank_slot order=cols')
+    emit('frame x=612 y=168 w=632 h=544 title="PROGRAMS"')
+    emit('list x=632 y=220 w=592 h=472 cols=2 rows=14 gap=4 th=30 key=patch_slot order=cols')
+    qlinks("Banks", ["browse_bank_index", "program", "patch_page_prev", "patch_page_next"])
 
     tab("OSC")
     o1 = section(10, Y(0), "OSCILLATOR 1", [[("FREQUENCY", "osc1_freq"), ("FINE", "osc1_fine"), ("SHAPE/PW", "osc1_shape"), ("GLIDE", "osc1_glide"),
@@ -153,9 +235,18 @@ def main():
             qlinks("Seq %d" % t, keys)
 
     os.makedirs(os.path.join(VST, "images"), exist_ok=True)
-    open(os.path.join(VST, "layout.conf"), "w").write("\n".join(OUT) + "\n")
+    # the cheeks go last on each page, over the edge of the sections
+    lines, res = [], []
+    for ln in OUT:
+        for sub in ln.split("\n"):
+            if sub.startswith("[tab") and lines: res.append("art file=images/cheeks.svg x=0 y=92 w=1280 h=628")
+            res.append(sub)
+            lines.append(sub)
+    res.append("art file=images/cheeks.svg x=0 y=92 w=1280 h=628")
+    open(os.path.join(VST, "layout.conf"), "w").write("\n".join(res) + "\n")
     open(os.path.join(VST, "images", "wordmark.svg"), "w").write(WORDMARK)
     open(os.path.join(VST, "images", "cheeks.svg"), "w").write(CHEEKS)
+    open(os.path.join(VST, "images", "metal.svg"), "w").write(METAL)
 
 if __name__ == "__main__":
     main()

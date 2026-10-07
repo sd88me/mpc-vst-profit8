@@ -3,13 +3,7 @@
  * black knobs with a white pointer, amber LEDs, a red display in a black bezel. Geometry is never touched. */
 :root { --label-size: 13px; --title-size: 13px; --radius: 6px; --sheen: 0.10; }
 #g > rect:first-child[width="1280"] { fill: transparent; }
-#c:has(#g > rect:first-child[width="1280"]) {
-  background-color: var(--bg);
-  background-image:
-    radial-gradient(ellipse 80% 55% at 35% 0%, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0) 70%),
-    linear-gradient(180deg, #232326 0%, #19191c 100%),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.012) 0 1px, rgba(0, 0, 0, 0.02) 1px 3px);
-}
+#c:has(#g > rect:first-child[width="1280"]) { background-color: #131315; }
 .frame-border { fill: rgba(255, 255, 255, 0.02); stroke: var(--line); stroke-width: 1.4; rx: 8px; }
 .frame-rule { display: none; }
 .frame-title { font-size: var(--title-size); font-weight: 700; fill: #f2f2f4; letter-spacing: 0.14em; }

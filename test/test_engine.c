@@ -75,6 +75,27 @@ int main(int argc, char **argv) {
     e->set_param(h, "layer", "0"); e->get_param(h, "osc1_freq", b, sizeof b);
     CHECK(bv == 77 && atoi(b) == 30, "edit layer routes the keys (B %d, A %d)", bv, atoi(b));
     e->set_param(h, "osc1_freq", "24");
+    /* banks page: browse a bank without loading, then tap a program tile */
+    e->set_param(h, "bank", "0"); e->set_param(h, "program", "0");
+    e->set_param(h, "bank_slot_2", "1");
+    e->get_param(h, "browse_bank_index", b, sizeof b); int bb = atoi(b);
+    e->get_param(h, "bank", b, sizeof b); int cb = atoi(b);
+    CHECK(bb == 1 && cb == 0, "bank tile browses without loading (browse %d, loaded %d)", bb, cb);
+    e->get_param(h, "bank_slot_2", b, sizeof b);
+    printf("     bank tile 2: %s\n", b);
+    e->set_param(h, "patch_page_next", "1");
+    e->get_param(h, "patch_slot_3", b, sizeof b);
+    printf("     page 2 tile 3: %s\n", b);
+    e->set_param(h, "patch_slot_3", "1");
+    e->get_param(h, "bank", b, sizeof b); cb = atoi(b);
+    e->get_param(h, "program", b, sizeof b);
+    CHECK(cb == 1 && atoi(b) == 30, "program tile loads (bank %d, program %d)", cb, atoi(b));
+    e->get_param(h, "patch_slot_3_on", b, sizeof b);
+    CHECK(atoi(b) == 1, "loaded tile reads on");
+    e->set_param(h, "next_browse_bank", "1");
+    e->get_param(h, "browse_bank_index", b, sizeof b);
+    CHECK(atoi(b) == 2, "next browse bank steps (%s)", b);
+    e->set_param(h, "bank", "0"); e->set_param(h, "program", "0");
     /* 3: every program of every bank */
     int nb = 0, silent = 0, loud = 0, progs = 0;
     for (int bank = 0; bank < 64; bank++) {

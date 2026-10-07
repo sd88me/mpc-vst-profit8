@@ -11,7 +11,8 @@
 - Tests: `test/test_engine.c` (pitch, self-oscillation, silence after release, all 640 programs of the three banks: none clip, 2 silent) and
   `tools/test_port.sh vst/vst.json` (all pass but the known wheel-click rounding on a 0-120 range, as Morpho-PE; wrapper fix proposed separately).
 
-- Skin (2026-10-07, offline preview only): 14 pages (program, oscillators, filter/amp, LFOs + envelope 3, mods, controllers, sequence destinations, four sequence pages),
+- Banks page (2026-10-07, like the JV-880 port; offline): browse stepper (data wheel / Q-Link / arrows), 2 x 11 bank list (22 banks a window, follows the browsed bank), 2 x 14 program list with 5 pages; a bank tile only browses, a program tile loads it (bank and program follow the cursor). Q-Links: browse bank, program, page -, page +. `test_engine` covers it; tile text is live, so previews show empty tiles.
+- Skin (2026-10-07, offline preview only): 15 pages, brushed black metal plate and wood cheeks (`images/metal.svg`, `cheeks.svg`, drawn by `tools/gen_layout.py`) (program, oscillators, filter/amp, LFOs + envelope 3, mods, controllers, sequence destinations, four sequence pages),
   charcoal plate, wood cheeks, red display, Q-Link pages per section. One set of controls serves both layers: the plain keys address the layer chosen with EDIT LAYER
   (`b_` keys are always layer B), so Q-Links follow the visible layer; the layer is part of the saved state.
 - armhf build (`tools/build_port.sh`, 2026-10-07): 116 KB, highest glibc 2.27.
