@@ -22,3 +22,6 @@ sounds or waves, and the analog sound is a model (`analog/`, shared with Morpho-
 `tools/make_layout.sh` regenerates the parameter tables; `../mpc-vst-plugins/tools/test_port.sh vst/vst.json` is the host test;
 `gcc -O2 -Isrc -Ianalog -I../mpc-vst-plugins/wrapper test/test_engine.c src/engine.c src/curves.c src/syx.c -lm && ./a.out DIR` runs the engine test
 (DIR holds a `Preset Banks` folder with your own `.syx` files).
+
+## Credits
+The wordmark's letter outlines come from the font Almendra (SIL Open Font License 1.1, Ana Sanfelippo, via Google Fonts), converted to paths by `tools/make_wordmark.py`.

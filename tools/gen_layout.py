@@ -67,7 +67,7 @@ theme_display_bezel=0c0c0e
 theme_lcd=1d0504
 art_css=skin.css"""
 
-WORDMARK = '''<svg xmlns="http://www.w3.org/2000/svg" width="360" height="100" viewBox="0 0 360 100">
+_OLD_WORDMARK = '''<svg xmlns="http://www.w3.org/2000/svg" width="360" height="100" viewBox="0 0 360 100">
 <text x="8" y="66" font-family="Titillium Web, sans-serif" font-style="italic" font-weight="700" font-size="58" fill="#f2f2f4">profit<tspan fill="#ff9a1f">'8</tspan></text>
 <text x="10" y="90" font-family="Titillium Web, sans-serif" font-weight="600" font-size="13" letter-spacing="5" fill="#9c9ca6">8 VOICE ANALOG SYNTHESIZER</text>
 </svg>
@@ -160,7 +160,7 @@ def main():
     emit('stepper style=dotmatrix cx=960 cy=190 w=560 h=48 label="BANK" key=bank get=bank_name prev=bank_prev next=bank_next persistent=1')
     kb = section(10, Y(1), "KEYBOARD", [[("EDIT LAYER", "^layer"), ("KEYBOARD", "^kbd_mode"), ("SPLIT POINT", "split_point"),
                                          ("UNISON", "~unison"), ("UNISON MODE", "^unison_mode"), ("UNISON ASSIGN", "^key_mode")]])
-    emit('art file=images/wordmark.svg x=870 y=%d w=360 h=100' % (Y(1) + 20))
+    emit('art file=images/wordmark.svg x=870 y=%d w=360 h=124' % (Y(1) + 10))
     misc = section(10, Y(2), "MISC PARAMETERS", [[("VOICE VOLUME", "voice_vol"), ("OSC 1 KEY", "~osc1_key"), ("OSC 2 KEY", "~osc2_key"),
                                                   ("OSC SLOP", "slop"), ("GLIDE MODE", "^glide_mode"), ("PITCH BEND", "bend_range")]])
     sysm = section(855, Y(2), "SYSTEM", [[("CLOCK", "^clock_src"), ("QUALITY", "^quality"), ("SEQ RUN", "^seq_run")]])
@@ -244,7 +244,7 @@ def main():
             lines.append(sub)
     res.append("art file=images/cheeks.svg x=0 y=92 w=1280 h=628")
     open(os.path.join(VST, "layout.conf"), "w").write("\n".join(res) + "\n")
-    open(os.path.join(VST, "images", "wordmark.svg"), "w").write(WORDMARK)
+    
     open(os.path.join(VST, "images", "cheeks.svg"), "w").write(CHEEKS)
     open(os.path.join(VST, "images", "metal.svg"), "w").write(METAL)
 
