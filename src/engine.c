@@ -26,7 +26,8 @@
 #define DT (CTL / FS)
 #define MAXBANKS 64
 #define PATHLEN 512
-#define BANKDIR "Preset Banks"
+#define BANKDIR "Preset_Banks"      /* no space: the release installer keeps this folder across upgrades and does not accept spaces */
+#define BANKDIR_ALT "Preset Banks"  /* also scanned */
 
 /* Depth of each destination at full source and amount: the destination's own parameter range (docs/FIRMWARE.md section 9: an
  * assumption that matches the filter, whose envelope amount of +127 sweeps its whole 0-164 range in the factory programs). */
@@ -690,6 +691,8 @@ static void *p8_create(const char *dir) {
         char sub[PATHLEN];
         snprintf(sub, sizeof sub, "%s/" BANKDIR, dir);
         mkdir(sub, 0755);
+        scan_dir(s, sub);
+        snprintf(sub, sizeof sub, "%s/" BANKDIR_ALT, dir);
         scan_dir(s, sub);
         scan_dir(s, dir);
     }

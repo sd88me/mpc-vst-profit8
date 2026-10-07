@@ -1,5 +1,5 @@
 /* Offline engine test: gcc -O2 -fsanitize=address,undefined -Isrc -Ianalog -I../mpc-vst-plugins/wrapper test/test_engine.c src/engine.c src/curves.c src/syx.c -lm
- * usage: test_engine [DIR]   DIR holds "Preset Banks" (default: ./testdata); every program of every bank is played. */
+ * usage: test_engine [DIR]   DIR holds "Preset_Banks" (default: ./testdata); every program of every bank is played. */
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>

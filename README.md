@@ -10,7 +10,7 @@ instrument's own 384 bytes, so its program and bank SysEx dumps (including the f
 **Status: development build** (docs/STATUS.md): engine and tests offline, no skin yet, not tested on a device.
 
 ## Preset banks
-The plugin makes a folder called `Preset Banks` inside its own folder on first load. Put `.syx` files there (program dumps or bank dumps from the instrument,
+The plugin makes a folder called `Preset_Banks` inside its own folder on first load. Put `.syx` files there (a folder named `Preset Banks` is read too) (program dumps or bank dumps from the instrument,
 including the factory banks `Prophet_08_Programs_v1.0.syx`, which DSI publishes). Each bank in a file becomes a bank on the program page, named after the file.
 No factory programs are shipped.
 
@@ -21,7 +21,7 @@ sounds or waves, and the analog sound is a model (`analog/`, shared with Morpho-
 ## Building and testing
 `tools/make_layout.sh` regenerates the parameter tables; `../mpc-vst-plugins/tools/test_port.sh vst/vst.json` is the host test;
 `gcc -O2 -Isrc -Ianalog -I../mpc-vst-plugins/wrapper test/test_engine.c src/engine.c src/curves.c src/syx.c -lm && ./a.out DIR` runs the engine test
-(DIR holds a `Preset Banks` folder with your own `.syx` files).
+(DIR holds a `Preset_Banks` folder with your own `.syx` files).
 
 ## Credits
 The wordmark's letter outlines come from the font Almendra (SIL Open Font License 1.1, Ana Sanfelippo, via Google Fonts), converted to paths by `tools/make_wordmark.py`.

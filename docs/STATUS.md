@@ -5,7 +5,7 @@
 - Engine (`src/engine.c`): 8 voices, two layers with normal / stack / split keyboard modes, poly and unison (1 voice, all voices, three detune sets from the
   firmware), per-oscillator glide, sync 2 > 1, analog oscillators (saw, triangle, saw-tri, pulse 0-99 off at the extremes), 2/4-pole OTA lowpass with envelope,
   velocity, key, audio mod, VCA, pan spread, three DADSR envelopes, four LFOs, four mod slots, the five controller routes, the 4 x 16 gated sequencer with all
-  trigger modes, the arpeggiator (five patterns, 1-3 octaves), the bank loader (Preset Banks folder).
+  trigger modes, the arpeggiator (five patterns, 1-3 octaves), the bank loader (Preset_Banks folder).
 - Analog section (shared `analog/mpc_analog.h`): Eco 1x or High 2x (Quality). The filter's self-oscillation tuning compensation from the shared header is applied in both:
   self-oscillation lands within 0.15 semitone of the set cutoff at 1 kHz (test_engine).
 - Tests: `test/test_engine.c` (pitch, self-oscillation, silence after release, all 640 programs of the three banks: none clip, 2 silent) and
@@ -16,6 +16,8 @@
   charcoal plate, wood cheeks, red display, Q-Link pages per section. One set of controls serves both layers: the plain keys address the layer chosen with EDIT LAYER
   (`b_` keys are always layer B), so Q-Links follow the visible layer; the layer is part of the saved state.
 - armhf build (`tools/build_port.sh`, 2026-10-07): 116 KB, highest glibc 2.27.
+
+- Release package (2026-10-07): `Profit-8-0.1.0-mpc-armv7.zip` made with `release.py --id profit-8 --repo sd88me/mpc-vst-profit8 --license MIT --user-data Preset_Banks`; `catalog_check.py --catalog` OK; MPC OS 3.x only (the skin format). Bench on the Force (Eco): WARN, p99 34.0 % (the Q-Link sweep; 8 voices about 15 %). The banks folder is `Preset_Banks` because the installer's user-data path takes no spaces; `Preset Banks` is read too.
 
 ## Not done
 - Device: install, bench (docs/BENCH.md), play, save/reload, Q-Links, MPC OS 2.x shape (nothing deployed yet).

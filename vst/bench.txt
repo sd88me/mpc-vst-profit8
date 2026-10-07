@@ -1,0 +1,1 @@
+{"plugin":"/tmp/profit_8.so","instrument":1,"open_ms":2.3,"p99_pct":34.0,"max_pct":34.4,"threads_pct":0.0,"verdict":"WARN"}

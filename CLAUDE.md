@@ -7,7 +7,7 @@ and `docs/PORTING.md`. Sibling ports to copy from: `../mpc-vst-morpho-PE` (sourc
 Ground rules:
 - Never commit the instrument's OS files, decoded images (`p8_fw.py unpack` output), extracted tables, factory or third-party banks
   (`.syx`), or recordings. The engine's curves are formulas and short breakpoint lists fitted to the firmware (document each fit in
-  docs/FIRMWARE.md); `tools/fw/p8_fw.py` re-derives them from the user's own files. Banks go in the plugin's `Preset Banks` folder at run time.
+  docs/FIRMWARE.md); `tools/fw/p8_fw.py` re-derives them from the user's own files. Banks go in the plugin's `Preset_Banks` folder at run time.
 - No "Prophet", "DSI", "Dave Smith" or "Sequential" in the product name, plugin id or skin art; the README may say what it is modelled
   on, with the disclaimer.
 - `vst/params.json` and `src/patch_tab.h` are generated: edit `tools/gen_patch.py` and run `tools/make_layout.sh`. Parameter order is

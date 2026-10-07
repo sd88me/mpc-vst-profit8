@@ -1,8 +1,9 @@
 SYSEX/
-Preset Banks/
+Preset_Banks/
 testdata/
 *.syx
 *.bin
 vst/build/
 local/
 __pycache__/
+dist/
