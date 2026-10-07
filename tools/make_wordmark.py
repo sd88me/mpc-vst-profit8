@@ -30,11 +30,11 @@ def run(font_path, out, text=("profit", "'8"), size=90, tracking=2):
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="360" height="124" viewBox="0 0 360 124">
 <defs>
 <linearGradient id="ink" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="0.55" stop-color="#d9d9de"/><stop offset="1" stop-color="#8d8d96"/></linearGradient>
-<linearGradient id="amb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd27a"/><stop offset="0.5" stop-color="#ff9a1f"/><stop offset="1" stop-color="#b85a00"/></linearGradient>
+<linearGradient id="amb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff7a5c"/><stop offset="0.5" stop-color="#e5261b"/><stop offset="1" stop-color="#8c0b0b"/></linearGradient>
 <filter id="sh" x="-5%" y="-5%" width="110%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="1.6" flood-color="#000" flood-opacity="0.8"/></filter>
 </defs>
 <g filter="url(#sh)">{"".join(parts)}</g>
-<path d="M12,98 C120,92 260,104 {346},96" fill="none" stroke="#ff9a1f" stroke-width="1.6" stroke-linecap="round" opacity="0.85"/>
+<path d="M12,98 C120,92 260,104 {346},96" fill="none" stroke="#e5261b" stroke-width="1.6" stroke-linecap="round" opacity="0.85"/>
 <text x="180" y="118" text-anchor="middle" font-family="Titillium Web, sans-serif" font-weight="600" font-size="11" letter-spacing="3.6" fill="#9c9ca6">8 VOICE ANALOG SYNTHESIZER</text>
 </svg>
 '''
