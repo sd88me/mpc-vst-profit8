@@ -20,6 +20,9 @@
 #ifndef P8_DEFAULT_OS
 #define P8_DEFAULT_OS 1     /* Eco: the analog section at 1x; the Quality parameter switches to 2x */
 #endif
+#ifndef P8_MASTER
+#define P8_MASTER 1.6f      /* factory programs, one note: median peak about 0.3 of full scale (docs/STATUS.md) */
+#endif
 #define FS 44100.0f
 #define MAXV 8
 #define CTL 16
@@ -785,10 +788,9 @@ static void p8_render(void *h, int16_t *out, int frames) {
             if (!v->on) continue;
             voice_audio(s, v, buf, n);
         }
-        float g = 0.3f * s->cc_vol;
+        float g = P8_MASTER * s->cc_vol;   /* the soft limiter below keeps chords from clipping hard */
         for (int i = 0; i < 2 * n; i++) {
-            float x = buf[i] * g;
-            x = x > 1 ? 1 : x < -1 ? -1 : x;
+            float x = ma_tanh(buf[i] * g);
             out[2 * f + i] = (int16_t)lrintf(x * 32767);
         }
     }

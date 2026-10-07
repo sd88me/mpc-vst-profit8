@@ -19,6 +19,8 @@
 
 - Release package (2026-10-07): `Profit-8-0.1.0-mpc-armv7.zip` made with `release.py --id profit-8 --repo sd88me/mpc-vst-profit8 --license MIT --user-data Preset_Banks`; `catalog_check.py --catalog` OK; MPC OS 3.x only (the skin format). Bench on the Force (Eco): WARN, p99 34.0 % (the Q-Link sweep; 8 voices about 15 %). The banks folder is `Preset_Banks` because the installer's user-data path takes no spaces; `Preset Banks` is read too.
 
+- Output level (2026-10-07, device): the first build was quiet (factory programs, one note: median peak 0.066). Master gain 0.3 -> 1.6 with a soft limiter (`ma_tanh`) instead of a hard clip. Bench peaks on the Force (same chord pattern, each plugin's default patch; 1 / 4 / 8 voices): Profit-8 0.35 / 0.85 / 0.96, Sturm 0.54 / 1.00 / 1.00, Clementine-XT 0.26 / 0.44 / 0.51, Maze Voice 0.17 / 0.24 / 0.21. The stock Odyssey is built into MPC and cannot be benched; compare it by ear. `P8_MASTER` in `src/engine.c` sets the level.
+
 ## Not done
 - Device: install, bench (docs/BENCH.md), play, save/reload, Q-Links, MPC OS 2.x shape (nothing deployed yet).
 - Drone (VCA level above 0 with no key held) is not modelled: a voice sounds only while gated or releasing.
