@@ -1,4 +1,4 @@
-/* Profit-8 skin stylesheet (loaded after tools/html_art/default.css of mpc-vst-plugins). Colours come from the theme_* lines.
+/* Profit-08 skin stylesheet (loaded after tools/html_art/default.css of mpc-vst-plugins). Colours come from the theme_* lines.
  * Cues from the instrument's panel, drawn as our own: a charcoal plate with a soft sheen, thin pale section outlines with caps titles,
  * black knobs with a white pointer, amber LEDs, a red display in a black bezel. Geometry is never touched. */
 :root { --label-size: 13px; --title-size: 13px; --radius: 6px; --sheen: 0.10; }

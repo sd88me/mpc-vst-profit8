@@ -1,11 +1,11 @@
-# Profit-8
+# Profit-08
 
 An eight-voice, two-layer analog-style synthesizer for Akai MPC OS standalone devices (Force, MPC Live / One / X / Key), built as a native VST2
 instrument. It plays the way the Prophet '08 does: two analog-style oscillators per voice with hard sync, a 2/4-pole resonant lowpass, three envelopes, four
 LFOs, four mod slots and controller routes, a 4 x 16 gated sequencer and an arpeggiator, layers A and B combined as stacks and splits. Its program is the
 instrument's own 384 bytes, so its program and bank SysEx dumps (including the factory banks) load unchanged.
 
-*Profit-8 is an independent project, not affiliated with or endorsed by Dave Smith Instruments or Sequential. The name is a pun on the instrument it is modelled on.*
+*Profit-08 is an independent project, not affiliated with or endorsed by Dave Smith Instruments or Sequential. The name is a pun on the instrument it is modelled on.*
 
 **Status: development build** (docs/STATUS.md): engine and tests offline, no skin yet, not tested on a device.
 

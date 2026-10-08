@@ -1,4 +1,4 @@
-/* Profit-8: an eight-voice instrument modelled on the Prophet '08 (manual v1.3, Main OS 2.3 and Voice OS 1.5 tables).
+/* Profit-08: an eight-voice instrument modelled on the Prophet '08 (manual v1.3, Main OS 2.3 and Voice OS 1.5 tables).
  * The program is the instrument's own 384 bytes (layers A and B, 4 x 16 sequencer steps each, the name), so its SysEx dumps load as they are.
  *
  * One voice = two band-limited ramp-core oscillators (hard sync 2 > 1) -> mixer + noise -> a 2/4-pole OTA-cascade lowpass -> VCA -> pan.
@@ -148,8 +148,8 @@ static void patch_clamp(uint8_t *p) {
     for (int i = 0; i < NPATCH; i++) if (PTAB[i].key[0] && p[i] > PTAB[i].max) p[i] = (uint8_t)PTAB[i].max;
 }
 
-#define BANK_SLOTS 22
-#define PROG_SLOTS 28
+#define BANK_SLOTS 11
+#define PROG_SLOTS 45
 #define PROG_PAGES ((128 + PROG_SLOTS - 1) / PROG_SLOTS)
 /* ---------------- banks ---------------- */
 typedef struct { p8_t *s; const char *base; int bi[2]; int nb; } scan_ctx;

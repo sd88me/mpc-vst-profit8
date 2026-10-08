@@ -89,7 +89,7 @@ int main(int argc, char **argv) {
     e->set_param(h, "patch_slot_3", "1");
     e->get_param(h, "bank", b, sizeof b); cb = atoi(b);
     e->get_param(h, "program", b, sizeof b);
-    CHECK(cb == 1 && atoi(b) == 30, "program tile loads (bank %d, program %d)", cb, atoi(b));
+    CHECK(cb == 1 && atoi(b) == 47, "program tile loads (bank %d, program %d)", cb, atoi(b));
     e->get_param(h, "patch_slot_3_on", b, sizeof b);
     CHECK(atoi(b) == 1, "loaded tile reads on");
     e->set_param(h, "next_browse_bank", "1");

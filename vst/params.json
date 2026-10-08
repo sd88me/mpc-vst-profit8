@@ -1,5 +1,5 @@
 {
- "name": "Profit-8",
+ "name": "Profit-08",
  "params": [
   {
    "key": "osc1_freq",
@@ -2494,7 +2494,7 @@
    "key": "patch_page_index",
    "name": "Program Page",
    "min": 0,
-   "max": 4,
+   "max": 2,
    "default": 0,
    "display": "int",
    "dynamic_display": true
@@ -2634,94 +2634,6 @@
   {
    "key": "bank_slot_11",
    "name": "Bank 11",
-   "min": 0,
-   "max": 1,
-   "default": 0,
-   "display": "string"
-  },
-  {
-   "key": "bank_slot_12",
-   "name": "Bank 12",
-   "min": 0,
-   "max": 1,
-   "default": 0,
-   "display": "string"
-  },
-  {
-   "key": "bank_slot_13",
-   "name": "Bank 13",
-   "min": 0,
-   "max": 1,
-   "default": 0,
-   "display": "string"
-  },
-  {
-   "key": "bank_slot_14",
-   "name": "Bank 14",
-   "min": 0,
-   "max": 1,
-   "default": 0,
-   "display": "string"
-  },
-  {
-   "key": "bank_slot_15",
-   "name": "Bank 15",
-   "min": 0,
-   "max": 1,
-   "default": 0,
-   "display": "string"
-  },
-  {
-   "key": "bank_slot_16",
-   "name": "Bank 16",
-   "min": 0,
-   "max": 1,
-   "default": 0,
-   "display": "string"
-  },
-  {
-   "key": "bank_slot_17",
-   "name": "Bank 17",
-   "min": 0,
-   "max": 1,
-   "default": 0,
-   "display": "string"
-  },
-  {
-   "key": "bank_slot_18",
-   "name": "Bank 18",
-   "min": 0,
-   "max": 1,
-   "default": 0,
-   "display": "string"
-  },
-  {
-   "key": "bank_slot_19",
-   "name": "Bank 19",
-   "min": 0,
-   "max": 1,
-   "default": 0,
-   "display": "string"
-  },
-  {
-   "key": "bank_slot_20",
-   "name": "Bank 20",
-   "min": 0,
-   "max": 1,
-   "default": 0,
-   "display": "string"
-  },
-  {
-   "key": "bank_slot_21",
-   "name": "Bank 21",
-   "min": 0,
-   "max": 1,
-   "default": 0,
-   "display": "string"
-  },
-  {
-   "key": "bank_slot_22",
-   "name": "Bank 22",
    "min": 0,
    "max": 1,
    "default": 0,
@@ -2946,6 +2858,142 @@
   {
    "key": "patch_slot_28",
    "name": "Program 28",
+   "min": 0,
+   "max": 1,
+   "default": 0,
+   "display": "string"
+  },
+  {
+   "key": "patch_slot_29",
+   "name": "Program 29",
+   "min": 0,
+   "max": 1,
+   "default": 0,
+   "display": "string"
+  },
+  {
+   "key": "patch_slot_30",
+   "name": "Program 30",
+   "min": 0,
+   "max": 1,
+   "default": 0,
+   "display": "string"
+  },
+  {
+   "key": "patch_slot_31",
+   "name": "Program 31",
+   "min": 0,
+   "max": 1,
+   "default": 0,
+   "display": "string"
+  },
+  {
+   "key": "patch_slot_32",
+   "name": "Program 32",
+   "min": 0,
+   "max": 1,
+   "default": 0,
+   "display": "string"
+  },
+  {
+   "key": "patch_slot_33",
+   "name": "Program 33",
+   "min": 0,
+   "max": 1,
+   "default": 0,
+   "display": "string"
+  },
+  {
+   "key": "patch_slot_34",
+   "name": "Program 34",
+   "min": 0,
+   "max": 1,
+   "default": 0,
+   "display": "string"
+  },
+  {
+   "key": "patch_slot_35",
+   "name": "Program 35",
+   "min": 0,
+   "max": 1,
+   "default": 0,
+   "display": "string"
+  },
+  {
+   "key": "patch_slot_36",
+   "name": "Program 36",
+   "min": 0,
+   "max": 1,
+   "default": 0,
+   "display": "string"
+  },
+  {
+   "key": "patch_slot_37",
+   "name": "Program 37",
+   "min": 0,
+   "max": 1,
+   "default": 0,
+   "display": "string"
+  },
+  {
+   "key": "patch_slot_38",
+   "name": "Program 38",
+   "min": 0,
+   "max": 1,
+   "default": 0,
+   "display": "string"
+  },
+  {
+   "key": "patch_slot_39",
+   "name": "Program 39",
+   "min": 0,
+   "max": 1,
+   "default": 0,
+   "display": "string"
+  },
+  {
+   "key": "patch_slot_40",
+   "name": "Program 40",
+   "min": 0,
+   "max": 1,
+   "default": 0,
+   "display": "string"
+  },
+  {
+   "key": "patch_slot_41",
+   "name": "Program 41",
+   "min": 0,
+   "max": 1,
+   "default": 0,
+   "display": "string"
+  },
+  {
+   "key": "patch_slot_42",
+   "name": "Program 42",
+   "min": 0,
+   "max": 1,
+   "default": 0,
+   "display": "string"
+  },
+  {
+   "key": "patch_slot_43",
+   "name": "Program 43",
+   "min": 0,
+   "max": 1,
+   "default": 0,
+   "display": "string"
+  },
+  {
+   "key": "patch_slot_44",
+   "name": "Program 44",
+   "min": 0,
+   "max": 1,
+   "default": 0,
+   "display": "string"
+  },
+  {
+   "key": "patch_slot_45",
+   "name": "Program 45",
    "min": 0,
    "max": 1,
    "default": 0,
