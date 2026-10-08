@@ -136,13 +136,13 @@ def main():
     tab("AMP LFO")
     section(20, Y(0), "AMP", [[("VCA LEVEL", "vca_level"), ("ENV AMOUNT", "vca_env"), ("VELOCITY", "vca_vel"), ("DELAY", "aenv_delay")],
                               [("ATTACK", "aenv_a"), ("DECAY", "aenv_d"), ("SUSTAIN", "aenv_s"), ("RELEASE", "aenv_r")]])
-    section(572, Y(0), "ENVELOPE 3", [[("DESTINATION", "^env3_dest"), ("AMOUNT", "env3_amt"), ("VELOCITY", "env3_vel"), ("DELAY", "env3_delay")],
+    section(572, Y(0), "EXTRA", [[("PAN SPREAD", "spread")], [("ENV 3 REPEAT", "~env3_repeat")]])
+    section(716, Y(0), "ENVELOPE 3", [[("DESTINATION", "^env3_dest"), ("AMOUNT", "env3_amt"), ("VELOCITY", "env3_vel"), ("DELAY", "env3_delay")],
                                       [("ATTACK", "env3_a"), ("DECAY", "env3_d"), ("SUSTAIN", "env3_s"), ("RELEASE", "env3_r")]])
-    section(1124, Y(0), "EXTRA", [[("PAN SPREAD", "spread")], [("ENV 3 REPEAT", "~env3_repeat")]])
     lf = []
-    lw = [130, 130, 130, 130, 80]
+    lw = [130, 130, 130, 130, 96]     # two panels of 616 fill the 1240 between the cheeks
     for n in range(4):
-        x = 20 if n % 2 == 0 else 628
+        x = 20 if n % 2 == 0 else 644
         lf += section(x, Y(2 + n // 2), "LFO %d" % (n + 1), [[("FREQUENCY", "lfo%d_freq" % (n + 1)), ("SHAPE", "^lfo%d_shape" % (n + 1)),
                       ("AMOUNT", "lfo%d_amt" % (n + 1)), ("DESTINATION", "^lfo%d_dest" % (n + 1)), ("SYNC", "~lfo%d_sync" % (n + 1))]], cw=lw)
     qlinks("Amp", ["vca_level", "vca_env", "vca_vel", "aenv_delay", "aenv_a", "aenv_d", "aenv_s", "aenv_r", "spread"])
@@ -153,11 +153,13 @@ def main():
     tab("MODS")
     mods = []
     for n in range(4):
-        mods += section(20, Y(n), "MODULATOR %d" % (n + 1), [[("SOURCE", "^mod%d_src" % (n + 1)), ("DESTINATION", "^mod%d_dest" % (n + 1)), ("AMOUNT", "mod%d_amt" % (n + 1))]])
+        mods += section(20, Y(n), "MODULATOR %d" % (n + 1), [[("SOURCE", "^mod%d_src" % (n + 1)), ("DESTINATION", "^mod%d_dest" % (n + 1)), ("AMOUNT", "mod%d_amt" % (n + 1))]],
+                        cw=[152] * 3)
     fixed = []
     for i, (title, k) in enumerate([("MOD WHEEL", "wheel"), ("PRESSURE", "press"), ("BREATH", "breath"), ("VELOCITY", "vel"), ("FOOT CONTROLLER", "foot")]):
-        fixed += section(444 + 288 * (i % 2), Y(i // 2), title, [[("AMOUNT", "%s_amt" % k), ("DESTINATION", "^%s_dest" % k)]])
-    sd = section(444, Y(3), "SEQUENCE DESTINATIONS", [[("SEQ 1", "^seq1_dest"), ("SEQ 2", "^seq2_dest"), ("SEQ 3", "^seq3_dest"), ("SEQ 4", "^seq4_dest")]])
+        fixed += section(488 + 392 * (i % 2), Y(i // 2), title, [[("AMOUNT", "%s_amt" % k), ("DESTINATION", "^%s_dest" % k)]], cw=[190, 190])
+    sd = section(488, Y(3), "SEQUENCE DESTINATIONS", [[("SEQ 1", "^seq1_dest"), ("SEQ 2", "^seq2_dest"), ("SEQ 3", "^seq3_dest"), ("SEQ 4", "^seq4_dest")]],
+                 cw=[193] * 4)
     qlinks("Mods", mods + ["wheel_amt", "wheel_dest", "press_amt", "press_dest"])
     qlinks("Controllers", fixed)
     qlinks("Seq Dest", sd)
