@@ -7,6 +7,8 @@ instrument's own 384 bytes, so its program and bank SysEx dumps (including the f
 
 *Profit-08 is an independent project, not affiliated with or endorsed by Dave Smith Instruments or Sequential. The name is a pun on the instrument it is modelled on.*
 
+![Profit-08 on a Force: the Program page](docs/img/screenshot-program.png)
+
 **Status: development build** (docs/STATUS.md): engine and tests offline, no skin yet, not tested on a device.
 
 ## Preset banks
