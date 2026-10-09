@@ -65,6 +65,7 @@ typedef struct {
     uint32_t rng;
     /* control-rate results */
     int shape[2];
+    float scut, sres; int sm_init;   /* knob values smoothed against zipper steps */
     float inc[2], duty[2], mix, noise, cut, cut_prev, res, am, vca, vca_prev, panl, panr, vol, gains;
     int four;
 } voice_t;
@@ -595,9 +596,12 @@ static void voice_control(p8_t *s, voice_t *v, int vi) {
     /* filter: cutoff in semitones from C0 */
     float vs = 1 - p[P_FENV_VEL] * (1.0f / 127) * (1 - v->vel);
     float ea = clampf(p[P_FENV_AMT] - 127 + acc[24] + acc[27], -127, 127) * (1.0f / 127);
-    float cut = p[P_LPF_FREQ] + acc[9] + v->env[0].lvl * ea * vs * 164 + (v->note - 60) * p[P_LPF_KEY] * (1.0f / 64);
+    if (!v->sm_init) { v->scut = (float)p[P_LPF_FREQ]; v->sres = (float)p[P_LPF_RES]; v->sm_init = 1; }
+    v->scut += ((float)p[P_LPF_FREQ] - v->scut) * 0.03f;
+    v->sres += ((float)p[P_LPF_RES] - v->sres) * 0.03f;
+    float cut = v->scut + acc[9] + v->env[0].lvl * ea * vs * 164 + (v->note - 60) * p[P_LPF_KEY] * (1.0f / 64);
     v->four = p[P_POLES];
-    float res = clampf(p[P_LPF_RES] + acc[10], 0, 127) * (1.0f / 127);
+    float res = clampf(v->sres + acc[10], 0, 127) * (1.0f / 127);
     v->res = (v->four ? 4.6f : 1.2f) * res;
     if (v->four && res > 0.4f) {      /* the stages' limiting lowers the self-oscillation pitch: raise the cutoff (analog/mpc_analog.h) */
         float r2 = res * res, hz = p8_lpf_hz(clampf(cut, 0, 164));
