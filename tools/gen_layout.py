@@ -75,6 +75,7 @@ theme_accent_hi=ff3a2a
 theme_knob_face=111113
 theme_knob_ring=050506
 theme_knob_dot=ffffff
+knob_look=prophet
 theme_seg_active=ff3a2a
 theme_seg_active_tx=ffffff
 theme_seg_inactive=2c2c31
@@ -111,9 +112,9 @@ def main():
     qlinks("Seq", ["gseq", "seq_trig", "clock_div", "arp_mode", "osc1_key", "osc2_key", "clock_src", "quality"])
 
     tab("BANKS")
-    emit('stepper cx=170 cy=128 w=300 h=50 label="" key=browse_bank_index prev=prev_browse_bank next=next_browse_bank get=browse_bank_name style=dotmatrix')
-    emit('stepper cx=668 cy=128 w=640 h=50 label="" key=program get=patch_name prev=program_prev next=program_next style=dotmatrix')
-    emit('stepper cx=1136 cy=128 w=248 h=50 label="" key=patch_page_index prev=patch_page_prev next=patch_page_next get=patch_page_text style=dotmatrix')
+    emit('stepper cx=181 cy=128 w=290 h=50 label="" key=browse_bank_index prev=prev_browse_bank next=next_browse_bank get=browse_bank_name style=dotmatrix')
+    emit('stepper cx=640 cy=128 w=600 h=50 label="" key=program get=patch_name prev=program_prev next=program_next style=dotmatrix')
+    emit('stepper cx=1119 cy=128 w=250 h=50 label="" key=patch_page_index prev=patch_page_prev next=patch_page_next get=patch_page_text style=dotmatrix')
     frame(20, 168, 300, 544, "BANKS")
     emit('list x=36 y=220 w=268 h=467 cols=1 rows=11 gap=6 th=37 key=bank_slot order=cols')
     frame(332, 168, 928, 544, "PROGRAMS")
