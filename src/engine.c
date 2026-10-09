@@ -65,7 +65,7 @@ typedef struct {
     uint32_t rng;
     /* control-rate results */
     int shape[2];
-    float scut, sres; int sm_init;   /* knob values smoothed against zipper steps */
+    float sam, svol; float scut, sres; int sm_init;   /* knob values smoothed against zipper steps */
     float inc[2], duty[2], mix, noise, cut, cut_prev, res, am, vca, vca_prev, panl, panr, vol, gains;
     int four;
 } voice_t;
@@ -596,9 +596,10 @@ static void voice_control(p8_t *s, voice_t *v, int vi) {
     /* filter: cutoff in semitones from C0 */
     float vs = 1 - p[P_FENV_VEL] * (1.0f / 127) * (1 - v->vel);
     float ea = clampf(p[P_FENV_AMT] - 127 + acc[24] + acc[27], -127, 127) * (1.0f / 127);
-    if (!v->sm_init) { v->scut = (float)p[P_LPF_FREQ]; v->sres = (float)p[P_LPF_RES]; v->sm_init = 1; }
+    if (!v->sm_init) { v->sam = (float)p[P_LPF_AUDMOD]; v->svol = (float)p[P_VOICE_VOL]; v->scut = (float)p[P_LPF_FREQ]; v->sres = (float)p[P_LPF_RES]; v->sm_init = 1; }
     v->scut += ((float)p[P_LPF_FREQ] - v->scut) * 0.03f;
     v->sres += ((float)p[P_LPF_RES] - v->sres) * 0.03f;
+    v->sam += ((float)p[P_LPF_AUDMOD] - v->sam) * 0.03f; v->svol += ((float)p[P_VOICE_VOL] - v->svol) * 0.03f;
     float cut = v->scut + acc[9] + v->env[0].lvl * ea * vs * 164 + (v->note - 60) * p[P_LPF_KEY] * (1.0f / 64);
     v->four = p[P_POLES];
     float res = clampf(v->sres + acc[10], 0, 127) * (1.0f / 127);
@@ -609,7 +610,7 @@ static void voice_control(p8_t *s, voice_t *v, int vi) {
     }
     v->cut_prev = v->cut;
     v->cut = clampf(cut, -40, 200);
-    v->am = clampf(p[P_LPF_AUDMOD] + acc[11], 0, 127) * (1.0f / 127) * 60.0f;
+    v->am = clampf(v->sam + acc[11], 0, 127) * (1.0f / 127) * 60.0f;
     /* VCA */
     float vv = 1 - p[P_VCA_VEL] * (1.0f / 127) * (1 - v->vel);
     float lvl = clampf(p[P_VCA_LEVEL] + acc[12], 0, 127) * (1.0f / 127);
@@ -623,7 +624,7 @@ static void voice_control(p8_t *s, voice_t *v, int vi) {
     float pr = pf - pi;
     v->panl = PAN_C[pi] + pr * (PAN_C[pi + 1] - PAN_C[pi]);
     v->panr = PAN_S[pi] + pr * (PAN_S[pi + 1] - PAN_S[pi]);
-    v->vol = p[P_VOICE_VOL] * (1.0f / 127);
+    v->vol = v->svol * (1.0f / 127);
 }
 
 /* ---------------- audio ---------------- */
