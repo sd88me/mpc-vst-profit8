@@ -2,7 +2,7 @@
   "name": "Profit-08",
   "vendor": "sd88me",
   "uid": "Pft8",
-  "version": 1000,
+  "version": 1001,
   "so": "profit_08.so",
   "params": "params.json",
   "art": "html",
