@@ -1,1 +1,1 @@
-{"plugin":"/tmp/profit_08.so","instrument":1,"open_ms":2.3,"p99_pct":34.0,"max_pct":34.4,"threads_pct":0.0,"verdict":"WARN"}
+{"plugin":"/tmp/profit_08.so","instrument":1,"open_ms":1.3,"p99_pct":34.2,"max_pct":36.3,"threads_pct":0.0,"verdict":"WARN"}
