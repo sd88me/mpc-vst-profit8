@@ -4,6 +4,7 @@
   "uid": "Pft8",
   "version": 1001,
   "so": "profit_08.so",
+  "targets": ["armv7", "aarch64"],
   "params": "params.json",
   "art": "html",
   "layout": "layout.conf",
