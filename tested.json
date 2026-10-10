@@ -4,5 +4,12 @@
   "device": "Akai Force",
   "firmware": "MPC OS 3.9.1",
   "date": "2026-10-10"
+ },
+ {
+  "version": "0.1.1",
+  "device": "MPC Live III (Gen2)",
+  "firmware": "MPC OS 5.0.18",
+  "date": "2026-10-11",
+  "note": "aarch64 build installed and reported working by the same tester who confirmed Crate Digger's Gen2 build; not yet broken down feature-by-feature on our side."
  }
 ]
