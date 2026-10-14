@@ -2,7 +2,7 @@
   "name": "Profit-08",
   "vendor": "sd88me",
   "uid": "Pft8",
-  "version": 1001,
+  "version": 1002,
   "so": "profit_08.so",
   "targets": ["armv7", "aarch64"],
   "params": "params.json",
