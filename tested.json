@@ -25,5 +25,12 @@
   "firmware": "MPC OS 3.9.1",
   "date": "2026-10-14",
   "note": "Tested by the Gen2 tester on the 0.1.1 Gen2 test build. The 0.1.2 aarch64 build is the same code: profit_08.so differs only in the internal version number (1001 -> 1002), checked offline with the same wrapper commit."
+ },
+ {
+  "version": "0.1.2",
+  "device": "Akai Force",
+  "firmware": "MPC OS 3.9.1",
+  "date": "2026-10-14",
+  "note": "Installed with the zip's install.sh; played, every page and Q-Link, project save and reload."
  }
 ]
