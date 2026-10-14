@@ -21,6 +21,13 @@
  },
  {
   "version": "0.1.2",
+  "device": "Akai Force",
+  "firmware": "MPC OS 3.9.1",
+  "date": "2026-10-15",
+  "note": "Release zip (armv7) installed with its install.sh and checked on the device."
+ },
+ {
+  "version": "0.1.2",
   "device": "MPC Live III (Gen2)",
   "firmware": "MPC OS 3.9.1",
   "date": "2026-10-14",
