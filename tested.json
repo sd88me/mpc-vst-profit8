@@ -17,6 +17,6 @@
   "device": "MPC Live III (Gen2)",
   "firmware": "MPC OS 3.9.1",
   "date": "2026-10-14",
-  "note": "Verified by the Gen2 tester on MPC OS 3.9.1."
+  "note": "Tested on the pre-release Gen2 test build (profit-08-v0.1.1-gen2-test, same source as 0.1.1) by the Gen2 tester on MPC OS 3.9.1."
  }
 ]
