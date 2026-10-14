@@ -11,5 +11,12 @@
   "firmware": "MPC OS 5.0.18",
   "date": "2026-10-11",
   "note": "aarch64 build installed and reported working by the same tester who confirmed Crate Digger's Gen2 build; not yet broken down feature-by-feature on our side."
+ },
+ {
+  "version": "0.1.1",
+  "device": "MPC Live III (Gen2)",
+  "firmware": "MPC OS 3.9.1",
+  "date": "2026-10-14",
+  "note": "Tested on the pre-release Gen2 test build (profit-08-v0.1.1-gen2-test, same source as 0.1.1) by the Gen2 tester on MPC OS 3.9.1."
  }
 ]
