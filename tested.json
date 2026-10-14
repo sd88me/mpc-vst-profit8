@@ -18,5 +18,18 @@
   "firmware": "MPC OS 3.9.1",
   "date": "2026-10-14",
   "note": "Tested on the pre-release Gen2 test build (profit-08-v0.1.1-gen2-test, same source as 0.1.1) by the Gen2 tester on MPC OS 3.9.1."
+ },
+ {
+  "version": "0.1.2",
+  "device": "Akai Force",
+  "firmware": "MPC OS 3.9.1",
+  "date": "2026-10-15"
+ },
+ {
+  "version": "0.1.2",
+  "device": "MPC Live III (Gen2)",
+  "firmware": "MPC OS 3.9.1",
+  "date": "2026-10-14",
+  "note": "The 0.1.2 aarch64 build is the Gen2 test build's code (profit_08.so differs only in the internal version number 1001 to 1002, checked 2026-10-15), so the 2026-10-14 test on profit-08-v0.1.1-gen2-test applies."
  }
 ]
