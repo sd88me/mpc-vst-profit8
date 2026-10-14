@@ -11,8 +11,14 @@
 - Tests: `test/test_engine.c` (pitch, self-oscillation, silence after release, all 640 programs of the three banks: none clip, 2 silent) and
   `tools/test_port.sh vst/vst.json` (all pass but the known wheel-click rounding on a 0-120 range, as Morpho-PE; wrapper fix proposed separately).
 
-- Banks page (2026-10-07, like the JV-880 port; offline): browse stepper (data wheel / Q-Link / arrows), 2 x 11 bank list (22 banks a window, follows the browsed bank), 2 x 14 program list with 5 pages; a bank tile only browses, a program tile loads it (bank and program follow the cursor). Q-Links: browse bank, program, page -, page +. `test_engine` covers it; tile text is live, so previews show empty tiles.
+- Banks page (2026-10-07, like the JV-880 port; offline): browse stepper (data wheel / Q-Link / arrows), 2 x 11 bank list (22 banks a window, follows the browsed bank), 2 x 14 program list with 5 pages; a bank tile only browses, a program tile loads it (bank and program follow the cursor). Q-Links: browse bank, program, program page (2026-10-13: the page stepper instead of the page - / page + buttons). `test_engine` covers it; tile text is live, so previews show empty tiles.
 - Skin (2026-10-08, offline preview only): 7 tabs (Program, Banks, Osc + Filter, Amp + Envelope 3 + LFOs, Mods, Seq 1-2, Seq 3-4; 19 Q-Link pages), brushed black metal plate and wood cheeks (static `images/metal.svg`, `cheeks.svg`), flat wordmark. Panels stay inside x 20-1260 (clear of the cheeks) and `tools/gen_layout.py` fails the build if one overflows or overlaps. The Banks page has one bank column (11 slots) and three program columns (45 slots, 3 pages). Each sequencer is one panel of 16 steps. Renamed Profit-08 on 2026-10-08.
+- Q-Link mapping (2026-10-13, MPC Live II): one Q-Link set per page, so a 4-knob MPC reaches everything on the screen it shows
+  (MPC showed each page's further sets as sub-pages of the same screen). 13 pages: Program, Banks, Osc, Filter, Amp (with envelope 3),
+  LFO, Mods, Ctrl (the controller routes), Arp Seq (with the sequence destinations), Seq 1-4. Each page is up to four panels in a 2 x 2
+  grid, read left to right, top to bottom = Q-Link columns 1-4, of up to four controls each; with `qlink_bounds=column` MPC outlines the
+  column the Q-Links drive. The LFO sync and envelope 3 repeat switches sit in their panel's corner, touch only. Projects saved with the
+  earlier layout keep its Q-Link assignments (MPC stores them in the project) until the plugin is inserted again.
   charcoal plate, wood cheeks, red display, Q-Link pages per section. One set of controls serves both layers: the plain keys address the layer chosen with EDIT LAYER
   (`b_` keys are always layer B), so Q-Links follow the visible layer; the layer is part of the saved state.
 - armhf build (`tools/build_port.sh`, 2026-10-07): 116 KB, highest glibc 2.27.
