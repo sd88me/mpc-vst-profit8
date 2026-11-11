@@ -7,3 +7,5 @@ vst/build/
 local/
 __pycache__/
 dist/
+/build/
+profit08-favourites.dat*

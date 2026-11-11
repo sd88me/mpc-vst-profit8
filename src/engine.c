@@ -18,7 +18,11 @@
 #include "syx.h"
 
 #ifndef P8_DEFAULT_OS
-#define P8_DEFAULT_OS 1     /* Eco: the analog section at 1x; the Quality parameter switches to 2x */
+#if defined(__aarch64__)
+#define P8_DEFAULT_OS 2     /* 64-bit (second-generation MPCs): High, the analog section at 2x */
+#else
+#define P8_DEFAULT_OS 1     /* 32-bit (Force, first generation): Eco, 1x; the Quality parameter switches */
+#endif
 #endif
 #ifndef P8_MASTER
 #define P8_MASTER 1.27f     /* 2 dB below the first fix: single note peaks about 0.28 on the factory programs (docs/STATUS.md) */
@@ -157,14 +161,14 @@ typedef struct { p8_t *s; const char *base; int bi[2]; int nb; } scan_ctx;
 static int new_bank(p8_t *s, const char *name) {
     if (s->nbanks >= MAXBANKS) return -1;
     bank_t *b = &s->banks[s->nbanks];
-    b->prog = malloc(128 * NPROGBYTES);
+    b->prog = (uint8_t (*)[NPROGBYTES])malloc(128 * NPROGBYTES);
     if (!b->prog) return -1;
     for (int i = 0; i < 128; i++) basic_patch(b->prog[i]);
     snprintf(b->name, sizeof b->name, "%s", name);
     return s->nbanks++;
 }
 static void scan_cb(void *ctx, int bank, int num, const uint8_t *prog) {
-    scan_ctx *c = ctx;
+    scan_ctx *c = (scan_ctx *)ctx;
     if (bank < 0) return;
     if (c->bi[bank] < 0) {
         char nm[64];
@@ -202,7 +206,7 @@ static void scan_dir(p8_t *s, const char *dir) {
             long sz = ftell(f);
             fseek(f, 0, SEEK_SET);
             if (sz > 0 && sz < (8 << 20)) {
-                uint8_t *buf = malloc((size_t)sz);
+                uint8_t *buf = (uint8_t *)malloc((size_t)sz);
                 if (buf && fread(buf, 1, (size_t)sz, f) == (size_t)sz) {
                     char base[64];
                     snprintf(base, sizeof base, "%s", names[i]);
@@ -681,7 +685,7 @@ static void build_keyhash(void);
 static void *p8_create(const char *dir) {
     init_tables();
     build_keyhash();
-    p8_t *s = calloc(1, sizeof *s);
+    p8_t *s = (p8_t *)calloc(1, sizeof *s);
     if (!s) return NULL;
     s->cc_vol = 1;
     s->clock_src = 1;
@@ -710,7 +714,7 @@ static void *p8_create(const char *dir) {
     return s;
 }
 static void p8_destroy(void *h) {
-    p8_t *s = h;
+    p8_t *s = (p8_t *)h;
     if (!s) return;
     for (int i = 0; i < s->nbanks; i++) free(s->banks[i].prog);
     free(s);
@@ -723,7 +727,7 @@ static void set_patch_value(p8_t *s, int idx, int val) {
 
 /* Received controllers that edit layer A directly: the manual lists NRPNs only; these CCs are the common ones. */
 static void p8_midi(void *h, const uint8_t *m, int len) {
-    p8_t *s = h;
+    p8_t *s = (p8_t *)h;
     if (len < 1) return;
     int st = m[0] & 0xF0;
     if (m[0] == 0xF0) {
@@ -776,7 +780,7 @@ static void ftz_off(unsigned f) { (void)f; }
 #endif
 
 static void p8_render(void *h, int16_t *out, int frames) {
-    p8_t *s = h;
+    p8_t *s = (p8_t *)h;
     unsigned fpcr = ftz_on();
     float buf[2 * CTL];
     for (int f = 0; f < frames; f += CTL) {
@@ -855,7 +859,7 @@ static int format_value(const p8_t *s, int i, char *b, int n) {
 }
 
 static void p8_set_param(void *h, const char *k, const char *val) {
-    p8_t *s = h;
+    p8_t *s = (p8_t *)h;
     if (!strcmp(k, "state")) {
         /* "P8A <bank> <prog> <layer> <768 hex digits>" */
         int b = 0, p = 0, ly = 0, pos = 0;
@@ -902,7 +906,7 @@ static void p8_set_param(void *h, const char *k, const char *val) {
 }
 
 static int p8_get_param(void *h, const char *k, char *b, int n) {
-    p8_t *s = h;
+    p8_t *s = (p8_t *)h;
     if (!strcmp(k, "state")) {
         int o = snprintf(b, (size_t)n, "P8A %d %d %d ", s->cur_bank, s->cur_prog, s->layer_sel);
         for (int i = 0; i < NPATCH && o + 3 < n; i++) o += snprintf(b + o, (size_t)(n - o), "%02x", s->patch[i]);
@@ -965,5 +969,5 @@ static int p8_get_param(void *h, const char *k, char *b, int n) {
     return 0;
 }
 
-static const mpc_engine_t ENGINE = {p8_create, p8_destroy, p8_midi, p8_set_param, p8_get_param, p8_render, NULL};
+static const mpc_engine_t ENGINE = {p8_create, p8_destroy, p8_midi, p8_set_param, p8_get_param, p8_render, NULL, NULL};
 const mpc_engine_t *mpc_engine(void) { return &ENGINE; }

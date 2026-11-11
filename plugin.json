@@ -1,0 +1,16 @@
+{
+  "name": "Profit-08",
+  "manufacturer": "sd88me",
+  "version": "2.0.0",
+  "kind": "instrument",
+  "uid": "Pft8",
+  "numInputs": 0,
+  "numOutputs": 2,
+  "category": "Synth",
+  "file32": "VST/profit08-arm32.so",
+  "file64": "VST/profit08-arm64.so",
+  "description": "Eight-voice, two-layer analog polysynth modelled on a classic 2007 instrument. Reads program and bank SysEx dumps from Preset_Banks/.",
+  "author": "sd88me",
+  "url": "https://github.com/sd88me/mpc-vst-profit8",
+  "license": "MIT"
+}
