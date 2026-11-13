@@ -53,7 +53,7 @@
 #endif
 #define P8_FOURCC(...) MPC_FOURCC(__VA_ARGS__)   // expands P8_UID before MPC_FOURCC counts its arguments
 #ifndef P8_VERSION
-#define P8_VERSION 2000
+#define P8_VERSION 2001
 #endif
 
 namespace {

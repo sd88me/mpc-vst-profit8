@@ -23,7 +23,7 @@ instrument's own 384 bytes, so its program and bank SysEx dumps (including the f
 - **Quality** defaults to High 2x on 64-bit MPCs (Live, One, X, Key) and Eco 1x on the Force.
 - One zip carries the 32-bit (Force) and 64-bit builds; programs and projects from 0.1.x load unchanged.
 
-**Status: 2.0.0 released** (docs/release-notes-2.0.0.md, docs/STATUS.md). Tested on a Live III; the Force has had a shorter check (loads, PROGRAM, BANKS and AMP pages).
+**Status: 2.0.1 released** (docs/release-notes-2.0.1.md, docs/STATUS.md). Tested on a Live III; the Force has had a shorter check (loads, PROGRAM, BANKS and AMP pages).
 
 ## Preset banks
 The plugin makes a folder called `Preset_Banks` inside its own folder on first load. Put `.syx` files there (a folder named `Preset Banks` is read too) (program dumps or bank dumps from the instrument,
