@@ -30,6 +30,35 @@ PY
     --repo sd88me/mpc-vst-profit8 --license MIT --id profit-08 \
     --about "Eight-voice, two-layer analog-style synthesizer with sequencer, arpeggiator and modulation matrix; native MPC skin with favourites." \
     -o "$st/dist"
-  z=$(ls "$st/dist"/*.zip); cp "$z" "$out/Profit-08-$VER-mpc-$cpu.zip"
+  z=$(ls "$st/dist"/*.zip)
+  # Public text: the installer template names an unreleased OS version in one comment; reword it and refresh SHA256SUMS
+  python3 - "$z" "$out/Profit-08-$VER-mpc-$cpu.zip" <<'PY'
+import hashlib, re, sys, zipfile
+src, dst = sys.argv[1], sys.argv[2]
+zin = zipfile.ZipFile(src)
+files = {i.filename: (i, zin.read(i.filename)) for i in zin.infolist()}
+for n, (i, data) in list(files.items()):
+    if n.endswith("/install.sh"):
+        t = data.decode()
+        t = re.sub(r"# MPC OS [0-9.]+\+ loads plugins \(skins included\) from <drive>/VST2 Plugins, which is not a content location: no warning there\.",
+                   "# Plugins (skins included) loaded from <drive>/VST2 Plugins are not in a content location: no warning there.", t)
+        assert "+ loads plugins (skins included)" not in t, "install.sh comment not reworded"
+        files[n] = (i, t.encode())
+sums = [n for n in files if n.endswith("/SHA256SUMS")]
+for sn in sums:
+    root = sn[: -len("SHA256SUMS")]
+    old = files[sn][1].decode().splitlines()
+    lines = []
+    for l in old:
+        h, _, rel = l.partition("  ")
+        rel = rel.strip()
+        if root + rel in files:
+            h = hashlib.sha256(files[root + rel][1]).hexdigest()
+        lines.append("%s  %s" % (h, rel))
+    files[sn] = (files[sn][0], ("\n".join(lines) + "\n").encode())
+with zipfile.ZipFile(dst, "w", zipfile.ZIP_DEFLATED) as zo:
+    for n, (i, data) in files.items():
+        zo.writestr(i, data)
+PY
 done
 ls -la "$out"/Profit-08-"$VER"-mpc-*.zip

@@ -53,7 +53,7 @@
 #endif
 #define P8_FOURCC(...) MPC_FOURCC(__VA_ARGS__)   // expands P8_UID before MPC_FOURCC counts its arguments
 #ifndef P8_VERSION
-#define P8_VERSION 2000
+#define P8_VERSION 2001
 #endif
 
 namespace {
@@ -462,10 +462,13 @@ private:
             if (!(s.flags & kPolled)) continue;
             if (i == 0 && pend0At_.load()) { if (moved) hostMoved_[0].store(true); continue; }
             // while the host is still moving it, don't send the engine's value back under the finger; read it back once it has rested
-            if (!force && now - hostAt_[i].load() < 300) { if (moved || full) hostMoved_[i].store(true); continue; }
+            const long long at = hostAt_[i].load();
+            if (!force && now - at < 300) { if (moved || full) hostMoved_[i].store(true); continue; }
             if (!engineGet(s.key, buf, sizeof buf)) continue;
             float v = (float)std::atof(buf);
             v = std::min(std::max(v, s.min), s.max);
+            // A host write between the check above and here would be overwritten by the value just read: look again
+            if (hostAt_[i].load() != at) { hostMoved_[i].store(true); continue; }
             if (moved || v != told_[i]) { pushValue(i, v); if (!moved) ++changed; }
         }
 
