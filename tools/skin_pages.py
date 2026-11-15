@@ -201,10 +201,11 @@ def banks():
     words = ["Brass", "Pad", "Sync Lead", "Strings", "Bass", "Sweep", "Bell", "Poly", "Choir", "Pluck", "Organ", "Wind"]
     pg.items += [
         LCD(36, 10, 290, 50, "browse_bank_name", "1 Factory Bank 1", "prev_browse_bank", "next_browse_bank", "browse_bank_index"),
-        LCD(340, 10, 440, 50, "patch_name", "001 P5 Brass", "program_prev", "program_next", "program"),
-        KEYW("patch_page_prev", 920, 35, 44, 40, "<"), PAGETXT("patch_page_text", 978, 35, 56, "PAGE 1/3"),
-        KEYW("patch_page_next", 1036, 35, 44, 40, ">"),
-        KEYW("random_patch", 836, 35, 96, 40, "RANDOM"),
+        LCD(340, 10, 540, 50, "patch_name", "001 P5 Brass", "program_prev", "program_next", "program"),
+        KEYW("random_patch", 960, 35, 96, 40, "RANDOM"),
+        # the page buttons sit in the Programs panel's header, far right, in line with its label
+        KEYW("patch_page_prev", 1112, 95, 44, 30, "<"), PAGETXT("patch_page_text", 1170, 95, 56, "PAGE 1/3"),
+        KEYW("patch_page_next", 1228, 95, 44, 30, ">"),
         KEYW("fav_add", 1124, 35, 72, 40, "+ FAV"), KEYW("fav_del", 1206, 35, 72, 40, "- FAV"),
         TILES("bank_slot_", 11, 1, 11, 36, 128, 268, 37, 0, 43,
               ["1 Factory Bank 1", "2 Factory Bank 2", "3 Factory Bank 3", "4 Factory Bank 4", "5 Factory Bank 5", "6 User Sounds"]),

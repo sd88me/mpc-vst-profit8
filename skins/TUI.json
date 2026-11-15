@@ -2925,7 +2925,7 @@
           }
         },
         {
-          "key": "field336x50",
+          "key": "field436x50",
           "value": {
             "version": 2,
             "actions": [
@@ -2977,7 +2977,7 @@
                   "showWhenDataModelInvalid": "Show",
                   "whenVisible": "WhenFocussed",
                   "boundsType": "Absolute",
-                  "bounds": "0 0 336 50"
+                  "bounds": "0 0 436 50"
                 }
               },
               {
@@ -3015,7 +3015,7 @@
                   "showWhenDataModelInvalid": "Show",
                   "whenVisible": "Always",
                   "boundsType": "Absolute",
-                  "bounds": "0 0 336 50"
+                  "bounds": "0 0 436 50"
                 }
               }
             ]
@@ -8835,7 +8835,7 @@
                 "showWhenDataModelInvalid": "Show",
                 "whenVisible": "Always",
                 "boundsType": "Absolute",
-                "bounds": "392 16 336 38"
+                "bounds": "392 16 436 38"
               }
             },
             {
@@ -8843,7 +8843,7 @@
               "componentData": {
                 "version": 1,
                 "name": "program field",
-                "type": "field336x50",
+                "type": "field436x50",
                 "data": {
                   "version": 1,
                   "handleName": "Data"
@@ -8864,7 +8864,7 @@
                 "showWhenDataModelInvalid": "Show",
                 "whenVisible": "Always",
                 "boundsType": "Absolute",
-                "bounds": "392 10 336 50"
+                "bounds": "392 10 436 50"
               }
             },
             {
@@ -8932,7 +8932,41 @@
                 "showWhenDataModelInvalid": "Show",
                 "whenVisible": "Always",
                 "boundsType": "Absolute",
-                "bounds": "728 10 52 50"
+                "bounds": "828 10 52 50"
+              }
+            },
+            {
+              "version": 2,
+              "componentData": {
+                "version": 1,
+                "name": "random_patch",
+                "type": "Button",
+                "data": {
+                  "version": 2,
+                  "onImage": "key_96x40_RANDOM_on.png",
+                  "offImage": "key_96x40_RANDOM_off.png",
+                  "buttonId": 1,
+                  "numButtonsInGroup": 1,
+                  "handleName": "Data",
+                  "gestureBehaviour": "Instant"
+                }
+              },
+              "handle remapping": {
+                "version": 1,
+                "map": [
+                  {
+                    "key": "Data",
+                    "value": "Parameter 328"
+                  }
+                ]
+              },
+              "bounds": {
+                "version": 1,
+                "acceptsHWFocus": "No",
+                "showWhenDataModelInvalid": "Show",
+                "whenVisible": "Always",
+                "boundsType": "Absolute",
+                "bounds": "906 9 108 54"
               }
             },
             {
@@ -8943,8 +8977,8 @@
                 "type": "Button",
                 "data": {
                   "version": 2,
-                  "onImage": "key_44x40_lt_on.png",
-                  "offImage": "key_44x40_lt_off.png",
+                  "onImage": "key_44x30_lt_on.png",
+                  "offImage": "key_44x30_lt_off.png",
                   "buttonId": 1,
                   "numButtonsInGroup": 1,
                   "handleName": "Data",
@@ -8966,7 +9000,7 @@
                 "showWhenDataModelInvalid": "Show",
                 "whenVisible": "Always",
                 "boundsType": "Absolute",
-                "bounds": "892 9 56 54"
+                "bounds": "1084 74 56 44"
               }
             },
             {
@@ -9008,7 +9042,7 @@
                 "showWhenDataModelInvalid": "Show",
                 "whenVisible": "Always",
                 "boundsType": "Absolute",
-                "bounds": "935 22 86 26"
+                "bounds": "1127 82 86 26"
               }
             },
             {
@@ -9019,8 +9053,8 @@
                 "type": "Button",
                 "data": {
                   "version": 2,
-                  "onImage": "key_44x40_gt_on.png",
-                  "offImage": "key_44x40_gt_off.png",
+                  "onImage": "key_44x30_gt_on.png",
+                  "offImage": "key_44x30_gt_off.png",
                   "buttonId": 1,
                   "numButtonsInGroup": 1,
                   "handleName": "Data",
@@ -9042,41 +9076,7 @@
                 "showWhenDataModelInvalid": "Show",
                 "whenVisible": "Always",
                 "boundsType": "Absolute",
-                "bounds": "1008 9 56 54"
-              }
-            },
-            {
-              "version": 2,
-              "componentData": {
-                "version": 1,
-                "name": "random_patch",
-                "type": "Button",
-                "data": {
-                  "version": 2,
-                  "onImage": "key_96x40_RANDOM_on.png",
-                  "offImage": "key_96x40_RANDOM_off.png",
-                  "buttonId": 1,
-                  "numButtonsInGroup": 1,
-                  "handleName": "Data",
-                  "gestureBehaviour": "Instant"
-                }
-              },
-              "handle remapping": {
-                "version": 1,
-                "map": [
-                  {
-                    "key": "Data",
-                    "value": "Parameter 328"
-                  }
-                ]
-              },
-              "bounds": {
-                "version": 1,
-                "acceptsHWFocus": "No",
-                "showWhenDataModelInvalid": "Show",
-                "whenVisible": "Always",
-                "boundsType": "Absolute",
-                "bounds": "782 9 108 54"
+                "bounds": "1200 74 56 44"
               }
             },
             {
