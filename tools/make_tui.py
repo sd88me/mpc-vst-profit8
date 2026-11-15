@@ -140,6 +140,8 @@ def key_img(w, h, caption, lit):
     from PIL import Image
     import make_profit_skin as art
     slug = re.sub(r"[^A-Za-z0-9]", "_", caption.replace("+", "p").replace("-", "m").replace("<", "lt").replace(">", "gt"))
+    if len(caption) == 1 and (caption.isalnum() or caption == "-"):
+        slug = "c%d" % ord(caption)   # the naming keyboard's keys: "M" and "-" must not meet in a case-insensitive file system
     def make():
         im = Image.new("RGBA", (w + 12, h + 14), (0, 0, 0, 0))
         art.key(im, (w + 12) / 2, (h + 14) / 2 - 1, w, h, caption, lit=lit)
@@ -292,9 +294,52 @@ class Built:
         self.kids.append(button(key, P(key), clear_img(w, h, 50), clear_img(w, h), B(x, y, w, h)))
 
 
+KB_ROWS = [("1234567890", ["kb_bksp"]), ("QWERTYUIOP", []), ("ASDFGHJKL-", []), ("ZXCVBNM", ["kb_space"])]
+
+
+def keyboard(b):
+    """The drawn keyboard for naming a favourite (Profit-5's): a full-page panel, the name, 42 keys; shown while kb_open = 1."""
+    from PIL import Image, ImageDraw
+    import make_profit_skin as art
+    ind = ["IndexedEnabling/1/2/%s" % P("kb_open")]
+    panel = Image.new("RGB", (1280, 628), (19, 19, 21))
+    d = ImageDraw.Draw(panel)
+    d.rounded_rectangle((42, 14, 1238, 614), 10, outline=art.INK, width=2)
+    d.text((76, 52), "FAVOURITE NAME", font=art.font(20), fill=art.INK, anchor="lm")
+    d.rounded_rectangle((300, 26, 1210, 80), 6, fill=art.RED_BG, outline=art.RED, width=2)
+    max_chars = int(re.search(r"kFavNameMax = (\d+)", open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../src/params_gen.h")).read()).group(1))   # the limit the plugin enforces
+    d.text((1196, 53), "MAX %d CHARACTERS" % max_chars, font=art.font(16), fill=art.INK_DIM, anchor="rm")
+    name = asset("kb_panel.png", lambda: panel)
+    kb = [entry("kb panel", "Image", {"version": 2, "imageType": "Regular", "colour": "0", "image": name}, "0 0 1280 628", ind=ind)]
+    lab = label(B(316, 26, 880, 54), P("fav_name"), h=32.0, colour="ffff4a35", just="left verticallyCentred")
+    lab["bounds"] = bounds(B(316, 26, 880, 54), ind=ind)
+    kb.append(lab)
+    kw, kh, gap, x0, y0 = 98, 84, 8, 70, 104
+
+    def key(k, cap, x, y, w):
+        cx, cy = x + w / 2, y + kh / 2
+        kb.append(button(k, P(k), key_img(w, kh, cap, True), key_img(w, kh, cap, False),
+                         B(cx - (w + 12) / 2, cy - (kh + 14) / 2 + 1, w + 12, kh + 14), ind=ind))
+        b.sample[k + "$kb"] = (x, y, w, cap)
+    for r, (chars, extra) in enumerate(KB_ROWS):
+        y = y0 + r * (kh + gap)
+        x = x0 + r * 30
+        for c in chars:
+            key("kb_" + ("dash" if c == "-" else c.lower()), c, x, y, kw)
+            x += kw + gap
+        for k in extra:
+            key(k, {"kb_bksp": "DEL", "kb_space": "SPACE"}[k], x, y, 1210 - x)
+    y = y0 + 4 * (kh + gap)
+    key("kb_shift", "SHIFT", x0, y, 200)
+    key("kb_cancel", "CANCEL", 640 - 130, y, 260)
+    key("kb_save", "SAVE", 1210 - 260, y, 260)
+    b.keyboard = kb
+
+
 def build(page):
     import skin_pages as sp
     b = Built(page)
+    b.keyboard = []
     for p in page.panels:
         for c, cx, top, pitch in p.cells:
             kind, key, cap, mock = c
@@ -334,6 +379,8 @@ def build(page):
                 b.kids.append(button(key, P(key), tile_img(it.tw, it.th, True), tile_img(it.tw, it.th, False), B(x, y, it.tw + 1, it.th + 1)))
                 b.sample[key + "$"] = it.mock[i] if i < len(it.mock) else ""
                 b.sample[key] = i == 0
+    if page.name == "banks":
+        keyboard(b)   # +FAV opens it over the page
     return b
 
 
@@ -348,7 +395,7 @@ def tabs_for(page, b, bgname):
                 groups.append(B(r[0], r[1], r[2] - r[0], r[3] - r[1]))
                 qrows.append(p.qkeys())
         assert len(qrows) <= 4, "%s: more than four Q-Link groups" % subname
-        kids = [entry("bg", "Image", {"version": 2, "imageType": "Regular", "colour": "0", "image": bgname}, "0 0 1280 628")] + b.kids + b.lists
+        kids = [entry("bg", "Image", {"version": 2, "imageType": "Regular", "colour": "0", "image": bgname}, "0 0 1280 628")] + b.kids + b.lists + b.keyboard
         sub = page.first_sub + si if page.subs else 0
         out.append({"version": 1, "tabName": subname if page.subs else page.tab, "fnKeyIndex": page.fn, "fnKeySubIndex": sub,
                     "componentDefinition": component(kids, background=bg("ff131315")), "qlinkBoundsData": groups})
@@ -391,6 +438,19 @@ def render_preview(b, bgname):
     return img
 
 
+def render_keyboard_preview(b):
+    from PIL import Image, ImageDraw
+    import make_profit_skin as art
+    img = Image.open(os.path.join(OUT, "kb_panel.png")).convert("RGBA")
+    ImageDraw.Draw(img).text((316, 53), "Lead 2_", font=art.font(24), fill=art.RED, anchor="lm")
+    for k in b.keyboard:
+        cd = k["componentData"]
+        if cd["type"] == "Button":
+            x, y, _, _ = [int(v) for v in k["bounds"]["bounds"].split()]
+            img.alpha_composite(Image.open(os.path.join(OUT, cd["data"]["offImage"])).convert("RGBA"), (x, y))
+    return img
+
+
 def main():
     preview = "--preview" in sys.argv
     if os.path.isdir(OUT):
@@ -417,6 +477,8 @@ def main():
                     repl.append({"key": P(key), "value": OPTIONS[key]})
         if preview:
             render_preview(b, bgname).convert("RGB").save(os.path.join(PREVIEW, page.name + ".png"))
+            if b.keyboard:
+                render_keyboard_preview(b).convert("RGB").save(os.path.join(PREVIEW, page.name + "_keyboard.png"))
     defs = [{"key": "knob overlay", "value": overlay_def()}] + [{"key": k, "value": v} for k, v in DEFS.items()]
     tui = {"pageData": {"version": 1,
                         "componentDefinitions": {"version": 2, "importFiles": [], "localComponentDefinitions": defs},

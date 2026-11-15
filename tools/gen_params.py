@@ -13,6 +13,9 @@ LOCK = [l.strip() for l in open(os.path.join(ROOT, "vst", "params.lock")) if l.s
 RELEASED_POPUPS = 37            # vst/layout.conf's popups in 0.1.3 (gen_vst.py: one "<key>__open" each, after the list)
 UI_STEPS = 48                   # ui_open 0..47: 0 = closed, k + 1 = pick-list k
 FAV_SLOTS = 64
+KB_CHARS = "1234567890QWERTYUIOPASDFGHJKLZXCVBNM-"   # the naming keyboard's character keys (then space, delete, shift, cancel, save)
+KB_KEYS = [("kb_" + ("dash" if c == "-" else c.lower()), "Key " + c) for c in KB_CHARS] + \
+          [("kb_space", "Key Space"), ("kb_bksp", "Key Delete"), ("kb_shift", "Key Shift"), ("kb_cancel", "Key Cancel"), ("kb_save", "Key Save")]
 
 keys = [p["key"] for p in P]
 if keys[:len(LOCK)] != LOCK or len(keys) != len(LOCK):
@@ -76,11 +79,21 @@ for j in range(1, RELEASED_POPUPS):
 base = len(P) + RELEASED_POPUPS
 row("fav_add", "+ Favourite", 0, 1, 0, FL["kLocal"] | FL["kMomentary"] | FL["kNoAuto"])
 row("fav_del", "- Favourite", 0, 1, 0, FL["kLocal"] | FL["kMomentary"] | FL["kNoAuto"])
+# the +FAV naming keyboard (Profit-5's): the name being typed (a text readout), the keyboard's visibility, its keys
+row("fav_name", "Favourite Name", 0, 1023, 0, FL["kLocal"] | FL["kText"] | FL["kNoAuto"])
+row("kb_open", "Keyboard", 0, 1, 0, FL["kLocal"] | FL["kUi"] | FL["kNoAuto"])
+for k, n in KB_KEYS:
+    row(k, n, 0, 1, 0, FL["kLocal"] | FL["kMomentary"] | FL["kNoAuto"])
+row("random_patch", "RANDOM", 0, 1, 0, FL["kMomentary"] | FL["kNoAuto"])   # an engine verb: a random program from every loaded bank (BANKS page)
+NEW = 2 + 2 + len(KB_KEYS) + 1
 
 out += ["", "static const PSpec g_pspecs[] = {"] + rows + ["};",
-        "static const int kNumParams = %d;" % (base + 2),
+        "static const int kNumParams = %d;" % (base + NEW),
         "static const int kNumEngineParams = %d;   // 0 .. this - 1 are the engine's keys" % len(P),
         "static const int kUiParam = %d;" % len(P),
-        "static const int kFavAdd = %d, kFavDel = %d, kFavSlots = %d;" % (base, base + 1, FAV_SLOTS), ""]
+        "static const int kFavAdd = %d, kFavDel = %d, kFavSlots = %d;" % (base, base + 1, FAV_SLOTS),
+        "static const int kFavName = %d, kKbOpen = %d, kKbFirst = %d, kKbCount = %d;" % (base + 2, base + 3, base + 4, len(KB_KEYS)),
+        "static const char kKbChars[] = %s;   // the character keys from kKbFirst, then space, delete, shift, cancel, save" % json.dumps(KB_CHARS),
+        "static const int kFavNameMax = 20;", ""]
 open(os.path.join(ROOT, "src", "params_gen.h"), "w").write("\n".join(out))
-print("src/params_gen.h: %d params (%d engine, ui_open, %d reserved, 2 favourite keys)" % (base + 2, len(P), RELEASED_POPUPS - 1))
+print("src/params_gen.h: %d params (%d engine, ui_open, %d reserved, favourite keys and the naming keyboard)" % (base + NEW, len(P), RELEASED_POPUPS - 1))
