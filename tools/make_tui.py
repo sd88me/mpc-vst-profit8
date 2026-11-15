@@ -307,6 +307,8 @@ def keyboard(b):
     d.rounded_rectangle((42, 14, 1238, 614), 10, outline=art.INK, width=2)
     d.text((76, 52), "FAVOURITE NAME", font=art.font(20), fill=art.INK, anchor="lm")
     d.rounded_rectangle((300, 26, 1210, 80), 6, fill=art.RED_BG, outline=art.RED, width=2)
+    max_chars = int(re.search(r"kFavNameMax = (\d+)", open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../src/params_gen.h")).read()).group(1))   # the limit the plugin enforces
+    d.text((1196, 53), "MAX %d CHARACTERS" % max_chars, font=art.font(16), fill=art.INK_DIM, anchor="rm")
     name = asset("kb_panel.png", lambda: panel)
     kb = [entry("kb panel", "Image", {"version": 2, "imageType": "Regular", "colour": "0", "image": name}, "0 0 1280 628", ind=ind)]
     lab = label(B(316, 26, 880, 54), P("fav_name"), h=32.0, colour="ffff4a35", just="left verticallyCentred")
