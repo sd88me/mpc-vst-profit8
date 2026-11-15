@@ -23,6 +23,7 @@ extern "C" void p8_dbg_tick(AEffect*);
 extern "C" int p8_dbg_engine(AEffect*, const char*, char*, int);
 extern "C" void p8_dbg_engine_set(AEffect*, const char*, const char*);
 extern "C" int p8_dbg_favs(AEffect*);
+extern "C" void p8_dbg_no_repeat_guard(AEffect*);
 
 static std::atomic<int> g_automate[kNumParams];
 static std::atomic<int> g_updateDisplay{0};
@@ -113,7 +114,7 @@ int main(int argc, char** argv)
     a->dispatcher(a, effGetEffectName, 0, 0, name, 0);
     CHECK(a->uniqueID == (VstInt32)0x50667438, "uid Pft8 (%08x)", (unsigned)a->uniqueID);
     CHECK(!std::strcmp(name, P8_EXPECT_NAME), "name \"%s\"", name);
-    CHECK(a->numParams == 284, "284 params: 245 frozen keys + 37 1.x popup slots + 2 favourite keys (%d)", a->numParams);
+    CHECK(a->numParams == 328, "328 params: 245 frozen keys + 37 1.x popup slots + favourite keys + naming keyboard (%d)", a->numParams);
     CHECK(a->dispatcher(a, effGetVendorVersion, 0, 0, nullptr, 0) == 2001, "version 2001");
     {
         int bad = 0, i = 0;
@@ -275,11 +276,32 @@ int main(int argc, char** argv)
         a->setParameter(a, LPF, norm(LPF, 66));
         settle(a);
         const std::string saved = eng(a, "state");
-        a->setParameter(a, kFavAdd, 1.0f);
+        auto key = [&](const char* k) { const int i = idx(k); p8_dbg_no_repeat_guard(a); a->setParameter(a, i, 1.0f); settle(a); a->setParameter(a, i, 0.0f); settle(a); };
+        key("fav_add");
+        CHECK(std::lround(plainOf(a, kKbOpen)) == 1 && p8_dbg_favs(a) == n0, "+FAV opens the keyboard, nothing saved yet");
+        a->setParameter(a, LPF, norm(LPF, 12));   // a change while typing is not in the favourite: +FAV took the sound
         settle(a);
-        a->setParameter(a, kFavAdd, 0.0f);
+        for (int i = 0; i < 25; i++) key("kb_bksp");
+        CHECK(disp(a, kFavName) == "_", "delete empties the name");
+        for (const char* k : {"kb_l", "kb_e", "kb_a", "kb_d", "kb_space", "kb_2", "kb_shift", "kb_x"}) key(k);
+        CHECK(disp(a, kFavName) == "Lead 2X_", "typed \"Lead 2X\": capital first letter, SHIFT for one letter (\"%s\")", disp(a, kFavName).c_str());
+        {   // one tap reported twice (down and up, no 0 between) types one letter
+            const int i = idx("kb_q");
+            p8_dbg_no_repeat_guard(a);
+            a->setParameter(a, i, 1.0f); settle(a);
+            a->setParameter(a, i, 1.0f); settle(a);
+            a->setParameter(a, i, 0.0f); settle(a);
+            CHECK(disp(a, kFavName) == "Lead 2Xq_", "a doubled tap types once (\"%s\")", disp(a, kFavName).c_str());
+        }
+        key("kb_bksp"); key("kb_bksp");
+        key("kb_save");
+        CHECK(std::lround(plainOf(a, kKbOpen)) == 0 && p8_dbg_favs(a) == n0 + 1, "SAVE stores it and closes the keyboard (%d)", p8_dbg_favs(a));
+        a->setParameter(a, LPF, norm(LPF, 66));
         settle(a);
-        CHECK(p8_dbg_favs(a) == n0 + 1, "+FAV saves one (%d)", p8_dbg_favs(a));
+        key("fav_add"); key("kb_z"); key("kb_cancel");
+        CHECK(std::lround(plainOf(a, kKbOpen)) == 0 && p8_dbg_favs(a) == n0 + 1, "CANCEL closes it without saving");
+        key("kb_a");
+        CHECK(p8_dbg_favs(a) == n0 + 1, "keys do nothing while it is closed");
         char pn[64] = {0};
         a->dispatcher(a, effGetProgramNameIndexed, n0 + 1, 0, pn, 0);
         CHECK(std::strstr(pn, "--") == nullptr && pn[0], "PRESET menu slot %d: \"%s\"", n0 + 1, pn);

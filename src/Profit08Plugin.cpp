@@ -17,6 +17,9 @@
 //   * favourites (kLocal): the MPC's PRESET menu (VST programs). +FAV saves the current program with its edits (the engine state:
 //     both layers, the edit layer) in the first free slot, -FAV deletes the favourite that is picked. Program 0 is "Current program"
 //     (picking it does nothing). The slots are kept in <plugin folder>/profit08-favourites.dat, shared by every project.
+//     +FAV first opens the drawn keyboard (kb_open = 1, the skin shows it) with the program's name to edit; SAVE stores the sound as it
+//     was when +FAV was pressed, under the typed name. The MPC can report one tap on a drawn key as two presses: a key's repeat within
+//     250 ms is ignored.
 //   * ui_open (kUi): which drawn pick-list the skin shows; the reserved slots (kReserved) hold the 1.x popup flags' indices.
 // Parameter 0 is OSC 1 FREQ. The host nudges parameter 0 on every prepare: a change applies only after it has held for ~40 ms.
 // State: the engine's own "state" string ("P8A <bank> <program> <layer> <hex program>") is the truth; it travels as the MPC chunk's
@@ -277,6 +280,7 @@ public:
         if (index < 0 || index >= kNumParams) return false;
         const PSpec& s = g_pspecs[index];
         char buf[128];
+        if (index == kFavName) { std::lock_guard<std::mutex> g(favMu_); out = kbName_ + "_"; return true; }
         if (s.flags & kText) { out = engineGet(s.key, buf, sizeof buf) ? buf : ""; return true; }   // readouts and tile names
         if (s.flags & (kMomentary | kUi | kReserved)) { out = ""; return true; }
         if (s.flags & kDyn)   // the engine's words for its own value (note names, Hz, "Pulse 12" ...)
@@ -297,6 +301,8 @@ public:
     void loadExtraState(const uint8_t* data, size_t size) override
     {
         if (!data || !size) return;
+        kbOpen_.store(false);
+        kbDirty_.store(true);   // a project saved with the keyboard open restored kb_open = 1: push it closed
         ignoreProgUntil_.store(nowMs() + 2000);   // the host re-picks the saved program after a project load: the project's sound wins
         applyState(std::string(reinterpret_cast<const char*>(data), strnlen(reinterpret_cast<const char*>(data), size)));
     }
@@ -429,6 +435,13 @@ private:
             }
         }
         if (favDirty_.exchange(false)) { saveFavs(); wantDisplay_ = true; }   // new names in the PRESET menu
+        if (kbDirty_.exchange(false))   // the keyboard opened or closed, or the typed name changed
+        {
+            pushValue(kKbOpen, kbOpen_.load() ? 1.0f : 0.0f);
+            counter_ = (counter_ + 1) % 1024;
+            pushValue(kFavName, (float)counter_);
+            wantDisplay_ = true;
+        }
         if (notifyUi_.exchange(false)) { t_pushing = kUiParam; notifyHostParameterChanged(kUiParam); t_pushing = -1; }
         if (resync_.exchange(false))
         {
@@ -564,34 +577,94 @@ private:
         if (!st.empty()) applyState(st);
     }
 
+    void closeKeyboard()
+    {
+        if (kbOpen_.exchange(false)) kbDirty_.store(true);
+    }
+
+    void typeKey(int k)   // favMu_ held; k = 0 .. kKbCount - 1
+    {
+        const int nchars = (int)sizeof kKbChars - 1;
+        if (k <= nchars)   // a character or space
+        {
+            if ((int)kbName_.size() >= kFavNameMax) return;
+            char c = k < nchars ? kKbChars[k] : ' ';
+            const bool cap = kbName_.empty() || kbName_.back() == ' ';
+            if (c >= 'A' && c <= 'Z')
+            {
+                if (cap == kbShift_) c = (char)(c - 'A' + 'a');   // capital at the start and after a space; SHIFT flips the next letter
+                kbShift_ = false;
+            }
+            kbName_ += c;
+        }
+        else if (k == nchars + 1) { if (!kbName_.empty()) kbName_.pop_back(); }
+        else if (k == nchars + 2) kbShift_ = !kbShift_;
+    }
+
+    void saveTyped()
+    {
+        Fav v;
+        {
+            std::lock_guard<std::mutex> g(favMu_);
+            v.state = kbState_;
+            v.name = kbName_;
+        }
+        while (!v.name.empty() && v.name.back() == ' ') v.name.pop_back();
+        if (v.name.empty()) v.name = "Favourite";
+        closeKeyboard();
+        if (!isState(v.state)) return;
+        v.used = true;
+        int slot = -1;
+        {
+            std::lock_guard<std::mutex> g(favMu_);
+            for (int i = 0; i < kFavSlots && slot < 0; ++i) if (!favs_[(size_t)i].used) slot = i;
+            if (slot >= 0) { favs_[(size_t)slot] = v; nameProgram(slot); }
+        }
+        if (slot >= 0) favDirty_.store(true);
+    }
+
     void localChanged(int index, float plain)
     {
+        if (!(g_pspecs[index].flags & kMomentary)) return;   // fav_name: set by the plugin only
         if (plain < 0.5f) { held_[index].store(false); return; }
         if (held_[index].exchange(true)) return;
         release_[index].store(true);   // a momentary: back to 0 on the next worker pass
-        if (index == kFavAdd)
+        const long long now = nowMs();
+        if (now - lastFire_[index - kFavAdd] < 250) return;   // the second report of one tap
+        lastFire_[index - kFavAdd] = now;
+        if (index >= kKbFirst && index < kKbFirst + kKbCount)
         {
-            Fav v;
-            v.state = engineState();
+            if (!kbOpen_.load()) return;
+            const int k = index - kKbFirst, nchars = (int)sizeof kKbChars - 1;
+            if (k == nchars + 3) { closeKeyboard(); return; }   // CANCEL
+            if (k == nchars + 4) { saveTyped(); return; }       // SAVE
+            { std::lock_guard<std::mutex> g(favMu_); typeKey(k); }
+            kbDirty_.store(true);
+            return;
+        }
+        if (index == kFavAdd)   // open the keyboard on the program's name; the sound is taken now
+        {
+            const std::string st = engineState();
+            if (!isState(st)) return;
+            std::string name;
             char b[128];
             if (engineGet("patch_name", b, sizeof b))   // "001 Name": the PRESET menu shows the slot number, keep the name
             {
                 const char* p = b;
                 while (*p >= '0' && *p <= '9') ++p;
                 while (*p == ' ') ++p;
-                v.name = *p ? p : b;
+                name = *p ? p : b;
             }
-            while (!v.name.empty() && v.name.back() == ' ') v.name.pop_back();
-            if (v.name.empty()) v.name = "Favourite";
-            if (!isState(v.state)) return;
-            v.used = true;
-            int slot = -1;
+            while (!name.empty() && name.back() == ' ') name.pop_back();
+            if (name.size() > (size_t)kFavNameMax) name.resize((size_t)kFavNameMax);
             {
                 std::lock_guard<std::mutex> g(favMu_);
-                for (int i = 0; i < kFavSlots && slot < 0; ++i) if (!favs_[(size_t)i].used) slot = i;
-                if (slot >= 0) { favs_[(size_t)slot] = v; nameProgram(slot); }
+                kbState_ = st;
+                kbName_ = name;
+                kbShift_ = false;
             }
-            if (slot >= 0) favDirty_.store(true);
+            kbOpen_.store(true);
+            kbDirty_.store(true);
             return;
         }
         if (index == kFavDel)   // the favourite that is picked now
@@ -617,6 +690,7 @@ public:
         return engineGet(key, b, sizeof b) ? std::string(b) : std::string();
     }
     void dbgEngineSet(const char* key, const char* v) { engineSet(key, v); }
+    void dbgNoRepeatGuard() { std::fill(std::begin(lastFire_), std::end(lastFire_), 0LL); }
     int dbgFavCount()
     {
         std::lock_guard<std::mutex> g(favMu_);
@@ -646,6 +720,10 @@ private:
     std::mutex favMu_;
     std::vector<Fav> favs_;
     std::atomic<bool> favDirty_{false};
+    std::atomic<bool> kbOpen_{false}, kbDirty_{false};
+    std::string kbName_, kbState_;     // favMu_: the name being typed, the sound +FAV took
+    bool kbShift_ = false;
+    long long lastFire_[kNumParams] = {0};   // per local momentary (from kFavAdd): when it last fired
     std::atomic<long long> ignoreProgUntil_{0};
     int lastProgram_ = 0;   // worker thread
     double lastBpm_ = 0;    // audio thread
@@ -691,6 +769,7 @@ extern "C" MPC_EXPORT int p8_dbg_engine(AEffect* e, const char* key, char* out, 
     return (int)s.size();
 }
 extern "C" MPC_EXPORT void p8_dbg_engine_set(AEffect* e, const char* key, const char* v) { static_cast<Profit08Plugin*>(e->object)->dbgEngineSet(key, v); }
+extern "C" MPC_EXPORT void p8_dbg_no_repeat_guard(AEffect* e) { static_cast<Profit08Plugin*>(e->object)->dbgNoRepeatGuard(); }
 extern "C" MPC_EXPORT int p8_dbg_favs(AEffect* e) { return static_cast<Profit08Plugin*>(e->object)->dbgFavCount(); }
 #endif
 
