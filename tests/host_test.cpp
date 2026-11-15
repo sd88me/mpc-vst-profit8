@@ -115,7 +115,7 @@ int main(int argc, char** argv)
     CHECK(a->uniqueID == (VstInt32)0x50667438, "uid Pft8 (%08x)", (unsigned)a->uniqueID);
     CHECK(!std::strcmp(name, P8_EXPECT_NAME), "name \"%s\"", name);
     CHECK(a->numParams == 329, "329 params: 245 frozen keys + 37 1.x popup slots + favourite keys + naming keyboard (%d)", a->numParams);
-    CHECK(a->dispatcher(a, effGetVendorVersion, 0, 0, nullptr, 0) == 2001, "version 2001");
+    CHECK(a->dispatcher(a, effGetVendorVersion, 0, 0, nullptr, 0) == 2002, "version 2002");
     {
         int bad = 0, i = 0;
         std::ifstream f("vst/params.lock");
