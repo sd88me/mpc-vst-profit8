@@ -84,7 +84,8 @@ row("fav_name", "Favourite Name", 0, 1023, 0, FL["kLocal"] | FL["kText"] | FL["k
 row("kb_open", "Keyboard", 0, 1, 0, FL["kLocal"] | FL["kUi"] | FL["kNoAuto"])
 for k, n in KB_KEYS:
     row(k, n, 0, 1, 0, FL["kLocal"] | FL["kMomentary"] | FL["kNoAuto"])
-NEW = 2 + 2 + len(KB_KEYS)
+row("random_patch", "RANDOM", 0, 1, 0, FL["kMomentary"] | FL["kNoAuto"])   # an engine verb: a random program from every loaded bank (BANKS page)
+NEW = 2 + 2 + len(KB_KEYS) + 1
 
 out += ["", "static const PSpec g_pspecs[] = {"] + rows + ["};",
         "static const int kNumParams = %d;" % (base + NEW),

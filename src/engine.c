@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <strings.h>
+#include <time.h>
 #include <sys/stat.h>
 #include "engine.h"
 #include "mpc_analog.h"
@@ -883,6 +884,18 @@ static void p8_set_param(void *h, const char *k, const char *val) {
     if (i >= 0) { set_patch_value(s, i, atoi(val)); return; }
     int x = atoi(val);
     if (!strcmp(k, "bank")) { if (x != s->cur_bank && x < s->nbanks) { load_bank(s, x); select_program(s, 0); } }
+    else if (!strcmp(k, "random_patch")) {   /* a random program from every loaded bank (the init bank only when it is the only one) */
+        if (x) {
+            uint32_t r = s->rng ^ (uint32_t)time(NULL) * 2654435761u ^ (uint32_t)clock();
+            r ^= r << 13; r ^= r >> 17; r ^= r << 5;
+            const int lo = s->nbanks > 1 ? 1 : 0;
+            const int b = lo + (int)((r >> 8) % (uint32_t)(s->nbanks - lo));
+            r ^= r << 13; r ^= r >> 17; r ^= r << 5;
+            s->rng = r;
+            load_bank(s, b);
+            select_program(s, (int)((r >> 8) % 128u));
+        }
+    }
     else if (!strcmp(k, "program")) { if (x != s->cur_prog) select_program(s, x); }
     else if (!strcmp(k, "browse_bank_index")) { if (x >= 0 && x < s->nbanks && x != s->browse_bank) { s->browse_bank = x; s->browse_page = 0; s->display_rev++; } }
     else if (!strcmp(k, "next_browse_bank") || !strcmp(k, "prev_browse_bank")) {

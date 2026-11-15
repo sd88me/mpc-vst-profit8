@@ -114,7 +114,7 @@ int main(int argc, char** argv)
     a->dispatcher(a, effGetEffectName, 0, 0, name, 0);
     CHECK(a->uniqueID == (VstInt32)0x50667438, "uid Pft8 (%08x)", (unsigned)a->uniqueID);
     CHECK(!std::strcmp(name, P8_EXPECT_NAME), "name \"%s\"", name);
-    CHECK(a->numParams == 328, "328 params: 245 frozen keys + 37 1.x popup slots + favourite keys + naming keyboard (%d)", a->numParams);
+    CHECK(a->numParams == 329, "329 params: 245 frozen keys + 37 1.x popup slots + favourite keys + naming keyboard (%d)", a->numParams);
     CHECK(a->dispatcher(a, effGetVendorVersion, 0, 0, nullptr, 0) == 2001, "version 2001");
     {
         int bad = 0, i = 0;
@@ -268,6 +268,20 @@ int main(int argc, char** argv)
         settle(c);
         CHECK(eng(c, "state").compare(0, 4, "P8A ") == 0, "truncated MPC chunk / bad hex: no crash, still a valid program");
         (void)before;
+    }
+
+    std::printf("== random patch\n");
+    {
+        const int RND = idx("random_patch");
+        int seen[128] = {0}, distinct = 0, inRange = 1;
+        for (int i = 0; i < 12; i++)
+        {
+            a->setParameter(a, RND, 1.0f); settle(a); a->setParameter(a, RND, 0.0f); settle(a);
+            const int p = engi(a, "program");
+            if (p < 0 || p > 127) inRange = 0; else if (!seen[p]++) distinct++;
+        }
+        CHECK(inRange && distinct >= 6, "RANDOM picks varied programs in range (%d distinct of 12)", distinct);
+        CHECK(plainOf(a, RND) < 0.5f, "RANDOM drops back to 0");
     }
 
     std::printf("== favourites\n");

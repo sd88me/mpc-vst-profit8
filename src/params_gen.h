@@ -376,8 +376,9 @@ static const PSpec g_pspecs[] = {
     {"kb_shift", "Key Shift", 0.0f, 1.0f, 0.0f, 4609, nullptr, 0, -1, 0.0f},
     {"kb_cancel", "Key Cancel", 0.0f, 1.0f, 0.0f, 4609, nullptr, 0, -1, 0.0f},
     {"kb_save", "Key Save", 0.0f, 1.0f, 0.0f, 4609, nullptr, 0, -1, 0.0f},
+    {"random_patch", "RANDOM", 0.0f, 1.0f, 0.0f, 513, nullptr, 0, -1, 0.0f},
 };
-static const int kNumParams = 328;
+static const int kNumParams = 329;
 static const int kNumEngineParams = 245;   // 0 .. this - 1 are the engine's keys
 static const int kUiParam = 245;
 static const int kFavAdd = 282, kFavDel = 283, kFavSlots = 64;
