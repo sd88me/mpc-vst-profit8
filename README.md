@@ -18,7 +18,7 @@ instrument's own 384 bytes, so its program and bank SysEx dumps (including the f
 ## New in 2.0
 - **Native MPC screen**: six tabs (PROGRAM, BANKS, OSC/FILTER, AMP/LFO, MODS, SEQ) drawn in the Profit-08 look, with large knobs and readable labels and values.
 - **Q-Links** control every page: four groups of four per tab, matching the panels on screen.
-- **BANKS page**: tile lists for banks and programs, page buttons, and **favourites**: `+ FAV` opens a keyboard to name the sound (SHIFT for a capital, DEL, SPACE, CANCEL, SAVE), `- FAV` deletes the picked one. They are kept in `profit08-favourites.dat`.
+- **BANKS page**: tile lists for banks and programs, page buttons in the Programs header, a **RANDOM** button (a random bank and program), and **favourites**: `+ FAV` opens a keyboard to name the sound (up to 20 characters; SHIFT for a capital, DEL, SPACE, CANCEL, SAVE), `- FAV` deletes the picked one. They are kept in `profit08-favourites.dat`.
 - **Data wheel** steps one program at a time on the BANKS readouts.
 - **Quality** defaults to High 2x on 64-bit MPCs (Live, One, X, Key) and Eco 1x on the Force.
 - One zip carries the 32-bit (Force) and 64-bit builds; programs and projects from 0.1.x load unchanged.
