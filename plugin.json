@@ -12,5 +12,5 @@
   "description": "Eight-voice, two-layer analog polysynth modelled on a classic 2007 instrument. Reads program and bank SysEx dumps from Preset_Banks/.",
   "author": "sd88me",
   "url": "https://github.com/sd88me/mpc-vst-profit8",
-  "license": "MIT"
+  "license": "GPL-3.0-or-later"
 }

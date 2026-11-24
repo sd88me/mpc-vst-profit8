@@ -84,3 +84,7 @@ sounds or waves, and the analog sound is a model (`analog/`, shared with Morpho-
 
 ## Credits
 The wordmark's letter outlines come from the font Almendra (SIL Open Font License 1.1, Ana Sanfelippo, via Google Fonts), converted to paths by `tools/make_wordmark.py`.
+
+## Licence
+
+Free software under the GNU General Public License, version 3 or later: see `LICENSE`. It was MIT before 2026-11-24; code contributed under MIT keeps that notice (`LICENSE-MIT`).
