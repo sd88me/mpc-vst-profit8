@@ -27,7 +27,7 @@ PY
   printf '<PLUGIN name="Profit-08" descriptiveName="Profit-08" format="VST" category="Synth" manufacturer="sd88me" version="%s" file="profit_08.so" uid="50667438" isInstrument="1" fileTime="0" infoUpdateTime="0" numInputs="0" numOutputs="2" isShell="0"/>\n' "$VER" > "$st/entry.xml"
   python3 "$MPC_VST/tools/release.py" --so "$st/profit_08.so" --skin "$st/$DIR" --entry "$st/entry.xml" --version "$VER" \
     --user-data Preset_Banks --user-data profit08-favourites.dat \
-    --repo sd88me/mpc-vst-profit8 --license MIT --id profit-08 \
+    --repo sd88me/mpc-vst-profit8 --license GPL-3.0-or-later --id profit-08 \
     --about "Eight-voice, two-layer analog-style synthesizer with sequencer, arpeggiator and modulation matrix; native MPC skin with favourites." \
     -o "$st/dist"
   z=$(ls "$st/dist"/*.zip)
