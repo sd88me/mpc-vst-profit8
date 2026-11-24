@@ -72,5 +72,5 @@
   "note": "Tested as the beta build of the same code (own uid): the naming keyboard, RANDOM and the new BANKS layout. The release zips were not installed."
  },
   {"version": "2.0.3", "device": "Akai MPC Live III (Gen2)", "firmware": "3.10", "date": "2026-11-24",
-    "note": "Release zip installed on the unit from the draft release; loads, skin and sound checked. Banks page checked with the user's own banks."}
+    "note": "Release zip installed on the unit from the draft release; loads, skin and sound checked."}
 ]
